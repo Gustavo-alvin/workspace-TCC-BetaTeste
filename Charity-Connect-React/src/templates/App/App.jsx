@@ -59,7 +59,7 @@ function App() {
               </button>
               <ul id="menu">
                 <li><a id="itens" href="#" target="_blank">Home</a></li>
-                <li><a id="itens" href="#" target="_blank">Catálogo</a></li>
+                <li><a id="itens" href={'/Catalogo'} target="_blank">Catalogo</a></li>
                 <li><a id="itens" href="#" target="_blank">Meu Perfil ONG</a></li>
                 <li><a id="itens" href="#" target="_blank">Sobre nós</a></li>
                 <li>
