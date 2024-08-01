@@ -1,5 +1,3 @@
-
-
 :root {
     --black: #000000;
     --background:#161b22;
@@ -242,6 +240,10 @@ ul{
 
  .info-ongs {
     color: var(--white);
+ }
+
+ ul.catalog-items{
+  padding: 2em;
  }
 
  @media screen and (max-width: 1000px) {
