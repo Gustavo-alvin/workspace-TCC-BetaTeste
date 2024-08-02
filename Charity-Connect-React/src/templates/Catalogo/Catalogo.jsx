@@ -24,10 +24,10 @@ const Catalogo = () => {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-            <li><a id="itens" href={'/'}>Home</a></li>
-            <li><a id="itens" href={'/Catalogo'}>Catálogo</a></li>
-            <li><a id="itens" href="#">Meu Perfil ONG</a></li>
-            <li><a id="itens" href="#">Sobre nós</a></li>
+          <li><a id="itens" href={'/Home'} target="_blank">Home</a></li>
+            <li><a id="itens" href={'/Catalogo'} target="_blank">Catalogo</a></li>
+            <li><a id="itens" href={'/Usuario'} target="_blank">Meu Perfil ONG</a></li>
+            <li><a id="itens" href={'/Sobrenos'} target="_blank">Sobre nós</a></li>
             <li><a style={{"--clr":"#707bff"}} className="btn-entrar" id="itens" href="../html/login.html"><span>Entrar</span></a>
             </li>
           </ul>
@@ -162,6 +162,51 @@ const Catalogo = () => {
           
         </ul>
     </section>
+
+    <footer className="footergeral">
+        <section className="footercontent">
+          <figure className="logofooter">
+            <img id="logofooter" src={footer} alt="Logo Footer" />
+            <h1 id="text-logo-footer">Charity Connect.</h1>
+          </figure>
+
+          <div className="footerpart2">
+            <a id="link-footer-pt2" href={'/Sobrenos'} target="_blank">Sobre o Projeto</a>
+            <a id="link-footer-pt2" href={'/Contato'} target="_blank">Contato</a>
+          </div>
+
+          <div className="footerpart3">
+            <a id="link-footer-pt3" href={'/Politica'} target="_blank">Política de Privacidade</a>
+            <a id="link-footer-pt3" href={'/Termos'} target="_blank">Termos de Uso</a>
+          </div>
+
+          <div className="divisaodofooter2">
+            <div className="origemdotrabalho">
+              <div className="integrantesdiv">
+                <h2 id="itensfooter2">Integrantes:
+                  <li id="itemfooter">02 Cauã Santana</li>
+                  <li id="itemfooter">07 Gustavo Alves</li>
+                  <li id="itemfooter">08 Gustavo Gomes</li>
+                  <li id="itemfooter">13 Leandro Afonso Niches</li>
+                  <li id="itemfooter">23 Nathalia Lima</li>
+                  <li id="itemfooter">28 Ruan Pablo Braga Mendes</li>
+                  <li id="itemfooter">32 Wellington Cavalcante</li>
+                </h2>
+              </div>
+              <div className="profediscfooter">
+                <h2 id="itensfooter2">ITB - FIEB
+                  <li id="itemfooter">Brasílio Flores de Azevedo</li>
+                </h2>
+                <h2 id="itensfooter2">Curso
+                  <li id="itemfooter">Informática 2022 - 2024</li>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+
+
         </div>
     )
 }
