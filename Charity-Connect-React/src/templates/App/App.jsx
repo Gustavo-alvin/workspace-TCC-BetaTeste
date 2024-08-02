@@ -47,7 +47,7 @@ function App() {
     <div className='background'>
       <header id="cabecalho">
         <a href="#" id="logo" target="_blank">
-          <img src={test} style={{ width: '16rem' }} alt="Logo" />
+          <img src={test} style={{ "width": '16rem' }} alt="Logo" />
         </a>
         <nav id="nav">
           <button id="btn-mobile">

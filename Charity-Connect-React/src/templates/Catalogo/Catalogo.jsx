@@ -24,7 +24,7 @@ const Catalogo = () => {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-            <li><a id="itens" href={'/App'}>Home</a></li>
+            <li><a id="itens" href={'/'}>Home</a></li>
             <li><a id="itens" href={'/Catalogo'}>Catálogo</a></li>
             <li><a id="itens" href="#">Meu Perfil ONG</a></li>
             <li><a id="itens" href="#">Sobre nós</a></li>
