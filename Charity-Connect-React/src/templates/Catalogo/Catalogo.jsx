@@ -42,7 +42,7 @@ const Ongs = () => {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-          <li><a id="itens" href={'/Home'} target="_blank">Home</a></li>
+            <li><a id="itens" href={'/Home'} target="_blank">Home</a></li>
             <li><a id="itens" href={'/Catalogo'} target="_blank">Catalogo</a></li>
             <li><a id="itens" href={'/Usuario'} target="_blank">Meu Perfil ONG</a></li>
             <li><a id="itens" href={'/Sobrenos'} target="_blank">Sobre nós</a></li>
