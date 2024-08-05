@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Header from "../../components/Header/Header"
 import Sidebar from '../../components/Menu/Sidebar'
 import './Catalogo.css'
@@ -11,9 +11,27 @@ import ong5 from "../../assets/images/ongs-05.png";
 import ong6 from "../../assets/images/ongs_Prancheta 1.png";
 import ong7 from "../../assets/images/ongs-06.png";
 import ong8 from "../../assets/images/ongs-08.png";
+import { useEffect, useState } from "react"
 
 
-const Catalogo = () => {
+const Ongs = () => {
+  const navigate = useNavigate();
+  const goTo = () => {
+      navigate('/ongler');
+  }
+  const [ongs, setOngs] = useState([]);
+
+  useEffect(() => {
+      MensagemService.findAll().then(
+          (response) => {
+              const ongs = response.data;
+              setOngds(ongs);
+          }
+      ).catch((error) => {
+          console.log(error);
+      })
+  }, []);
+
 
     return (
         <div>
@@ -67,98 +85,19 @@ const Catalogo = () => {
 
       <section className="catalog">
         <ul className="catalog-items">
-            
-            <li className="items" data-interests="monetaria" data-city="barueri">
+            {ongs?.map((ong) => (          
+            <li className="items" key={ong.id} >
                 <div className="img-ong">
-                    <img src={ong2} alt="sorrisos do amanha "/>
+                    <img src={ong.foto} alt="sorrisos do amanha "/>
                 </div>
                 <div className="info-ongs">
-                    <h2>Sorrisos do Amanhã</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
+                    <h2>{ong.nome}</h2>
+                    <p>{ong.desAtuacao}</p>
                     <a className="know-more" href="#">Saiba Mais</a>
                 </div>
             </li>
             
-
-            
-            <li className="items" data-interests="roupas" data-city="jandira">
-                <div className="img-ong">
-                    <img src={ong3} alt="logo maos solidaria "/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Mãos Solidárias</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-            
-
-             
-            <li className="items" data-interests="brinquedo" data-city="osasco">
-                <div className="img-ong">
-                    <img src={ong4} alt="logo amigos do bem estar"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Amigos do Bem-Estar</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-            
-            <li className="items" data-interests="alimento" data-city="carapicuiba">
-                <div className="img-ong">
-                    <img src={ong5} alt="Esperança em açao"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Esperança em Ação</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-            
-             <li className="items" data-interests="alimento" data-city="barueri">
-                <div className="img-ong">
-                    <img src={ong6} alt="coraçao generoso"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Coração Generoso</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-           
-            <li className="items" data-interests="roupa" data-city="carapicuiba">
-                <div className="img-ong">
-                    <img src={ong7} alt="logo junto pela infancia"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Juntos pela Infância</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-            
-             <li className="items" data-interests="brinquedo" data-city="jandira">
-                <div className="img-ong">
-                    <img className="logo-ongs" src="../assets/ongs-07.png" alt="logo vida renovada"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Vida Renovada</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
-            
-             <li className="items" data-interests="alimento" data-city="osasco">
-                <div className="img-ong">
-                    <img src={ong8} alt="logo rede solidaridade"/>
-                </div>
-                <div className="info-ongs">
-                    <h2>Rede da Solidariedade</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est exercitationem, rerum quae ut minima nostrum dolorum quam delectus. Quibusdam, vel. Cumque necessitatibus consequatur blanditiis maiores voluptatem nostrum eum totam odit.</p>
-                    <a className="know-more" href="#">Saiba Mais</a>
-                </div>
-            </li>
+          ))}
           
         </ul>
     </section>
