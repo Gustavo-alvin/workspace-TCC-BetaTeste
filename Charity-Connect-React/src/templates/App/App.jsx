@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
 
+import './App.css'
+
+
+
+import capa from "../../assets/images/background1homepage.png"
 import test from "../../assets/images/charityConnect.png";
 import ods10 from "../../assets/images/ods1-nobackground-10.png";
 import ods11 from "../../assets/images/ods10-nobackground-11.png";
@@ -54,12 +58,12 @@ function App() {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-            <li><a id="itens" href={'/Home'} target="_blank">Home</a></li>
-            <li><a id="itens" href={'/Catalogo'} target="_blank">Catalogo</a></li>
-            <li><a id="itens" href={'/Usuario'} target="_blank">Meu Perfil ONG</a></li>
-            <li><a id="itens" href={'/Sobrenos'} target="_blank">Sobre nós</a></li>
+            <li><a id="itens" href={'/'} target="_blank">Home</a></li>
+            <li><a id="itens" href={'/catalogo'} target="_blank">Catalogo</a></li>
+            <li><a id="itens" href={'/perfil'} target="_blank">Meu Perfil ONG</a></li>
+            <li><a id="itens" href={'/sobrenos'} target="_blank">Sobre nós</a></li>
             <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href="#" target="_blank">
+              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} target="_blank">
                 <span>Entrar</span>
               </a>
             </li>
