@@ -59,7 +59,7 @@ function App() {
             <li><a id="itens" href={'/Usuario'} target="_blank">Meu Perfil ONG</a></li>
             <li><a id="itens" href={'/Sobrenos'} target="_blank">Sobre nós</a></li>
             <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href="#" target="_blank">
+              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} target="_blank">
                 <span>Entrar</span>
               </a>
             </li>

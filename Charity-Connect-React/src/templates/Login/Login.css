@@ -1,19 +1,179 @@
 .login-form {
     margin: 50px auto;
-    width: 320px;
-    background-color: rgb(222, 237, 250);
-    box-shadow: rgba(100, 100, 111, 0.7) 0px 7px 29px 0px;
+    width: 30em;
+    background-color: #fff;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5em;
     text-align: left;
   }
   
   .login-logo {
-    margin: 10px 0 40px 0;
-    text-align: center;
+
+    text-align: center;justify-content: center;   
+     width: 15em;
   }
   
-  .login-logo img{
+  #img-logo-login{
     border-radius: 20px;
-    box-shadow: rgba(100, 100, 111, 0.7) 0px 7px 29px 0px;
+    text-align: center;
   }
+
+  img .login-logo{
+    width: 5em;
+  }
+
+  
+  /*------------------------------*/
+
+  @import "./reset.css";
+@import "./header.css";
+@import "./footer.css";
+
+
+:root {
+    --black: #000000;
+    --background:#161b22;
+    --white: #ffffff;
+    --roxo: #8224fe;
+    --azul: #707cfb;
+    --rosa: #f952ff;
+}
+
+body{
+    background: var(--background);
+    box-sizing: border-box;
+}
+
+.coracaocad{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+#coracao {
+    width: 150px;
+}
+
+
+
+
+.login-section{
+    background-color: var(--white);
+    color: var(--black);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 25px;
+}
+
+#title-titulo-login{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#text-login{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 1em;
+}
+
+.container-btns{
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+}
+
+.inputs{
+    margin-top: 50px;
+    display: grid;
+}
+
+#input{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border-color: var(--azul);
+    background-color: var(--white);
+    font-weight: 600;
+    width: 300px;
+    text-align: left;
+}
+
+#label{
+    margin-bottom: 30px ;
+}
+
+#botao-form {
+    background:linear-gradient(to left, #707bff, #8224fe);
+    border-radius: 16px;
+    cursor: pointer;
+    color: var(--white);
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 5px 38px;
+    text-decoration: none;
+    border: none;
+    
+}
+
+#botao-form:hover {
+    background: linear-gradient(to left, #707bff, #8224fe);
+    background-color:linear-gradient(to left, #707bff, #8224fe);
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+
+}
+
+#redirecionar:hover {
+    background: linear-gradient(to left, #707bff, #8224fe);
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+}
+
+a {
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    text-decoration: underline;
+}
+
+.login-logo{
+  text-align: center;
+  width: 100%;
+}
+
+#img-logo-login{
+  width: 10em;
+}
+
+#title-titulo-login{
+  color:#000;
+  font-size: 35px;
+}
+
+#first-button{
+  background-color: #707bff;
+  color:#fff;
+}
+
+#second-button{
+  background-color: #707bff;
+  color:#fff;
+}
+
+#forgotpass{
+  margin-top: 5em;
+}
+
+@media screen and (max-width: 934px){
+   .login-section {
+    width: 100%;
+    margin: 0;
+   } 
+
+   .coracaocad{
+    padding-top: 6rem;
+   }
+}
