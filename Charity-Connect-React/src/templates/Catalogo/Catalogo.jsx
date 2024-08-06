@@ -13,6 +13,7 @@ import ong7 from "../../assets/images/ongs-06.png";
 import ong8 from "../../assets/images/ongs-08.png";
 import { useEffect, useState } from "react"
 
+function Catalogo() {
 
 const Ongs = () => {
   const navigate = useNavigate();
@@ -149,5 +150,5 @@ const Ongs = () => {
         </div>
     )
 }
-
-export default Catalogo
+}
+export default Catalogo;
