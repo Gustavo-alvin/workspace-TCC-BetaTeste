@@ -167,6 +167,18 @@ a {
   margin-top: 5em;
 }
 
+.text-center{
+  text-align: center;
+}
+
+.login-logo{
+  text-align: center;
+}
+
+#img-logo-login{
+  text-align: center;
+}
+
 @media screen and (max-width: 934px){
    .login-section {
     width: 100%;
