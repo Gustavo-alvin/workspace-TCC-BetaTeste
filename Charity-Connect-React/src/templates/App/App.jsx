@@ -144,6 +144,7 @@ function App() {
                   <li id="itemfooter">23 Nathalia Lima</li>
                   <li id="itemfooter">28 Ruan Pablo Braga Mendes</li>
                   <li id="itemfooter">32 Wellington Cavalcante</li>
+                  <li id="itemfooter">32 Vinicius de Jesus Barreto</li>
                 </h2>
               </div>
               <div className="profediscfooter">
