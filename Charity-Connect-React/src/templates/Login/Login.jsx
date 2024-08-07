@@ -13,7 +13,7 @@ const Login = () => {
     }
 
     const backto = () => {
-        navigate("/");
+        navigate("/cadastro");
     }
 
 
@@ -100,10 +100,8 @@ const Login = () => {
                     </p>
                 </div>
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button className="btn btn-warning fw-medium shadow" type="button" id="first-button"
-                        onClick={backto}>Cadastrar</button>
-                    <button className="btn btn-success fw-medium shadow" type="submit" id="second-button"
-                        onClick={goto} >Entrar</button>
+                    <button className="btn btn-warning fw-medium shadow" type="button" id="first-button" onClick={backto}>Cadastrar</button>
+                    <button className="btn btn-success fw-medium shadow" type="submit" id="second-button" onClick={goto} >Entrar</button>
                 </div>
             </form>
         </div>

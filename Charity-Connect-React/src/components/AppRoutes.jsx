@@ -5,6 +5,8 @@ import Perfil from "../templates/Perfil/Perfil"
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
+import Cadastro from "../templates/Cadastro/Cadastro"
+
 
 import Mensagem from "../templates/Mensagem/Mensagem"
 import MensagemLer from "../templates/Mensagem/MensagemLer"
@@ -20,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/" element={<App />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
 
