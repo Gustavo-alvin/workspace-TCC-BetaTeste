@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../../assets/images/newshortlogobranca-12.png';
+import test from "../../assets/images/charityConnect.png";
+
 import './Login.css';
 
 const Login = () => {
@@ -16,7 +18,54 @@ const Login = () => {
 
 
     return (
-        <div className="text-center">
+        <div>
+            <header id="cabecalho">
+                <a href="../html/index.html" id="logo">
+                    <img
+                        src={test}
+                        style={{ width: "16rem" }}
+                        alt=""
+                    />
+                </a>
+                <nav id="nav">
+                    <button id="btn-mobile">
+                        <span id="hambuguer"></span>
+                    </button>
+                    <ul id="menu">
+                        <li>
+                            <a id="itens" href={"/Home"} target="_blank">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a id="itens" href={"/Catalogo"} target="_blank">
+                                Catalogo
+                            </a>
+                        </li>
+                        <li>
+                            <a id="itens" href={"/Usuario"} target="_blank">
+                                Meu Perfil ONG
+                            </a>
+                        </li>
+                        <li>
+                            <a id="itens" href={"/Sobrenos"} target="_blank">
+                                Sobre nós
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                style={{ "--clr": "#707bff" }}
+                                className="btn-entrar"
+                                id="itens"
+                                href="../html/login.html"
+                            >
+                                <span>Entrar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
             <div className="login-logo">
                 <img src={logo} alt="logo" id="img-logo-login" />
             </div>
@@ -38,7 +87,7 @@ const Login = () => {
                 </div>
                 <div>
                     <label htmlFor="password" className="form-label mb-0 fw-bold">Senha:</label>
-                    <input type="password" id="password" className="form-control text-center fw-medium shadow"/>
+                    <input type="password" id="password" className="form-control text-center fw-medium shadow" />
                 </div>
                 <div className="d-flex flex-row-reverse mt-1">
                     <p className="fw-bold fst-italic opacity-75 me-1">Esqueceu a senha?
@@ -52,7 +101,7 @@ const Login = () => {
                 </div>
                 <div className="d-flex justify-content-around mb-3 mt-2">
                     <button className="btn btn-warning fw-medium shadow" type="button" id="first-button"
-                        onClick={backto}>Cancelar</button>
+                        onClick={backto}>Cadastrar</button>
                     <button className="btn btn-success fw-medium shadow" type="submit" id="second-button"
                         onClick={goto} >Entrar</button>
                 </div>

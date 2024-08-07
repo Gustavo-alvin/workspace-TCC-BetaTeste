@@ -167,12 +167,10 @@ a {
   margin-top: 5em;
 }
 
-.text-center{
-  text-align: center;
-}
-
 .login-logo{
-  text-align: center;
+  display: flex;
+  padding-top: 4em;
+  margin: 0 auto;
 }
 
 #img-logo-login{
