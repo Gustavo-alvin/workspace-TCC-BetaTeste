@@ -117,11 +117,11 @@ function Catalogo() {
           {ongs?.map((ong) => (
             <li className="items" key={ong.id}>
               <div className="img-ong">
-                <img src={ong.foto} alt="sorrisos do amanha " />
+                <img src={ong.foto ? ong.foto : footer } alt="sorrisos do amanha " />
               </div>
               <div className="info-ongs">
                 <h2>{ong.nome}</h2>
-                <p>{ong.desAtuacao}</p>
+                <p>{ong.descAtuacao}</p>
                 <a className="know-more" href="#">
                   Saiba Mais
                 </a>
