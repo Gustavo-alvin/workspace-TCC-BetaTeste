@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Menu/Sidebar";
 import "./Catalogo.css";
 
+import header from "../../assets/images/charityConnect.png";
 import ong2 from "../../assets/images/ongs-02.png";
 import ong3 from "../../assets/images/ongs-03.png";
 import ong4 from "../../assets/images/ongs-04.png";
@@ -35,45 +36,20 @@ function Catalogo() {
   return (
     <div>
       <header id="cabecalho">
-        <a href="../html/index.html" id="logo">
-          <img
-            src="../assets/charityConnect.png"
-            style={{ width: "16rem" }}
-            alt=""
-          />
+        <a href="#" id="logo" >
+          <img src={header} style={{ "width": '16rem' }} alt="Logo" />
         </a>
         <nav id="nav">
           <button id="btn-mobile">
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
+            <li><a id="itens" href={'/'} >Home</a></li>
+            <li><a id="itens" href={'/catalogo'} >Catalogo</a></li>
+            <li><a id="itens" href={'/perfil'} >Meu Perfil ONG</a></li>
+            <li><a id="itens" href={'/sobrenos'} >Sobre nós</a></li>
             <li>
-              <a id="itens" href={"/"} >
-                Home
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/Catalogo"} >
-                Catalogo
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/Usuario"} >
-                Meu Perfil ONG
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/Sobrenos"} >
-                Sobre nós
-              </a>
-            </li>
-            <li>
-              <a
-                style={{ "--clr": "#707bff" }}
-                className="btn-entrar"
-                id="itens"
-                href="../html/login.html"
-              >
+              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} >
                 <span>Entrar</span>
               </a>
             </li>
