@@ -177,6 +177,26 @@ a {
   text-align: center;
 }
 
+h1{
+  color:#000;
+}
+
+h2{
+  color:#000
+}
+
+input{
+  color:#000;
+}
+
+p{
+  color:#000;
+}
+
+label{
+  color:#000;
+}
+
 @media screen and (max-width: 934px){
    .login-section {
     width: 100%;
