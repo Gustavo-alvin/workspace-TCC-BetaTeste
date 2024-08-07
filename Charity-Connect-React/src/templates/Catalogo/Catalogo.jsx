@@ -48,22 +48,22 @@ function Catalogo() {
           </button>
           <ul id="menu">
             <li>
-              <a id="itens" href={"/"} target="_blank">
+              <a id="itens" href={"/"} >
                 Home
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Catalogo"} target="_blank">
+              <a id="itens" href={"/Catalogo"} >
                 Catalogo
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Usuario"} target="_blank">
+              <a id="itens" href={"/Usuario"} >
                 Meu Perfil ONG
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Sobrenos"} target="_blank">
+              <a id="itens" href={"/Sobrenos"} >
                 Sobre nós
               </a>
             </li>
@@ -139,19 +139,19 @@ function Catalogo() {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={"/Sobrenos"} target="_blank">
+            <a id="link-footer-pt2" href={"/Sobrenos"} >
               Sobre o Projeto
             </a>
-            <a id="link-footer-pt2" href={"/Contato"} target="_blank">
+            <a id="link-footer-pt2" href={"/Contato"} >
               Contato
             </a>
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={"/Politica"} target="_blank">
+            <a id="link-footer-pt3" href={"/Politica"} >
               Política de Privacidade
             </a>
-            <a id="link-footer-pt3" href={"/Termos"} target="_blank">
+            <a id="link-footer-pt3" href={"/Termos"} >
               Termos de Uso
             </a>
           </div>

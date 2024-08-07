@@ -50,7 +50,7 @@ function App() {
   return (
     <div className='background'>
       <header id="cabecalho">
-        <a href="#" id="logo" target="_blank">
+        <a href="#" id="logo" >
           <img src={test} style={{ "width": '16rem' }} alt="Logo" />
         </a>
         <nav id="nav">
@@ -58,12 +58,12 @@ function App() {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-            <li><a id="itens" href={'/'} target="_blank">Home</a></li>
-            <li><a id="itens" href={'/catalogo'} target="_blank">Catalogo</a></li>
-            <li><a id="itens" href={'/perfil'} target="_blank">Meu Perfil ONG</a></li>
-            <li><a id="itens" href={'/sobrenos'} target="_blank">Sobre nós</a></li>
+            <li><a id="itens" href={'/'} >Home</a></li>
+            <li><a id="itens" href={'/catalogo'} >Catalogo</a></li>
+            <li><a id="itens" href={'/perfil'} >Meu Perfil ONG</a></li>
+            <li><a id="itens" href={'/sobrenos'} >Sobre nós</a></li>
             <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} target="_blank">
+              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} >
                 <span>Entrar</span>
               </a>
             </li>
@@ -124,13 +124,13 @@ function App() {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={'/Sobrenos'} target="_blank">Sobre o Projeto</a>
-            <a id="link-footer-pt2" href={'/Contato'} target="_blank">Contato</a>
+            <a id="link-footer-pt2" href={'/Sobrenos'} >Sobre o Projeto</a>
+            <a id="link-footer-pt2" href={'/Contato'} >Contato</a>
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={'/Politica'} target="_blank">Política de Privacidade</a>
-            <a id="link-footer-pt3" href={'/Termos'} target="_blank">Termos de Uso</a>
+            <a id="link-footer-pt3" href={'/Politica'} >Política de Privacidade</a>
+            <a id="link-footer-pt3" href={'/Termos'} >Termos de Uso</a>
           </div>
 
           <div className="divisaodofooter2">
