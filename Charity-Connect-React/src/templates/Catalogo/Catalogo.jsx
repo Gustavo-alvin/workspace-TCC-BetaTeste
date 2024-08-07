@@ -86,7 +86,7 @@ function Catalogo() {
           <label htmlFor="filter" className="sr-only">
             Pesquisar
           </label>
-          <input id="filter" type="text" placeholder="Pesquiar" />
+          <input id="filter" type="text" placeholder="Pesquisar" />
         </div>
 
         <div className="category-filter">
