@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const goto = () => {
-        navigate("/home");
+        navigate("/");
     }
 
     const backto = () => {
