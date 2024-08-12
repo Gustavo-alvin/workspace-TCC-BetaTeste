@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Sobre.css'
-
-import capa from "../../assets/images/background1homepage.png"
+import header from "../../assets/images/charityConnect.png";
 import footer from "../../assets/images/newshortlogobranca-12.png";
 import ods10 from "../../assets/images/ODS10_Prancheta 1.png";
 import ods01 from "../../assets/images/ODS1-04.png";
@@ -19,7 +18,7 @@ const Sobre = () => {
 
 <header id="cabecalho">
         <a href="#" id="logo" >
-          <img src={test} style={{ "width": '16rem' }} alt="Logo" />
+          <img src={header} style={{ "width": '16rem' }} alt="Logo" />
         </a>
         <nav id="nav">
           <button id="btn-mobile">
@@ -90,7 +89,7 @@ const Sobre = () => {
                     <strong> ODS 1:</strong> Erradicação da Pobreza - O projeto se alinha diretamente com a ODS 1, pois
                     visa ajudar as pessoas carentes ao fornecer-lhes doações que podem melhorar sua qualidade de vida e
                     autoestima. Ao ligar doadores a ONGs, o Charity Connect contribui para aliviar a pobreza e reduzir as
-                    disparidades socioeconômicas. <br/><br/><div className="ods_img_mobile"><img src={ods1} id="logoods"/></div>
+                    disparidades socioeconômicas. <br/><br/><div className="ods_img_mobile"><img src={ods01} id="logoods"/></div>
 
                     <strong>ODS 10:</strong> Redução das Desigualdades - Ao enfocar a doação de roupas para pessoas
                     necessitadas, o projeto aborda a ODS 10, buscando diminuir as desigualdades sociais. Isso é

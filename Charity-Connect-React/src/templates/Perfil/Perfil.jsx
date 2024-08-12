@@ -26,17 +26,17 @@ function Perfil() {
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Catalogo"} >
+              <a id="itens" href={"/catalogo"} >
                 Catalogo
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Perfil"} >
+              <a id="itens" href={"/perfil"} >
                 Meu Perfil ONG
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Sobrenos"} >
+              <a id="itens" href={"/sobre"} >
                 Sobre nós
               </a>
             </li>
