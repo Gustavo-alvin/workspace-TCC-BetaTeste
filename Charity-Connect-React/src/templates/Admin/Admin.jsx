@@ -69,7 +69,7 @@ const Admin = () => {
                         <th>Status</th>
                     </tr>
                     </thead>
-                    
+                    <tbody>
                     <tr id="info">
                         <td className="item">&nbsp;LIFEOFPABLO</td>
                         <td className="item">&nbsp;CAUÃ</td>
@@ -83,17 +83,18 @@ const Admin = () => {
                         </select>
                     </td>
                     </tr>
+                </tbody>
                     
                 
             </table>
         </div>
 
-        <div id="fale-conosco" className="fale-conosco" style="display: none;">
+        {/* <div id="fale-conosco" className="fale-conosco" style="display: none;">
             <ul id="selecao">
                 <ul id="selecao">
                     <li>
                         <label  htmlFor="first" id="text-reclame">Gustavo - How do I find Ongs in my region? <span>&#x3e;</span></label>
-                        <input type="radio" name="selecao" id="first" checked/>
+                        <input type="radio" name="selecao" id="first"/>
                         <div className="content">
                             <p id="text-reclame">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero recusandae vitae ullam ex nesciunt tempore. 
@@ -125,7 +126,7 @@ const Admin = () => {
                     </li>
                 </ul>
             </ul>
-        </div>
+        </div> */}
     </div>
 </main>
 
