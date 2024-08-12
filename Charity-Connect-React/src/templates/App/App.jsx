@@ -124,7 +124,7 @@ function App() {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={'/Sobrenos'} >Sobre o Projeto</a>
+            <a id="link-footer-pt2" href={'/sobre'} >Sobre o Projeto</a>
             <a id="link-footer-pt2" href={'/contato'} >Contato</a>
           </div>
 

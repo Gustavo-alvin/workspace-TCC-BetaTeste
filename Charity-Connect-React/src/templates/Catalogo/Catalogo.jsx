@@ -49,7 +49,7 @@ function Catalogo() {
             <li><a id="itens" href={'/perfil'} >Meu Perfil ONG</a></li>
             <li><a id="itens" href={'/sobre'} >Sobre nós</a></li>
             <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/Login'} >
+              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/login'} >
                 <span>Entrar</span>
               </a>
             </li>
@@ -115,19 +115,19 @@ function Catalogo() {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={"/Sobrenos"} >
+            <a id="link-footer-pt2" href={"/sobre"} >
               Sobre o Projeto
             </a>
-            <a id="link-footer-pt2" href={"/Contato"} >
+            <a id="link-footer-pt2" href={"/contato"} >
               Contato
             </a>
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={"/Politica"} >
+            <a id="link-footer-pt3" href={"/politicas"} >
               Política de Privacidade
             </a>
-            <a id="link-footer-pt3" href={"/Termos"} >
+            <a id="link-footer-pt3" href={"/termos"} >
               Termos de Uso
             </a>
           </div>
