@@ -129,8 +129,8 @@ function App() {
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={'/Politica'} >Política de Privacidade</a>
-            <a id="link-footer-pt3" href={'/Termos'} >Termos de Uso</a>
+            <a id="link-footer-pt3" href={'/politicas'} >Política de Privacidade</a>
+            <a id="link-footer-pt3" href={'/termos'} >Termos de Uso</a>
           </div>
 
           <div className="divisaodofooter2">

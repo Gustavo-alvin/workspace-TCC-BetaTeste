@@ -6,6 +6,7 @@ import Sobre from "../templates/Sobre/Sobre"
 import Contato from "../templates/Contato/Contato"
 import Politicas from "../templates/Politicas/Politicas"
 import Termos from "../templates/Termos/Termos"
+import Admin from "../templates/Admin/Admin"
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
@@ -31,6 +32,7 @@ const AppRoutes = () => {
         <Route path="/politicas" element={<Politicas />} />
         <Route path="/termos" element={<Termos />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
 
