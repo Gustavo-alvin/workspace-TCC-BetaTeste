@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import App from "../templates/App/App"
 import Catalogo from "../templates/Catalogo/Catalogo"
 import Perfil from "../templates/Perfil/Perfil"
+import Sobre from "../templates/Sobre/Sobre"
 
 import ForgotPass from "../templates/Login/ForgotPass"
 import Login from "../templates/Login/Login"
@@ -22,6 +23,7 @@ const AppRoutes = () => {
         <Route path="/" element={<App />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/sobre" element={<Sobre />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpass" element={<ForgotPass />} />

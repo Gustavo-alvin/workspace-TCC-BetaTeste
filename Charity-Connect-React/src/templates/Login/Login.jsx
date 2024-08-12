@@ -38,17 +38,17 @@ const Login = () => {
                             </a>
                         </li>
                         <li>
-                            <a id="itens" href={"/Catalogo"} target="_blank">
+                            <a id="itens" href={"/catalogo"} target="_blank">
                                 Catalogo
                             </a>
                         </li>
                         <li>
-                            <a id="itens" href={"/Perfil"} target="_blank">
+                            <a id="itens" href={"/perfil"} target="_blank">
                                 Meu Perfil ONG
                             </a>
                         </li>
                         <li>
-                            <a id="itens" href={"/Sobrenos"} target="_blank">
+                            <a id="itens" href={"/sobre"} target="_blank">
                                 Sobre nós
                             </a>
                         </li>
