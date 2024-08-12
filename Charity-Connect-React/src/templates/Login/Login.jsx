@@ -33,7 +33,7 @@ const Login = () => {
                     </button>
                     <ul id="menu">
                         <li>
-                            <a id="itens" href={"/Home"} target="_blank">
+                            <a id="itens" href={"/"} target="_blank">
                                 Home
                             </a>
                         </li>
