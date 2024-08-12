@@ -104,7 +104,9 @@ const Cadastro = () => {
 
 
                 <div className="cep">
-                  <label id="label-end">CEP</label><br></br>
+                  <label id="label-end">
+                    <h1 id="nome-input">CEP</h1>
+                    </label><br></br>
                   <input type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
                 </div>
 

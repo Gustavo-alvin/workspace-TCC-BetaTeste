@@ -40,6 +40,7 @@
 #label-end{
     font-weight: bold;
     font-size: 20px;
+    margin: 0;
 }
 
 input{
@@ -97,7 +98,7 @@ textarea{
 }
 
 label{
-    text-align: center;
+
 }
 
 #nome-input{
@@ -111,7 +112,7 @@ label{
 }
 
 .cep{
-    margin-left: 7.5em;
+
 }
 
 #textarea-form{
@@ -134,4 +135,13 @@ label{
 
 .btns{
     margin-left: 7.5em;
+}
+
+.inputs-form{
+    display: grid;
+}
+
+input{
+    margin-left: 7.5em;
+    width: 20em;
 }
