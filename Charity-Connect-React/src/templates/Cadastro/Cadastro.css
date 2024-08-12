@@ -58,13 +58,16 @@ input::placeholder{
 
 #label-uf{
     font-size:20px;
-    font-weight: bold;
+    font-weight: 600;
     margin-top: -20px;
+    text-align: left;
+    margin-left: 6em;
 }
 
 #label-end{
     margin-top: 10px;
-    
+    text-align: left;
+    font-weight: 500;
 }
 
 option{
@@ -100,4 +103,23 @@ label{
 #nome-input{
     text-align: left;
     margin-left: 6em;
+}
+
+.endereco-div{
+    text-align: left;
+    margin-left: 7em;
+}
+
+.cep{
+    margin-left: 7.5em;
+}
+
+#textarea-form{
+    margin-top: 0.3em;
+    margin-left: 7.5em;
+}
+
+#foto{
+    margin-left: 7.5em;
+    margin-top: 0.3em;
 }

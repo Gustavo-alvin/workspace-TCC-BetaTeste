@@ -70,44 +70,44 @@ const Cadastro = () => {
                 </label>
 
                 <label id="label-uf">UF <br></br>
-                    <select id="selectuf">
-                      <option value="" disabled selected>Selecione a UF</option>
-                      <option value="AC">Acre (AC)</option>
-                      <option value="AL">Alagoas (AL)</option>
-                      <option value="AP">Amapá (AP)</option>
-                      <option value="AM">Amazonas (AM)</option>
-                      <option value="BA">Bahia (BA)</option>
-                      <option value="CE">Ceará (CE)</option>
-                      <option value="DF">Distrito Federal (DF)</option>
-                      <option value="ES">Espírito Santo (ES)</option>
-                      <option value="GO">Goiás (GO)</option>
-                      <option value="MA">Maranhão (MA)</option>
-                      <option value="MT">Mato Grosso (MT)</option>
-                      <option value="MS">Mato Grosso do Sul (MS)</option>
-                      <option value="MG">Minas Gerais (MG)</option>
-                      <option value="PA">Pará (PA)</option>
-                      <option value="PB">Paraíba (PB)</option>
-                      <option value="PR">Paraná (PR)</option>
-                      <option value="PE">Pernambuco (PE)</option>
-                      <option value="PI">Piauí (PI)</option>
-                      <option value="RJ">Rio de Janeiro (RJ)</option>
-                      <option value="RN">Rio Grande do Norte (RN)</option>
-                      <option value="RS">Rio Grande do Sul (RS)</option>
-                      <option value="RO">Rondônia (RO)</option>
-                      <option value="RR">Roraima (RR)</option>
-                      <option value="SC">Santa Catarina (SC)</option>
-                      <option value="SP">São Paulo (SP)</option>
-                      <option value="SE">Sergipe (SE)</option>
-                      <option value="TO">Tocantins (TO)</option>
-                    </select>
-                  </label>
+                  <select id="selectuf">
+                    <option value="" disabled selected>Selecione a UF</option>
+                    <option value="AC">Acre (AC)</option>
+                    <option value="AL">Alagoas (AL)</option>
+                    <option value="AP">Amapá (AP)</option>
+                    <option value="AM">Amazonas (AM)</option>
+                    <option value="BA">Bahia (BA)</option>
+                    <option value="CE">Ceará (CE)</option>
+                    <option value="DF">Distrito Federal (DF)</option>
+                    <option value="ES">Espírito Santo (ES)</option>
+                    <option value="GO">Goiás (GO)</option>
+                    <option value="MA">Maranhão (MA)</option>
+                    <option value="MT">Mato Grosso (MT)</option>
+                    <option value="MS">Mato Grosso do Sul (MS)</option>
+                    <option value="MG">Minas Gerais (MG)</option>
+                    <option value="PA">Pará (PA)</option>
+                    <option value="PB">Paraíba (PB)</option>
+                    <option value="PR">Paraná (PR)</option>
+                    <option value="PE">Pernambuco (PE)</option>
+                    <option value="PI">Piauí (PI)</option>
+                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                    <option value="RN">Rio Grande do Norte (RN)</option>
+                    <option value="RS">Rio Grande do Sul (RS)</option>
+                    <option value="RO">Rondônia (RO)</option>
+                    <option value="RR">Roraima (RR)</option>
+                    <option value="SC">Santa Catarina (SC)</option>
+                    <option value="SP">São Paulo (SP)</option>
+                    <option value="SE">Sergipe (SE)</option>
+                    <option value="TO">Tocantins (TO)</option>
+                  </select>
+                </label>
 
 
-                <div className="endereco-div">
+                <div className="cep">
                   <label id="label-end">CEP</label><br></br>
                   <input type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
-
                 </div>
+
               </div>
 
               <div className="form-2">
