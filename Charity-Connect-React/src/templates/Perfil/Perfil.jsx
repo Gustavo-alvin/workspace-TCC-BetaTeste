@@ -31,7 +31,7 @@ function Perfil() {
               </a>
             </li>
             <li>
-              <a id="itens" href={"/Usuario"} >
+              <a id="itens" href={"/Perfil"} >
                 Meu Perfil ONG
               </a>
             </li>
@@ -45,7 +45,7 @@ function Perfil() {
                 style={{ "--clr": "#707bff" }}
                 className="btn-entrar"
                 id="itens"
-                href="../html/login.html"
+                href={"/Login"}
               >
                 <span>Entrar</span>
               </a>

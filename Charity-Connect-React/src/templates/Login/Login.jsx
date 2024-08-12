@@ -33,7 +33,7 @@ const Login = () => {
                     </button>
                     <ul id="menu">
                         <li>
-                            <a id="itens" href={"/Home"} target="_blank">
+                            <a id="itens" href={"/"} target="_blank">
                                 Home
                             </a>
                         </li>
@@ -43,7 +43,7 @@ const Login = () => {
                             </a>
                         </li>
                         <li>
-                            <a id="itens" href={"/Usuario"} target="_blank">
+                            <a id="itens" href={"/Perfil"} target="_blank">
                                 Meu Perfil ONG
                             </a>
                         </li>
