@@ -125,7 +125,7 @@ function App() {
 
           <div className="footerpart2">
             <a id="link-footer-pt2" href={'/Sobrenos'} >Sobre o Projeto</a>
-            <a id="link-footer-pt2" href={'/Contato'} >Contato</a>
+            <a id="link-footer-pt2" href={'/contato'} >Contato</a>
           </div>
 
           <div className="footerpart3">
