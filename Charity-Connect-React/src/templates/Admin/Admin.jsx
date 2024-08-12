@@ -9,7 +9,24 @@ import header from "../../assets/images/charityConnect.png";
 import ongs from "../../assets/images/usericon.png";
 import reclamacao from "../../assets/images/phone_icon.png"
 
-const Admin = () => {
+function Admin() {
+    const navigate = useNavigate();
+    const goTo = () => {
+      navigate("/ongler");
+    };
+    const [ongs, setOngs] = useState([]);
+  
+    useEffect(() => {
+      CatalogoService.findAll()
+        .then((response) => {
+          const ongs = response.data;
+          setOngs(ongs);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, []);
+  
   return (
     <div>
 

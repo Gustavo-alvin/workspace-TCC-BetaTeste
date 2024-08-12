@@ -427,6 +427,7 @@ span{
 
 .Gerenciamento{
     display: flex;
+    color: #000;
     width: 100%;
     justify-content: center;
     background-color: #fff;
@@ -436,6 +437,9 @@ span{
     margin-bottom: 5%;
 }
 
+.item{
+    color: #000;
+}
 
 
 .thead{
@@ -459,7 +463,7 @@ span{
 }
 
 select{
-    background-color: #000;
+    background-color: #ffffff;
     color:#fff;
     border-style: none;
     border-radius: 5px;
