@@ -69,11 +69,7 @@ const Cadastro = () => {
                   <input type="tel" id="inputnum" name="celular" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required />
                 </label>
 
-                <div className="endereco-div">
-                  <label id="label-end">CEP</label>
-                  <input type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
-
-                  <label id="label">UF
+                <label id="label-uf">UF <br></br>
                     <select id="selectuf">
                       <option value="" disabled selected>Selecione a UF</option>
                       <option value="AC">Acre (AC)</option>
@@ -105,6 +101,12 @@ const Cadastro = () => {
                       <option value="TO">Tocantins (TO)</option>
                     </select>
                   </label>
+
+
+                <div className="endereco-div">
+                  <label id="label-end">CEP</label><br></br>
+                  <input type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
+
                 </div>
               </div>
 
