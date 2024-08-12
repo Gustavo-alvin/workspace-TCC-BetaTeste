@@ -71,7 +71,7 @@ const Cadastro = () => {
 
                 <label id="label-uf">UF <br></br>
                   <select id="selectuf">
-                    <option value="" disabled selected>Selecione a UF</option>
+                    <option value="" selected>Selecione a UF</option>
                     <option value="AC">Acre (AC)</option>
                     <option value="AL">Alagoas (AL)</option>
                     <option value="AP">Amapá (AP)</option>
