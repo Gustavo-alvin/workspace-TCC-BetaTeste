@@ -89,8 +89,8 @@ function App() {
         <div className="kkk"></div>
 
         <section className="onu">
-          <section className="container">
-            <h1> ODS</h1>
+          <section className="container-kkk">
+            <h1 id="odsodsods"> ODS</h1>
             <div className="slider-wrapper">
               <div className="slider" ref={sliderRef}>
                 <img id="slide-1" src={ods10} alt="ODS 1 Erradicação da Pobreza" />

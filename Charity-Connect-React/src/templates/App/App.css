@@ -601,8 +601,9 @@ details {
     }
 }
 
-.container {
+.container-kkk {
     padding: 4rem;
+    display:grid;
 
 }
 
@@ -862,4 +863,7 @@ details {
     #itemfooter {
         border-bottom: 1px solid var(--white);
     }
+}
+#odsodsods{
+    color:#fff;
 }
