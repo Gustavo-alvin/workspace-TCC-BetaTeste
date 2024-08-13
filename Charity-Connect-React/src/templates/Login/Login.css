@@ -195,6 +195,16 @@ label{
   color:#000;
 }
 
+#password{
+  width: 20em;
+  margin: 0;
+}
+
+#email{
+  width: 20em;
+  margin: 0;
+}
+
 @media screen and (max-width: 934px){
    .login-section {
     width: 100%;

@@ -1,9 +1,9 @@
 .formulario-section{
     margin: 50px auto;
-    width: 70em;
+    width: 40em;
     background-color: #fff;
     border-radius: 10px;
-    padding: 5em;
+
     text-align: left;
 }
 
@@ -97,10 +97,6 @@ textarea{
     margin-bottom: 20px;
 }
 
-label{
-
-}
-
 #nome-input{
     text-align: left;
     margin-left: 6em;
@@ -111,9 +107,6 @@ label{
     margin-left: 7em;
 }
 
-.cep{
-
-}
 
 #textarea-form{
     margin-top: 0.3em;
@@ -135,6 +128,7 @@ label{
 
 .btns{
     margin-left: 7.5em;
+    display: flex;
 }
 
 .inputs-form{
@@ -144,4 +138,10 @@ label{
 input{
     margin-left: 7.5em;
     width: 20em;
+}
+
+#botao-form{
+    margin-right: 2em;
+    border-radius: 10px;
+    background-color: #707cfb;
 }
