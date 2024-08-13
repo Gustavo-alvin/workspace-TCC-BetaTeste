@@ -17,7 +17,7 @@ function Admin() {
     const [ongs, setOngs] = useState([]);
   
     useEffect(() => {
-      CatalogoService.findAll()
+      AdminService.findAll()
         .then((response) => {
           const ongs = response.data;
           setOngs(ongs);
@@ -87,8 +87,9 @@ function Admin() {
                     </tr>
                     </thead>
                     <tbody>
+                    {ongs?.map((ong) => (
                     <tr id="info">
-                        <td className="item">&nbsp;LIFEOFPABLO</td>
+                        <td className="item">{}</td>
                         <td className="item">&nbsp;CAUÃ</td>
                         <td className="item">&nbsp;C@HORSE.COM</td>
                         <td className="item">&nbsp;FREDDIEMERCURY</td>
@@ -99,7 +100,9 @@ function Admin() {
                             <option>ANALISE</option>
                         </select>
                     </td>
+            
                     </tr>
+                    ))}
                 </tbody>
                     
                 
