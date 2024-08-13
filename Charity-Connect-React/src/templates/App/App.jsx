@@ -86,7 +86,7 @@ function App() {
           </div>
         </section>
 
-        <div className="div-gradiente-home"></div>
+        <div className="kkk"></div>
 
         <section className="onu">
           <section className="container">

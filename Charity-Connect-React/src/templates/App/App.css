@@ -264,7 +264,7 @@ ul {
 }
 
 .btn-entrar:hover {
-    background: linear-gradient(to right, #707bff, #fa52ff);
+    background-color:#707cfb;
     letter-spacing: 0.25em;
     box-shadow: 0 0 25px #707bff;
 }
@@ -412,8 +412,7 @@ ul {
 }
 
 #link-doe {
-    background: linear-gradient(to right, #707bff, #8224fe);
-    color: var(--titulo-homepage);
+    background-color:#707cfb;    color: var(--titulo-homepage);
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
@@ -528,8 +527,8 @@ details {
     padding-top: 30px;
 }
 
-.div-gradiente-home {
-    background: linear-gradient(to right, #707bff, #8224fe);
+.kkk {
+    background-image: linear-gradient(to left, #707bff, #fa52ff);
     width: 100%;
     height: 10px;
     margin-top: -10px;
@@ -840,6 +839,8 @@ details {
     text-decoration: underline;
     text-decoration-color: var(--link-footer);
 }
+
+
 
 @media screen and (max-width: 934px){
     .footerpart3 {
