@@ -359,186 +359,45 @@ ul {
 }
 
 
+/*CSS pagina
+===================================================================================*/
 
 
-
-
-
-
-
-* {
-    color: #ffffff
-}
-
-.login-main{
-    background-color: #161b22;
-
-    text-align: center;
-    padding-top: 7em;
+.perfil-principal{
+    display: block;
+    margin: auto;
+    background: yellow;
     box-sizing: border-box;
-
+    width: 60%;
+    padding: 5em;
 }
 
-.login-section{
-    background-color: #161b22;
-    color:#000;
-   
+#foto-perfil{
+    width: 15em;
+    border-radius: 1.5em;
+}
+
+.input-titulo{
     width: 50%;
-    padding: 5%;
-    border-radius: 25px;
 }
 
-#imgongcapa{
-    width: 100%;
-    height: 100%;
-    border-radius: 25px 25px 0px 0px ;
-    filter: brightness(0.9);
-    
+.editar{
+    background-color: #707bff;
 }
 
-.picture__img{
-    width: 20rem;
-    height: 20rem;
-    border-radius: 100% ;
-    
-}
-
-.conteudo-ong-perfil{
-    margin-top: 3%;
-    
-}
-
-#buttonperfil {
-    background-color: #707cff;
-    border-radius: 16px;
-    cursor: pointer;
-    color: #ffffff;
-    font-weight: bold;
-    font-family: Arial;
-    font-size: 18px;
-    padding: 5px 38px;
-    text-decoration: none;
-    border: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#btn {
-    border-radius: 1rem;
-    width: 10rem;
-}
-
-#link_entrar {
-    text-decoration: none;
-    color: white;
-}
-
-.profile {
-    background-color: #161b22;
-
+.sessao-perfil{
     display: grid;
-    align-items: center;
-    justify-items: center;
-   
+    grid-template-columns: 15em 35em 35em;
 }
 
-.profile_ong {
-    display: grid;
-    grid-template-columns: auto auto auto ;
-    width: 50em;
-    padding: 2em;
-    background-color: rgba(10,10,10,0.4);
-
-    border-top-right-radius: 1em;
-    border-top-left-radius: 1em;
-}
-
-.profile_ong img {
-    
-    margin-left: 2em;
-    width: 15em; 
-    border-radius: 20px; 
-    box-shadow: 5px  5px 10px 5px #0000006e;
-}
-
-.title_ong {
-    width: 80%;
-    align-items: left;
-
-}
-
-.description {
-    margin-left: 1.5em;
-    text-align: left;
-}
-
-.info_ong {
-    background-color: rgba(10,10,10,0.4);
-
-    width: 50em;
-
-    border-bottom-right-radius: 1em;
-    border-bottom-left-radius: 1em;
-    overflow-x: auto;
-}
-
-table {
-    overflow-x: auto;   
+.teste{
+    box-sizing: border-box;
 }
 
 
 
-.title_item {
-    color:#707bff;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: left;
-    width: 30em;
-    padding: 1em;
-
-}
-
-.info_item {
-    width: 50em;
-    padding: 1em;
-    text-align: left;
-
-    
-}
-
-#buttonperfil{
-    border-radius: 25px;
-}
 
 
-@media screen and (max-width: 934px) {
-    .profile_ong {
-        display: grid;
-        grid-template-columns: auto;
-        padding: 0;
-        margin-top: 5em;
-        width: 100%;
-    }
-
-
-    .profile_ong img {
-        margin-left: 5rem;
-        margin-top: 2em;
-    }
-
-    .title_ong {
-        text-align: center;
-        width: 100%;
-    }
-
-    .btn_editar {
-        margin-bottom: 2em;
-    }
-
-    .info_ong {
-        width: 100%;
-    }
-}
 
 
 /*CSS FOOTER

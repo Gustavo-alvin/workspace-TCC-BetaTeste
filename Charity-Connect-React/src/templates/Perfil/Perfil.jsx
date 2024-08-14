@@ -1,19 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import header from "../../assets/images/charityConnect.png";
 import fotoong from "../../assets/images/ongs-02.png";
 import footer from "../../assets/images/newnames_Prancheta 1.png";
-import './Perfil.css';
+import ong2 from "../../assets/images/ongs-02.png";
+import "./Perfil.css";
+import { useParams } from "react-router-dom";
+import CatalogoService from "../../services/CatalogoService";
 
 function Perfil() {
+  const { id } = useParams();
+
+  const objectValues = {
+    id: null,
+    nome: "",
+    email: "",
+    senha: "",
+    telefone: "",
+    descAtuacao: "",
+    foto: null,
+    cep: "",
+    cnpj: "",
+    uf: "",
+  };
+  const [catalogo, setCatalogo] = useState(objectValues);
+
+  useEffect(() => {
+    CatalogoService.findById(id)
+      .then((response) => {
+        const catalogo = response.data;
+        setCatalogo(catalogo);
+        console.log(catalogo);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
-
-<header id="cabecalho">
+      <header id="cabecalho">
         <a href="../html/index.html" id="logo">
-          <img  src={header}
-            style={{ 'width': "16rem" }}
-            alt="logo ong"
-          />
+          <img src={header} style={{ width: "16rem" }} alt="logo ong" />
         </a>
         <nav id="nav">
           <button id="btn-mobile">
@@ -21,22 +48,22 @@ function Perfil() {
           </button>
           <ul id="menu">
             <li>
-              <a id="itens" href={"/"} >
+              <a id="itens" href={"/"}>
                 Home
               </a>
             </li>
             <li>
-              <a id="itens" href={"/catalogo"} >
+              <a id="itens" href={"/catalogo"}>
                 Catalogo
               </a>
             </li>
             <li>
-              <a id="itens" href={"/perfil"} >
+              <a id="itens" href={"/perfil"}>
                 Meu Perfil ONG
               </a>
             </li>
             <li>
-              <a id="itens" href={"/sobre"} >
+              <a id="itens" href={"/sobre"}>
                 Sobre nós
               </a>
             </li>
@@ -54,71 +81,142 @@ function Perfil() {
         </nav>
       </header>
 
-    <main className="login-main">
-
-        <section className="profile">
-            <div className="profile_ong">
-                <div className="container-img">
-                    <img src={fotoong} alt="imagem da ong"/>
-
-                </div>
-                <div className="title_ong">
-                    <h2>Sorrisos do Amanhã</h2><br/>
-                    <p className="description">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, quasi, laborum quisquam fugit aut
-                      maiores eveniet nemo incidunt distinctio et ducimus.
-                    </p>
-                </div>
-                <div className="btn_editar">
-                    <a id="buttonperfil" href="editarperfilong.html">Editar</a><br/>
-                </div>
+      <main className="login-main">
+        <div className="perfil-principal">
+          <section className="sessao-perfil">
+            <div className="teste">
+              <img id="foto-perfil" src={ong2} alt="" />
             </div>
-            <div className="info_ong">
-                <table>
-                        <tbody>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Nome da organização:</td>
-                                <td className="info_item">&nbsp;Sorrisos do amanhã</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Nome do Representante:</td>
-                                <td className="info_item">&nbsp;Cauã Santana</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Email da organização:</td>
-                                <td className="info_item">&nbsp;emostalook@gmail.com</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Número de celular:</td>
-                                <td className="info_item">&nbsp;(xx) xxxxx-xxxx</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Cep:</td>
-                                <td className="info_item">&nbsp;06449-000</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;Cnpj</td>
-                                <td className="info_item">&nbsp;0644900051545</td>
-                            </tr>
-                            <tr id="info">
-                                <td className="title_item">&nbsp;UF:</td>
-                                <td className="info_item">&nbsp;São Paulo (Sp)</td>
-                            </tr>
-                        </tbody>
-                </table>
+            <div>
+              <input
+                type="text"
+                className="input-titulo"
+                id="id"
+                name="id"
+                readOnly
+                value={catalogo.nome || ''}
+              />
+              <br />
+              <input
+                type="text"
+                className="input-titulo"
+                id="id"
+                name="id"
+                readOnly
+              />
             </div>
-            
-            
-        </section>
+            <div>
+              <button type="button" className="editar">
+                Saiba Mais
+              </button>
+            </div>
+          </section>
 
-        
+          <section>
+            <form action="" className="formulario">
+              <div className="info">
+                <label htmlFor="id" className="">
+                Nome da organização
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.nome || ''}
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                Nome do Representante:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                Email da organização:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.email || ''}
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                Número de celular:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.telefone || ''}
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                Cep:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.cep || ''}
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                Cnpj:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.cnpj || ''}
+                  
+                />
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="">
+                UF:
+                </label>
+                <input
+                  type="text"
+                  className=""
+                  id="id"
+                  name="id"
+                  readOnly
+                  value={catalogo.uf || ''}
+                  
+                />
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
 
-
-
-    </main>
-
-
-    <footer className="footergeral">
+      <footer className="footergeral">
         <section className="footercontent">
           <figure className="logofooter">
             <img id="logofooter" src={footer} alt="Logo Footer" />
@@ -126,19 +224,28 @@ function Perfil() {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={'/sobre'} >Sobre o Projeto</a>
-            <a id="link-footer-pt2" href={'/contato'} >Contato</a>
+            <a id="link-footer-pt2" href={"/sobre"}>
+              Sobre o Projeto
+            </a>
+            <a id="link-footer-pt2" href={"/contato"}>
+              Contato
+            </a>
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={'/politicas'} >Política de Privacidade</a>
-            <a id="link-footer-pt3" href={'/termos'} >Termos de Uso</a>
+            <a id="link-footer-pt3" href={"/politicas"}>
+              Política de Privacidade
+            </a>
+            <a id="link-footer-pt3" href={"/termos"}>
+              Termos de Uso
+            </a>
           </div>
 
           <div className="divisaodofooter2">
             <div className="origemdotrabalho">
               <div className="integrantesdiv">
-                <h2 id="itensfooter2">Integrantes:
+                <h2 id="itensfooter2">
+                  Integrantes:
                   <li id="itemfooter">02 Cauã Santana</li>
                   <li id="itemfooter">07 Gustavo Alves</li>
                   <li id="itemfooter">08 Gustavo Gomes</li>
@@ -150,10 +257,12 @@ function Perfil() {
                 </h2>
               </div>
               <div className="profediscfooter">
-                <h2 id="itensfooter2">ITB - FIEB
+                <h2 id="itensfooter2">
+                  ITB - FIEB
                   <li id="itemfooter">Brasílio Flores de Azevedo</li>
                 </h2>
-                <h2 id="itensfooter2">Curso
+                <h2 id="itensfooter2">
+                  Curso
                   <li id="itemfooter">Informática 2022 - 2024</li>
                 </h2>
               </div>
@@ -161,9 +270,8 @@ function Perfil() {
           </div>
         </section>
       </footer>
-
     </div>
-  )
+  );
 }
 
-export default Perfil
+export default Perfil;

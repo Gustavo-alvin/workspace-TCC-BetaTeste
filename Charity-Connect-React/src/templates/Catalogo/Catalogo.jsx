@@ -33,6 +33,10 @@ function Catalogo() {
       });
   }, []);
 
+  const ver = (id) => {
+    navigate(`/perfil/` + id)
+}
+
   return (
     <div>
       <header id="cabecalho">
@@ -98,9 +102,9 @@ function Catalogo() {
               <div className="info-ongs">
                 <h2>{ong.nome}</h2>
                 <p>{ong.descAtuacao}</p>
-                <a className="know-more" href="#">
+                <button type="button" className="know-more" onClick={() => ver(ong.id)}>
                   Saiba Mais
-                </a>
+                </button>
               </div>
             </li>
           ))}

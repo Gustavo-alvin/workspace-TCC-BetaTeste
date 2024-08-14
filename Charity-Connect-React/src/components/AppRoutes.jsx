@@ -26,7 +26,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/perfil/:id" element={<Perfil />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/contato" element={<Contato />} />
         <Route path="/politicas" element={<Politicas />} />
