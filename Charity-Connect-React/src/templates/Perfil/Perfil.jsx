@@ -112,7 +112,7 @@ function Perfil() {
             </div>
           </section>
 
-          <section>
+          <section className="info-ong">
             <form action="" className="formulario">
               <div className="info">
                 <label htmlFor="id" className="">
