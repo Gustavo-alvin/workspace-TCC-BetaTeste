@@ -63,8 +63,8 @@ function Catalogo() {
 
       <section>
         <div className="input-wrapper">
-          <label htmlFor="filter" className="sr-only">
-            Pesquisar
+          <label htmlFor="filter" className="label-pesquisa">
+
           </label>
           <input id="filter" type="text" placeholder="Pesquisar" />
         </div>

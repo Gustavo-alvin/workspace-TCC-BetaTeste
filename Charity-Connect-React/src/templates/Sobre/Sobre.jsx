@@ -48,7 +48,7 @@ const Sobre = () => {
 
         <section className="container__secundario">
             <p id="cahrity_closet" className="efeito__texto">CHARITY CONNECT</p>
-            <p id="texto">O projeto Charity Connect, uma inovadora aplicação desenvolvida para promover a conexão entre
+            <p id="texto-sobrenos">O projeto Charity Connect, uma inovadora aplicação desenvolvida para promover a conexão entre
                 organizações não-governamentais (ONGs) e potenciais doadores, abraça os princípios
                 fundamentais das Metas de Desenvolvimento Sustentável (ODS) estabelecidas pela ONU para 2030.
                 Ao facilitar a doação e sua redistribuição para indivíduos em situação de vulnerabilidade,
@@ -79,10 +79,10 @@ const Sobre = () => {
 
             <div className="textos5">
                 <p id="texto__3" className="efeito__texto">Nosso Impacto:</p>
-                <p> <strong> Conexão com Propósito:</strong> No Charity Connect™, promovemos a conexão entre doadores e
+                <p id="texto-sobrenos"> <strong> Conexão com Propósito:</strong> No Charity Connect™, promovemos a conexão entre doadores e
                     ONGs de maneira simples e eficaz. Através da nossa plataforma, você pode contribuir diretamente para
                     causas que importam, sabendo que suas doações fazem a diferença.</p><br/>
-                <p> <strong> ODS em Ação:</strong> Cada doação que você faz através do Charity Connect™
+                <p id="texto-sobrenos"> <strong> ODS em Ação:</strong> Cada doação que você faz através do Charity Connect™
                     contribui para diversas Metas de Desenvolvimento Sustentável da ONU. Desde a redução da pobreza até
                     a promoção da igualdade de gênero e o combate às mudanças climáticas, seu gesto solidário tem um
                     impacto social e ambiental significativo.<br/><br/>
@@ -106,10 +106,10 @@ const Sobre = () => {
                     alcançar as metas de desenvolvimento. O Charity Connect atua como um intermediário, conectando
                     doadores individuais, ONGs e a comunidade em geral para alcançar objetivos compartilhados. <br/><br/><div className="ods_img_mobile"><img src={ods17} id="logoods"/></div>
                 </p>
-                <p> <strong>Empoderando Comunidades: </strong>Ao doar, você está capacitando indivíduos em
+                <p id="texto-sobrenos"> <strong>Empoderando Comunidades: </strong>Ao doar, você está capacitando indivíduos em
                     situação de vulnerabilidade a se manterem aquecidos, confiantes e prontos para enfrentar desafios. É
                     uma maneira tangível de mostrar solidariedade e amor ao próximo.</p><br/>
-                <p> <strong>Sustentabilidade:</strong> Estamos comprometidos com a redução do desperdício e a
+                <p id="texto-sobrenos"> <strong>Sustentabilidade:</strong> Estamos comprometidos com a redução do desperdício e a
                     preservação do meio ambiente. Ao reutilizar, estamos contribuindo para um futuro mais
                     sustentável e consciente.</p><br/>
             </div>
