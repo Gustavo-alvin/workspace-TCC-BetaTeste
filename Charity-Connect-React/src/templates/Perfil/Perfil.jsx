@@ -115,7 +115,7 @@ function Perfil() {
           <section className="info-ong">
             <form action="" className="formulario">
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Nome da organização
                 </label>
                 <input
@@ -129,7 +129,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Nome do Representante:
                 </label>
                 <input
@@ -142,7 +142,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Email da organização:
                 </label>
                 <input
@@ -156,7 +156,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Número de celular:
                 </label>
                 <input
@@ -170,7 +170,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Cep:
                 </label>
                 <input
@@ -184,7 +184,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 Cnpj:
                 </label>
                 <input
@@ -198,7 +198,7 @@ function Perfil() {
                 />
               </div>
               <div className="info">
-                <label htmlFor="id" className="">
+                <label htmlFor="id" className="label-input">
                 UF:
                 </label>
                 <input
@@ -211,6 +211,7 @@ function Perfil() {
                   
                 />
               </div>
+              
             </form>
           </section>
         </div>
