@@ -54,7 +54,6 @@ const Login = () => {
                         </li>
                         <li>
                             <a
-                                style={{ "--clr": "#707bff" }}
                                 className="btn-entrar"
                                 id="itens"
                                 href="../html/login.html"

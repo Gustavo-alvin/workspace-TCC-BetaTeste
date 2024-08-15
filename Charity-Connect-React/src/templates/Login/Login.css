@@ -1,217 +1,219 @@
 .login-form {
-    margin: 50px auto;
-    width: 30em;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 5em;
-    text-align: left;
-  }
-  
-  .login-logo {
+  margin: 50px auto;
+  width: 30em;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5em;
+  text-align: left;
+}
 
-    text-align: center;justify-content: center;   
-     width: 15em;
-  }
-  
-  #img-logo-login{
-    border-radius: 20px;
-    text-align: center;
-  }
+.login-logo {
 
-  img .login-logo{
-    width: 5em;
-  }
+  text-align: center;
+  justify-content: center;
+  width: 15em;
+}
 
-  
-  /*------------------------------*/
+#img-logo-login {
+  border-radius: 20px;
+  text-align: center;
+}
+
+img .login-logo {
+  width: 5em;
+}
+
+
+/*------------------------------*/
 
 
 
 
 :root {
-    --black: #000000;
-    --background:#161b22;
-    --white: #ffffff;
-    --roxo: #8224fe;
-    --azul: #707cfb;
-    --rosa: #f952ff;
+  --black: #000000;
+  --background: #161b22;
+  --white: #ffffff;
+  --roxo: #8224fe;
+  --azul: #707cfb;
+  --rosa: #f952ff;
 }
 
-body{
-    background: var(--background);
-    box-sizing: border-box;
+body {
+  background: var(--background);
+  box-sizing: border-box;
 }
 
-.coracaocad{
-    display: flex;
-    justify-content: center;
-    padding-top: 4rem;
+.coracaocad {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
 }
 
 #coracao {
-    width: 150px;
+  width: 150px;
 }
 
 
 
 
-.login-section{
-    background-color: var(--white);
-    color: var(--black);
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-radius: 25px;
+.login-section {
+  background-color: var(--white);
+  color: var(--black);
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 25px;
 }
 
-#title-titulo-login{
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 30px;
-    font-weight: bolder;
-    text-align: center;
+#title-titulo-login {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
 }
 
-#text-login{
-    text-align: center;
-    font-size: 25px;
-    margin-top: 1em;
+#text-login {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 1em;
 }
 
-.container-btns{
-    display: grid;
-    justify-items: center;
-    gap: 2rem;
+.container-btns {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
 }
 
-.inputs{
-    margin-top: 50px;
-    display: grid;
+.inputs {
+  margin-top: 50px;
+  display: grid;
 }
 
-#input{
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    border-color: var(--azul);
-    background-color: var(--white);
-    font-weight: 600;
-    width: 300px;
-    text-align: left;
+#input {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border-color: var(--azul);
+  background-color: var(--white);
+  font-weight: 600;
+  width: 300px;
+  text-align: left;
 }
 
-#label{
-    margin-bottom: 30px ;
+#label {
+  margin-bottom: 30px;
 }
 
 #botao-form {
-    background:linear-gradient(to left, #707bff, #8224fe);
-    border-radius: 16px;
-    cursor: pointer;
-    color: var(--white);
-    font-weight: bold;
-    font-family: Arial;
-    font-size: 18px;
-    padding: 5px 38px;
-    text-decoration: none;
-    border: none;
-    
+  background: linear-gradient(to left, #707bff, #8224fe);
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 5px 38px;
+  text-decoration: none;
+  border: none;
+
 }
 
 #botao-form:hover {
-    background: linear-gradient(to left, #707bff, #8224fe);
-    background-color:linear-gradient(to left, #707bff, #8224fe);
-    transition-duration: 0.5s;
-    transform: scale(1.1);
+  background: linear-gradient(to left, #707bff, #8224fe);
+  background-color: linear-gradient(to left, #707bff, #8224fe);
+  transition-duration: 0.5s;
+  transform: scale(1.1);
 
 }
 
 #redirecionar:hover {
-    background: linear-gradient(to left, #707bff, #8224fe);
-    transition-duration: 0.5s;
-    transform: scale(1.1);
+  background: linear-gradient(to left, #707bff, #8224fe);
+  transition-duration: 0.5s;
+  transform: scale(1.1);
 }
 
 a {
-    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-    text-decoration: underline;
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: underline;
 }
 
-.login-logo{
+.login-logo {
   text-align: center;
   width: 100%;
 }
 
-#img-logo-login{
+#img-logo-login {
   width: 10em;
 }
 
-#title-titulo-login{
-  color:#000;
+#title-titulo-login {
+  color: #000;
   font-size: 35px;
 }
 
-#first-button{
+#first-button {
   background-color: #707bff;
-  color:#fff;
+  color: #fff;
 }
 
-#second-button{
+#second-button {
   background-color: #707bff;
-  color:#fff;
+  color: #fff;
 }
 
-#forgotpass{
+#forgotpass {
   margin-top: 5em;
 }
 
-.login-logo{
+.login-logo {
   display: flex;
   padding-top: 4em;
   margin: 0 auto;
 }
 
-#img-logo-login{
+#img-logo-login {
   text-align: center;
 }
 
-h1{
-  color:#000;
+h1 {
+  color: #000;
 }
 
-h2{
-  color:#000
+h2 {
+  color: #000
 }
 
-input{
-  color:#000;
+input {
+  color: #000;
 }
 
-p{
-  color:#000;
+p {
+  color: #000;
 }
 
-label{
-  color:#000;
+label {
+  color: #000;
 }
 
-#password{
+#password {
   width: 20em;
   margin: 0;
 }
 
-#email{
+#email {
   width: 20em;
   margin: 0;
 }
 
-@media screen and (max-width: 934px){
-   .login-section {
+@media screen and (max-width: 934px) {
+  .login-section {
     width: 100%;
     margin: 0;
-   } 
+  }
 
-   .coracaocad{
+  .coracaocad {
     padding-top: 6rem;
-   }
+  }
 }
+
