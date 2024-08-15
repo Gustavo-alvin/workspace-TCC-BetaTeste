@@ -366,7 +366,7 @@ ul {
 .perfil-principal{
     display: block;
     margin: auto;
-    background: yellow;
+    background: #000000;
     box-sizing: border-box;
     width: 60%;
     padding: 5em;
@@ -395,7 +395,16 @@ ul {
 }
 
 .info-ong{
+
+}
+
+input{
+    color: #ffffff;
     
+}
+
+.label-input{
+    color: #ffffff;
 }
 
 
