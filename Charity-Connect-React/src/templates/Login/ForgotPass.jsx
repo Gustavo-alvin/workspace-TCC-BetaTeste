@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/charityConnect.png";
 import './Login.css';
+import './ForgotPass.css';
 
 const ForgotPass = () => {
 
@@ -17,10 +18,11 @@ const ForgotPass = () => {
 
     return (
         <div className="container">
+            <div className="login-logo">
+                <img src={logo} alt="logo" id="logoforgot" />
+            </div>
             <form action="" className="login-form">
-                <div className="login-logo">
-                    <img src={logo} alt="logo" />
-                </div>
+
                 <h5 className="text-center">Recuperação de Senha</h5>
                 <div className="my-3">
                     <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
@@ -37,9 +39,9 @@ const ForgotPass = () => {
                     </p>
                 </div>
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button className="btn btn-warning fw-medium shadow" type="button"
+                    <button id="botaoforgot" className="btn btn-warning fw-medium shadow" type="button"
                         onClick={backto}>Cancelar</button>
-                    <button className="btn btn-success fw-medium shadow" type="submit"
+                    <button id="botaoforgot" className="btn btn-success fw-medium shadow" type="submit"
                         onClick={goto} >Solicitar Nova Senha</button>
                 </div>
             </form>

@@ -1,0 +1,31 @@
+.text-center{
+    color:#000;
+}
+
+#login-logo{
+    margin: auto;
+    display: block;
+}
+
+#logoforgot{
+    margin: auto;
+    display: block;
+    width: 20em;
+}
+
+.container{
+    display: block;
+}
+
+.login-form{
+    padding: 3em;
+}
+
+input{
+    text-align: left;
+}
+
+#botaoforgot{
+    background-color: #707cfb;
+    color: #fff;
+}
