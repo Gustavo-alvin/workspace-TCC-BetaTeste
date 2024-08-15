@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './Admin.css'
 
@@ -8,6 +8,7 @@ import footer from "../../assets/images/newshortlogobranca-12.png";
 import header from "../../assets/images/charityConnect.png";
 import ongs from "../../assets/images/usericon.png";
 import reclamacao from "../../assets/images/phone_icon.png"
+import AdminService from '../../services/AdminService';
 
 function Admin() {
     const navigate = useNavigate();

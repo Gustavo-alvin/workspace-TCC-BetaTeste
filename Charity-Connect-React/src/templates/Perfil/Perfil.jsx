@@ -81,7 +81,8 @@ function Perfil() {
         </nav>
       </header>
 
-      <main className="login-main">
+      <main className="minhaONg">
+      <form action="" className="formulario">
         <div className="perfil-principal">
           <section className="sessao-perfil">
             <div className="teste">
@@ -113,10 +114,10 @@ function Perfil() {
           </section>
 
           <section className="info-ong">
-            <form action="" className="formulario">
+            
               <div className="info">
                 <label htmlFor="id" className="label-input">
-                Nome da organização
+                Nome da organização:
                 </label>
                 <input
                   type="text"
@@ -138,6 +139,7 @@ function Perfil() {
                   id="id"
                   name="id"
                   readOnly
+                  value={catalogo.nomeRep || ''}
                   
                 />
               </div>
@@ -212,9 +214,10 @@ function Perfil() {
                 />
               </div>
               
-            </form>
+            
           </section>
         </div>
+        </form>
       </main>
 
       <footer className="footergeral">
