@@ -100,8 +100,8 @@ function Catalogo() {
                 <img src={ong.foto ? ong.foto : footer } alt="sorrisos do amanha " />
               </div>
               <div className="info-ongs">
-                <h2>{ong.nome}</h2>
-                <p>{ong.descAtuacao}</p>
+                <h2 id="titulo-ong">{ong.nome}</h2>
+                <p id="desc">{ong.descAtuacao}</p>
                 <button type="button" className="know-more" onClick={() => ver(ong.id)}>
                   Saiba Mais
                 </button>

@@ -418,6 +418,14 @@ input {
   font-weight: bold;
 }
 
+#titulo-ong{
+  color: var(--white);
+}
+
+#desc{
+  color: var(--white);
+}
+
 .input-wrapper i {
   position: absolute;
   bottom: 6.3rem;

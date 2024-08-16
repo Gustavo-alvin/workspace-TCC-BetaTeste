@@ -104,6 +104,7 @@ function Perfil() {
                 id="id"
                 name="id"
                 readOnly
+                value={catalogo.descAtuacao || ''}
               />
             </div>
             <div>
