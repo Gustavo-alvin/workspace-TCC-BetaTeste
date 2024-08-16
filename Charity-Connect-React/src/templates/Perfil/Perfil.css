@@ -363,7 +363,9 @@ ul {
 ===================================================================================*/
 
 .minhaONg{
-    padding: 5em;
+    padding-top: 8em;
+    padding-bottom: 5em;
+    
 }
 
 
@@ -371,7 +373,7 @@ ul {
     margin: auto;
     background: rgba(1, 1, 1, 0.404);
     box-sizing: border-box;
-    width: 60%;
+    width: 50%;
     border-radius: 10px;
     padding: 5em;
 }
@@ -391,7 +393,7 @@ ul {
 
 .sessao-perfil{
     display: grid;
-    grid-template-columns: 15em 35em 35em;
+    grid-template-columns: 15em 30em 25em;
     padding-bottom: 5em;
     
 }
