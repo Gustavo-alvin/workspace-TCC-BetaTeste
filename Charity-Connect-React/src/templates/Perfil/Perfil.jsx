@@ -13,6 +13,7 @@ function Perfil() {
   const objectValues = {
     id: null,
     nome: "",
+    nomeRep:"",
     email: "",
     senha: "",
     telefone: "",
@@ -89,26 +90,12 @@ function Perfil() {
               <img id="foto-perfil" src={ong2} alt="" />
             </div>
             <div>
-              <input
-                type="text"
-                className="input-titulo"
-                id="id"
-                name="id"
-                readOnly
-                value={catalogo.nome || ''}
-              />
+              <span id="nome-ong">{catalogo.nome}</span>
               <br />
-              <input
-                type="text"
-                className="input-titulo"
-                id="id"
-                name="id"
-                readOnly
-                value={catalogo.descAtuacao || ''}
-              />
+             <label htmlFor="">{catalogo.descAtuacao}</label>
             </div>
             <div>
-              <button type="button" className="editar">
+              <button type="button" id="botaocatalogo" className="editar">
                 Saiba Mais
               </button>
             </div>
@@ -120,99 +107,43 @@ function Perfil() {
                 <label htmlFor="id" className="label-input">
                 Nome da organização:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.nome || ''}
-                  
-                />
+                <label className="area-contato" htmlFor="">{catalogo.nome}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 Nome do Representante:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.nomeRep || ''}
-                  
-                />
+                <label className="area-contato" htmlFor="">{catalogo.nomeRep}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 Email da organização:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.email || ''}
-                  
-                />
+                <label className="area-contato" htmlFor="">{catalogo.email}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 Número de celular:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.telefone || ''}
-                  
-                />
+                <label  className="area-contato" htmlFor="">{catalogo.telefone}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 Cep:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.cep || ''}
-                  
-                />
+               <label className="area-contato" htmlFor="">{catalogo.cep}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 Cnpj:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.cnpj || ''}
-                  
-                />
+                <label className="area-contato" htmlFor="">{catalogo.cnpj}</label>
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
                 UF:
                 </label>
-                <input
-                  type="text"
-                  className=""
-                  id="id"
-                  name="id"
-                  readOnly
-                  value={catalogo.uf || ''}
-                  
-                />
+                <label className="area-contato" htmlFor="">{catalogo.uf}</label>
               </div>
               
             

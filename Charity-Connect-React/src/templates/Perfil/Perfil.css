@@ -375,7 +375,7 @@ ul {
     box-sizing: border-box;
     width: 50%;
     border-radius: 10px;
-    padding: 5em;
+    padding: 2em;
 }
 
 #foto-perfil{
@@ -384,7 +384,7 @@ ul {
 }
 
 .input-titulo{
-    width: 50%;
+    margin: 0;
 }
 
 .editar{
@@ -392,8 +392,9 @@ ul {
 }
 
 .sessao-perfil{
-    display: grid;
-    grid-template-columns: 15em 30em 25em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     padding-bottom: 5em;
     
 }
@@ -404,10 +405,16 @@ ul {
 
 .info-ong{
     display: grid;
+    padding-left: 5em;
+    
 }
 .info{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+#nome-ong{
+    font-size: 2em;
 }
 
 input{
@@ -419,6 +426,17 @@ input{
     color: #ffffff;
 }
 
+.area-contato{
+    color: #ffffff;
+}
+
+#botaocatalogo{
+    background-color: #707bff;
+    color: #fff;
+    font-weight: 500;
+    border-style: none;
+    border-radius: 10px;
+  }
 
 
 
