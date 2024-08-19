@@ -90,12 +90,12 @@ function Perfil() {
               <img id="foto-perfil" src={ong2} alt="" />
             </div>
             <div>
-              <span>{catalogo.nome}</span>
+              <span id="nome-ong">{catalogo.nome}</span>
               <br />
-             <label htmlFor="">{catalogo.desAtuacao}</label>
+             <label htmlFor="">{catalogo.descAtuacao}</label>
             </div>
             <div>
-              <button type="button" className="editar">
+              <button type="button" id="botaocatalogo" className="editar">
                 Saiba Mais
               </button>
             </div>
