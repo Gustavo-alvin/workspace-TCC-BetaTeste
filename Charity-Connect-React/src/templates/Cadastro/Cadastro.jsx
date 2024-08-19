@@ -6,8 +6,41 @@ import capa from "../../assets/images/background1homepage.png";
 import coracao from "../../assets/images/newshortlogobranca-12.png";
 import footer from "../../assets/images/newshortlogobranca-12.png";
 import './Cadastro.css';
+import { useEffect, useState } from "react";
 
 const Cadastro = () => {
+
+  const { id } = useParams();
+
+  const objectValues = {
+    id: null,
+    nome: "",
+    nomeRep:"",
+    email: "",
+    senha: "",
+    telefone: "",
+    descAtuacao: "",
+    foto: null,
+    cep: "",
+    dataCadastro:"",
+    sobreNos:"",
+    cnpj: "",
+    uf: "",
+    statusOng: "",
+  };
+  const [cadastro, setCadastro] = useState(objectValues);
+
+  useEffect(() => {
+    CadastroService.findById(id)
+      .then((response) => {
+        const cadastro = response.data;
+        setCadastro(cadastro);
+        console.log(cadastro);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <header id="cabecalho">
@@ -50,27 +83,27 @@ const Cadastro = () => {
               <div className="form-1">
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
-                  <input id="inputnomeong" type="text" name="nome_ong" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" />
+                  <input value={mensagem.nome || ''} id="inputnomeong" type="text" name="nome_ong" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
-                  <input id="inputnomerep" type="text" name="nome_rep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" />
+                  <input value={mensagem.nomeRep || ''} id="inputnomerep" type="text" name="nome_rep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Email da organização</h1>
-                  <input id="inputemail" type="email" name="email_ong" maxLength="100" placeholder="email@email.com" required />
+                  <input id="inputemail" value={mensagem.email || ''} type="email" name="email_ong" maxLength="100" placeholder="email@email.com" required />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
-                  <input type="text" name="cnpj_ong" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" />
+                  <input type="text" value={mensagem.cnpj || ''} name="cnpj_ong" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Número de celular</h1>
-                  <input type="tel" id="inputnum" name="celular" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required />
+                  <input type="tel" value={mensagem.telefone || ''} id="inputnum" name="celular" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required />
                 </label>
 
                 <label id="label-uf">UF <br></br>
-                  <select id="selectuf">
+                  <select value={mensagem.uf || ''} id="selectuf">
                     <option value="" selected>Selecione a UF</option>
                     <option value="AC">Acre (AC)</option>
                     <option value="AL">Alagoas (AL)</option>
@@ -107,7 +140,7 @@ const Cadastro = () => {
                   <label id="label-end">
                     <h1 id="nome-input">CEP</h1>
                     </label><br></br>
-                  <input type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
+                  <input value={mensagem.cep || ''} type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
                 </div>
 
               </div>
@@ -115,7 +148,7 @@ const Cadastro = () => {
               <div className="form-2">
                 <label id="label">
                   <h1 id="nome-input">Descrição de Atuação</h1>
-                  <textarea id="textarea-form" cols="40" rows="6" maxLength="200"></textarea>
+                  <textarea value={mensagem.descAtuacao || ''} id="textarea-form" cols="40" rows="6" maxLength="200"></textarea>
                 </label>
                 <br />
                 <label id="label">
@@ -125,12 +158,12 @@ const Cadastro = () => {
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Senha: </h1>
-                  <input type="password" id="inputsenha" name="senha" maxLength="100" required />
+                  <input value={mensagem.senha || ''} type="password" id="inputsenha" name="senha" maxLength="100" required />
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input"> Confirmação de Senha:</h1>
-                  <input type="password" id="inputsenha1" name="confirmar_senha" maxLength="100" required />
+                  <input value={mensagem.senha || ''} type="password" id="inputsenha1" name="confirmar_senha" maxLength="100" required />
                 </label>
                 <div className="g-recaptcha" data-sitekey="6Lf5Uc8pAAAAAFC3sVTK7vsUL7q-fIjmHaihZ15N"></div>
                 <div id="successMessage" className="success-message">A confirmação do cadastro será enviada por email.</div>
