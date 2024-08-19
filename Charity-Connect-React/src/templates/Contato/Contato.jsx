@@ -9,12 +9,12 @@ import coracao from "../../assets/images/newshortlogobranca-12.png"
 
 
 
-                
+
 const Contato = () => {
   return (
     <div>
 
-<header id="cabecalho">
+      <header id="cabecalho">
         <a href="#" id="logo" >
           <img src={header} style={{ "width": '16rem' }} alt="Logo" />
         </a>
@@ -38,97 +38,95 @@ const Contato = () => {
 
       <main className="contato">
 
-    <div className="coracaocad">
-        <figure className="coracaofigure">
-            <img id="coracao" src={coracao}/>
-        </figure>
-    </div>
+        <div className="coracaocad">
+          <figure className="coracaofigure">
+            <img id="coracao" src={coracao} />
+          </figure>
+        </div>
 
-    <section className="formulario-section">
+        <section className="formulario-section">
 
-        <form className="form" method="post" action="">
+          <form className="form" method="post" action="">
 
             <div className="desc-form">
 
-                <h1 id="desc-h1">
-                  Charity Connect
-                </h1>
-                <h2 id="title-form">
-                    Formulário para Contato
-                </h2>
+              <h1 id="desc-h1">
+                Charity Connect
+              </h1>
+              <h2 id="title-form">
+                Formulário para Contato
+              </h2>
 
             </div>
 
             <section className="inputs-form">
 
-                <div className="form-1">
+              <div className="form-1">
 
-                    <label id="label">
-                        <h1 id="name-caixa">
-                            MOTIVO DO CONTATO:
-                        </h1>
-                        <input id="inputmotivo" type="text" name="motivo_contato" 
-                            placeholder="Digite motivo de contato"  required/>
-                    </label><br />
-                    <label id="label">
-                        <h1 id="name-caixa">
-                            SUA PERGUNTA
-                        </h1>
-                        <input id="inputpergunta" type="text" name="pergunta" 
-                            placeholder="Faça sua pergunta"  required/>
-                    </label><br />
+                <label id="label">
+                  <h1 id="name-caixa">
+                    MOTIVO DO CONTATO:
+                  </h1>
+                  <input id="inputmotivo" type="text" name="motivo_contato"
+                    placeholder="Digite motivo de contato" required />
+                </label><br />
+                <label id="label">
+                  <h1 id="name-caixa">
+                    MENSAGEM
+                  </h1>
+                  <textarea id="inputpergunta" />
+                </label><br />
 
-                    <div className="form-2">
-                        <label id="label">
-                            <h1 id="name-caixa">
-                                NOME:
-                            </h1>
-                            <input className="form-2__inputs" id="nome" type="text" name="nome_ong" 
-                                placeholder="Digite seu nome" pattern="[a-zA-Záãâéêíóôõú\s]+$"  required/>
-                        </label>
-    
-                        <label id="label">
-                            <h1 id="name-caixa">
-                                SOBRENOME:
-                            </h1>
-                            <input className="form-2__inputs" id="sobrenome" type="text" name="nome_ong" 
-                                placeholder="Digite seu sobrenome"  pattern="[a-zA-Záãâéêíóôõú\s]+$" required/>
-                        </label>
-                    </div><br />
+                <div className="form-2">
+                  <label id="label">
+                    <h1 id="name-caixa">
+                      NOME:
+                    </h1>
+                    <input className="form-2__inputs" id="nome" type="text" name="nome_ong"
+                      placeholder="Digite seu nome" pattern="[a-zA-Záãâéêíóôõú\s]+$" required />
+                  </label>
+                  <br></br>
+                  <label id="label">
+                    <h1 id="name-caixa">
+                      SOBRENOME:
+                    </h1>
+                    <input className="form-2__inputs" id="sobrenome" type="text" name="nome_ong"
+                      placeholder="Digite seu sobrenome" pattern="[a-zA-Záãâéêíóôõú\s]+$" required />
+                  </label>
+                </div><br />
 
-                    <label id="label">
-                        <h1 id="name-caixa">
-                            ENDEREÇO DE E-MAIL:
-                        </h1>
-                        <input id="email" type="email" name="email" 
-                            placeholder="Digite seu email" required/>
-                    </label><br />
+                <label id="label">
+                  <h1 id="name-caixa">
+                    ENDEREÇO DE E-MAIL:
+                  </h1>
+                  <input id="inputemail" type="email" name="email"
+                    placeholder="Digite seu email" required />
+                </label><br />
 
-                   <div className="form-3">
-                   
+                <div className="form-3">
 
-                    <label id="label">
-                        <h1 id="name-caixa">
-                            Número de celular
-                        </h1>
-                        <input className="form-3__inputs" type="tel" id="tel" name="celular" placeholder="(XX) XXXXX-XXXX"
-                            pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"  required/>
-                    </label>
-                   </div>
+
+                  <label id="label">
+                    <h1 id="name-caixa">
+                      Número de celular
+                    </h1>
+                    <input type="tel" id="tel" name="celular" placeholder="(XX)XXXXXXXXX" onInput={() => mascara(this)} maxLength="11" required />
+                  </label>
                 </div>
-                
+              </div>
+
             </section>
 
-           <div className="btn-form">
-            <button className="botao-form" >Enviar</button>
-           </div>
+            <div className="btn-form">
+              <button className="botao-form" >Enviar</button>
+            </div>
 
-        </form>
+          </form>
 
-    </section>
+        </section>
 
-    
-</main>
+
+      </main>
 
 
       <footer className="footergeral">

@@ -801,3 +801,48 @@ label {
         border-bottom: 1px solid var(--white);
     }
 }
+
+.inputs-form{
+    padding: 0;
+    margin: 0;
+    display: grid;
+}
+
+#inputmotivo{
+    margin: 0;
+    width: 30em;
+    margin-top: 0.5em;
+}
+
+#inputpergunta{
+    margin: 0;
+    margin-top: 0.5em;
+    width: 30em;
+    height: 10em;
+}
+
+
+
+#nome{
+    margin:0;
+    width: 30em;
+    margin-top: 0.5em;
+}
+
+#sobrenome{
+    margin: 0;
+    width: 30em;
+    margin-top: 0.5em;
+}
+
+#inputemail{
+    margin:0;
+    width: 30em;
+    margin-top: 0.5em;
+}
+
+#tel{
+    margin: 0;
+    width: 30em;
+    margin-top: 0.5em;
+}
