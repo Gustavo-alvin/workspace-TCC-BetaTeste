@@ -144,3 +144,8 @@ input{
     border-radius: 10px;
     background-color: #707cfb;
 }
+
+#inputemail{
+    width: 20em;
+    margin-left: 7.3em;
+}
