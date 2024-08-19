@@ -102,7 +102,7 @@ function Catalogo() {
               <div className="info-ongs">
                 <h2 id="titulo-ong">{ong.nome}</h2>
                 <p id="desc">{ong.descAtuacao}</p>
-                <button type="button" className="know-more" onClick={() => ver(ong.id)}>
+                <button type="button" className="know-more" onClick={() => ver(ong.id)} id="botaocatalogo">
                   Saiba Mais
                 </button>
               </div>

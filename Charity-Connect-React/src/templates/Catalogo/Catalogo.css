@@ -686,3 +686,11 @@ section{
   right:0;
   margin: 0;
 }
+
+#botaocatalogo{
+  background-color: #707bff;
+  color: #fff;
+  font-weight: 500;
+  border-style: none;
+  border-radius: 10px;
+}
