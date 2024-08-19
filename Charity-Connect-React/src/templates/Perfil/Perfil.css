@@ -384,7 +384,7 @@ ul {
 }
 
 .input-titulo{
-    width: 50%;
+    margin: 0;
 }
 
 .editar{
@@ -392,8 +392,9 @@ ul {
 }
 
 .sessao-perfil{
-    display: grid;
-    grid-template-columns: 15em 30em 25em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     padding-bottom: 5em;
     
 }
@@ -416,6 +417,10 @@ input{
 }
 
 .label-input{
+    color: #ffffff;
+}
+
+.area-contato{
     color: #ffffff;
 }
 
