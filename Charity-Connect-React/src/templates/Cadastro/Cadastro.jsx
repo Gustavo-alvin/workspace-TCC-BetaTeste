@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Sidebar from '../../components/Menu/Sidebar';
 import test from "../../assets/images/charityConnect.png";
@@ -7,10 +7,9 @@ import coracao from "../../assets/images/newshortlogobranca-12.png";
 import footer from "../../assets/images/newshortlogobranca-12.png";
 import './Cadastro.css';
 import { useEffect, useState } from "react";
+import CadastroService from "../../services/CadastroService";
 
 const Cadastro = () => {
-
-  const { id } = useParams();
 
   const objectValues = {
     id: null,
@@ -28,19 +27,39 @@ const Cadastro = () => {
     uf: "",
     statusOng: "",
   };
-  const [cadastro, setCadastro] = useState(objectValues);
+  
 
-  useEffect(() => {
-    CadastroService.findById(id)
-      .then((response) => {
-        const cadastro = response.data;
-        setCadastro(cadastro);
-        console.log(cadastro);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const [cadastro, setCadastro] = useState(objectValues);
+    const [formData, setFormData] = useState({});
+    const [successful, setSuccessful] = useState(false);
+    const [message, setMessage] = useState();
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData(formData => ({ ...formData, [name]: value }));
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setSuccessful(false);
+
+  CadastroService.create(formData).then(
+      (response) => {
+          setMessage(response.data.message);
+          setSuccessful(true);
+          /*window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          })*/
+      }, (error) => {
+          const message = error.response.data.message;
+          setMessage(message);
+      }
+  )
+}
+
+
   return (
     <div>
       <header id="cabecalho">
@@ -83,55 +102,60 @@ const Cadastro = () => {
               <div className="form-1">
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
-                  <input value={mensagem.nome || ''} id="inputnomeong" type="text" name="nome_ong" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" />
+                  <input defaultValue={cadastro.nome || ''}  id="inputnomeong"  type="text" name="nome" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" 
+                  onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
-                  <input value={mensagem.nomeRep || ''} id="inputnomerep" type="text" name="nome_rep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" />
+                  <input value={cadastro.nomeRep || ''} id="inputnomerep" type="text" name="nomeRep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" 
+                  onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Email da organização</h1>
-                  <input id="inputemail" value={mensagem.email || ''} type="email" name="email_ong" maxLength="100" placeholder="email@email.com" required />
+                  <input id="inputemail" value={cadastro.email || ''} type="email" name="email" maxLength="100" placeholder="email@email.com" required 
+                  onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
-                  <input type="text" value={mensagem.cnpj || ''} name="cnpj_ong" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" />
+                  <input type="text" value={cadastro.cnpj || ''} name="cnpj" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" 
+                  onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Número de celular</h1>
-                  <input type="tel" value={mensagem.telefone || ''} id="inputnum" name="celular" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required />
+                  <input type="tel" value={cadastro.telefone || ''} name="telefone" id="inputnum" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required 
+                  onChange={handleChange} />
                 </label>
 
                 <label id="label-uf">UF <br></br>
-                  <select value={mensagem.uf || ''} id="selectuf">
-                    <option value="" selected>Selecione a UF</option>
-                    <option value="AC">Acre (AC)</option>
-                    <option value="AL">Alagoas (AL)</option>
-                    <option value="AP">Amapá (AP)</option>
-                    <option value="AM">Amazonas (AM)</option>
-                    <option value="BA">Bahia (BA)</option>
-                    <option value="CE">Ceará (CE)</option>
-                    <option value="DF">Distrito Federal (DF)</option>
-                    <option value="ES">Espírito Santo (ES)</option>
-                    <option value="GO">Goiás (GO)</option>
-                    <option value="MA">Maranhão (MA)</option>
-                    <option value="MT">Mato Grosso (MT)</option>
-                    <option value="MS">Mato Grosso do Sul (MS)</option>
-                    <option value="MG">Minas Gerais (MG)</option>
-                    <option value="PA">Pará (PA)</option>
-                    <option value="PB">Paraíba (PB)</option>
-                    <option value="PR">Paraná (PR)</option>
-                    <option value="PE">Pernambuco (PE)</option>
-                    <option value="PI">Piauí (PI)</option>
-                    <option value="RJ">Rio de Janeiro (RJ)</option>
-                    <option value="RN">Rio Grande do Norte (RN)</option>
-                    <option value="RS">Rio Grande do Sul (RS)</option>
-                    <option value="RO">Rondônia (RO)</option>
-                    <option value="RR">Roraima (RR)</option>
-                    <option value="SC">Santa Catarina (SC)</option>
-                    <option value="SP">São Paulo (SP)</option>
-                    <option value="SE">Sergipe (SE)</option>
-                    <option value="TO">Tocantins (TO)</option>
+                  <select defaultValue={''} onChange={(e) => handleChange(e)} name="uf" id="selectuf">
+                    <option value={''} disabled>Selecione a UF</option>
+                    <option value={"AC"}>Acre (AC)</option>
+                    <option value={"AL"}>Alagoas (AL)</option>
+                    <option value={"AP"}>Amapá (AP)</option>
+                    <option value={"AM"}>Amazonas (AM)</option>
+                    <option value={"BA"}>Bahia (BA)</option>
+                    <option value={"CE"}>Ceará (CE)</option>
+                    <option value={"DF"}>Distrito Federal (DF)</option>
+                    <option value={"ES"}>Espírito Santo (ES)</option>
+                    <option value={"GO"}>Goiás (GO)</option>
+                    <option value={"MA"}>Maranhão (MA)</option>
+                    <option value={"MT"}>Mato Grosso (MT)</option>
+                    <option value={"MS"}>Mato Grosso do Sul (MS)</option>
+                    <option value={"MG"}>Minas Gerais (MG)</option>
+                    <option value={"PA"}>Pará (PA)</option>
+                    <option value={"PB"}>Paraíba (PB)</option>
+                    <option value={"PR"}>Paraná (PR)</option>
+                    <option value={"PE"}>Pernambuco (PE)</option>
+                    <option value={"PI"}>Piauí (PI)</option>
+                    <option value={"RJ"}>Rio de Janeiro (RJ)</option>
+                    <option value={"RN"}>Rio Grande do Norte (RN)</option>
+                    <option value={"RS"}>Rio Grande do Sul (RS)</option>
+                    <option value={"RO"}>Rondônia (RO)</option>
+                    <option value={"RR"}>Roraima (RR)</option>
+                    <option value={"SC"}>Santa Catarina (SC)</option>
+                    <option value={"SP"}>São Paulo (SP)</option>
+                    <option value={"SE"}>Sergipe (SE)</option>
+                    <option value={"TO"}>Tocantins (TO)</option>
                   </select>
                 </label>
 
@@ -140,7 +164,8 @@ const Cadastro = () => {
                   <label id="label-end">
                     <h1 id="nome-input">CEP</h1>
                     </label><br></br>
-                  <input value={mensagem.cep || ''} type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required />
+                  <input value={cadastro.cep || ''}  type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required 
+                  onChange={handleChange} />
                 </div>
 
               </div>
@@ -148,7 +173,7 @@ const Cadastro = () => {
               <div className="form-2">
                 <label id="label">
                   <h1 id="nome-input">Descrição de Atuação</h1>
-                  <textarea value={mensagem.descAtuacao || ''} id="textarea-form" cols="40" rows="6" maxLength="200"></textarea>
+                  <textarea value={cadastro.descAtuacao || ''} name="descAtuacao" id="textarea-form" cols="40" rows="6" maxLength="200" onChange={handleChange}></textarea>
                 </label>
                 <br />
                 <label id="label">
@@ -158,12 +183,14 @@ const Cadastro = () => {
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Senha: </h1>
-                  <input value={mensagem.senha || ''} type="password" id="inputsenha" name="senha" maxLength="100" required />
+                  <input value={cadastro.senha || ''} type="password" id="inputsenha" name="senha" maxLength="100" required 
+                  onChange={handleChange} />
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input"> Confirmação de Senha:</h1>
-                  <input value={mensagem.senha || ''} type="password" id="inputsenha1" name="confirmar_senha" maxLength="100" required />
+                  <input value={cadastro.senha || ''} type="password" id="inputsenha1" name="senha" maxLength="100" required 
+                  onChange={handleChange}/>
                 </label>
                 <div className="g-recaptcha" data-sitekey="6Lf5Uc8pAAAAAFC3sVTK7vsUL7q-fIjmHaihZ15N"></div>
                 <div id="successMessage" className="success-message">A confirmação do cadastro será enviada por email.</div>
