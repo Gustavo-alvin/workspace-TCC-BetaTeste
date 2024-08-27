@@ -11,53 +11,39 @@ import CadastroService from "../../services/CadastroService";
 
 const Cadastro = () => {
 
-  const objectValues = {
-    id: null,
-    nome: "",
-    nomeRep:"",
-    email: "",
-    senha: "",
-    telefone: "",
-    descAtuacao: "",
-    foto: null,
-    cep: "",
-    dataCadastro:"",
-    sobreNos:"",
-    cnpj: "",
-    uf: "",
-    statusOng: "",
-  };
-  
-
-  const [cadastro, setCadastro] = useState(objectValues);
-    const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({});
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState();
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormData(formData => ({ ...formData, [name]: value }));
-}
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setFormData(formData => ({ ...formData, [name]: value }));
+    }
+/*
+    const onChangeType = (e) => {
+        console.log(e.target.value)
+        setNivel(e.target.value);
+    }
+*/
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSuccessful(false);
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  setSuccessful(false);
-
-  CadastroService.create(formData).then(
-      (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-          /*window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          })*/
-      }, (error) => {
-          const message = error.response.data.message;
-          setMessage(message);
-      }
-  )
-}
+        CadastroService.create(formData).then(
+            (response) => {
+                setMessage(response.data.message);
+                setSuccessful(true);
+                /*window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                })*/
+            }, (error) => {
+                const message = error.response.data.message;
+                setMessage(message);
+            }
+        )
+    }
 
 
   return (
@@ -92,7 +78,7 @@ const handleSubmit = (e) => {
         </div>
 
         <section className="formulario-section">
-          <form id="myForm" className="form" action="" method="post" onSubmit={() => validarForm()}>
+          <form id="myForm" className="form" action="" method="post" onSubmit={handleSubmit}>
             <div className="desc-form">
               <h1 id="desc-h1">Charity Connect</h1>
               <h2 id="title-form">Cadastro de ONG</h2>
@@ -102,27 +88,27 @@ const handleSubmit = (e) => {
               <div className="form-1">
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
-                  <input defaultValue={cadastro.nome || ''}  id="inputnomeong"  type="text" name="nome" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" 
+                  <input defaultValue={formData.nome || ''}  id="inputnomeong"  type="text" name="nome" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" 
                   onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
-                  <input value={cadastro.nomeRep || ''} id="inputnomerep" type="text" name="nomeRep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" 
+                  <input defaultValue={formData.nomeRep || ''} id="inputnomerep" type="text" name="nomeRep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" 
                   onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Email da organização</h1>
-                  <input id="inputemail" value={cadastro.email || ''} type="email" name="email" maxLength="100" placeholder="email@email.com" required 
+                  <input id="inputemail" defaultValue={formData.email || ''} type="email" name="email" maxLength="100" placeholder="email@email.com" required 
                   onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
-                  <input type="text" value={cadastro.cnpj || ''} name="cnpj" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" 
+                  <input type="text" defaultValue={formData.cnpj || ''} name="cnpj" id="cnpj" placeholder="CNPJ (apenas números)" required pattern="[0-9]{14}" maxLength="14" 
                   onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Número de celular</h1>
-                  <input type="tel" value={cadastro.telefone || ''} name="telefone" id="inputnum" placeholder="(XX) XXXXX-XXXX" onInput={() => mascara(this)} maxLength="14" required 
+                  <input type="tel" defaultValue={formData.telefone || ''} name="telefone" id="inputnum" placeholder="(XX) XXXXX-XXXX"  maxLength="14" required 
                   onChange={handleChange} />
                 </label>
 
@@ -164,7 +150,7 @@ const handleSubmit = (e) => {
                   <label id="label-end">
                     <h1 id="nome-input">CEP</h1>
                     </label><br></br>
-                  <input value={cadastro.cep || ''}  type="text" id="cep" name="cep" placeholder="00000-000" onInput={() => mascaraCEP(this)} maxLength="9" required 
+                  <input defaultValue={formData.cep || ''}  type="text" id="cep" name="cep" placeholder="00000-000"  maxLength="9" required 
                   onChange={handleChange} />
                 </div>
 
@@ -173,27 +159,28 @@ const handleSubmit = (e) => {
               <div className="form-2">
                 <label id="label">
                   <h1 id="nome-input">Descrição de Atuação</h1>
-                  <textarea value={cadastro.descAtuacao || ''} name="descAtuacao" id="textarea-form" cols="40" rows="6" maxLength="200" onChange={handleChange}></textarea>
+                  <textarea defaultValue={formData.descAtuacao || ''} name="descAtuacao" id="textarea-form" cols="40" rows="6" maxLength="200" onChange={handleChange}></textarea>
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Upload de foto de perfil</h1>
-                  <input type="file" id="foto" name="foto" accept="image/*" required />
+                  <input type="file" id="foto" name="foto" accept="image/*" required 
+                  onChange={handleChange} />
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Senha: </h1>
-                  <input value={cadastro.senha || ''} type="password" id="inputsenha" name="senha" maxLength="100" required 
+                  <input defaultValue={formData.senha || ''} type="password" id="inputsenha" name="senha" maxLength="100" required 
                   onChange={handleChange} />
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input"> Confirmação de Senha:</h1>
-                  <input value={cadastro.senha || ''} type="password" id="inputsenha1" name="senha" maxLength="100" required 
+                  <input defaultValue={formData.senha || ''} type="password" id="inputsenha1" name="senha" maxLength="100" required 
                   onChange={handleChange}/>
                 </label>
-                <div className="g-recaptcha" data-sitekey="6Lf5Uc8pAAAAAFC3sVTK7vsUL7q-fIjmHaihZ15N"></div>
-                <div id="successMessage" className="success-message">A confirmação do cadastro será enviada por email.</div>
+                
+                
               </div>
             </section>
 
@@ -202,7 +189,7 @@ const handleSubmit = (e) => {
                 <button className="botao-form-cadastro" id="botao-form" type="reset">Reset</button>
               </div>
               <div>
-                <button className="botao-form-cadastro" id="botao-form" type="submit" onClick={() => validarCNPJ()} data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>
+                <button className="botao-form-cadastro" id="botao-form-cadastro" type="submit"  >
                   Cadastrar
                 </button>
               </div>
