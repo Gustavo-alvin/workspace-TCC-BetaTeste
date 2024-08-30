@@ -26,9 +26,10 @@ const Cadastro = () => {
         setNivel(e.target.value);
     }
 */
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setSuccessful(false);
+        console.log('Dados do formulário:', formData);
 
         CadastroService.create(formData).then(
             (response) => {
@@ -78,7 +79,8 @@ const Cadastro = () => {
         </div>
 
         <section className="formulario-section">
-          <form id="myForm" className="form" action="" method="post" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}  id="myForm" className="form"  method="post"   >  
+          
             <div className="desc-form">
               <h1 id="desc-h1">Charity Connect</h1>
               <h2 id="title-form">Cadastro de ONG</h2>
@@ -88,12 +90,12 @@ const Cadastro = () => {
               <div className="form-1">
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
-                  <input defaultValue={formData.nome || ''}  id="inputnomeong"  type="text" name="nome" maxLength="100" placeholder="Digite o nome da ONG" required pattern="[A-Za-z]+" 
+                  <input defaultValue={formData.nome || ''}  id="inputnomeong"  type="text" name="nome" maxLength="100" placeholder="Digite o nome da ONG" required 
                   onChange={handleChange} />
                 </label>
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
-                  <input defaultValue={formData.nomeRep || ''} id="inputnomerep" type="text" name="nomeRep" maxLength="100" placeholder="Digite o nome do Representante" required pattern="[A-Za-z]+[A-Za-zÀ-ÿ\s]+" 
+                  <input defaultValue={formData.nomeRep || ''} id="inputnomerep" type="text" name="nomeRep" maxLength="100" placeholder="Digite o nome do Representante" required 
                   onChange={handleChange} />
                 </label>
                 <label id="label">

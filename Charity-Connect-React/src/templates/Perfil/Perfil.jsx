@@ -123,7 +123,8 @@ function Perfil() {
               </div>
               <div className="info">
                 <label htmlFor="id" className="label-input">
-                Número de celular:
+                Número 
+                para contato:
                 </label>
                 <label  className="area-contato" htmlFor="">{catalogo.telefone}</label>
               </div>
