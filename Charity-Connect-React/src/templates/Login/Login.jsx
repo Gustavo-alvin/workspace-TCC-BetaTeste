@@ -1,12 +1,30 @@
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/newshortlogobranca-12.png';
 import test from "../../assets/images/charityConnect.png";
+import LoginService from '../../services/LoginService';
 
 import './Login.css';
 
 const Login = () => {
-
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    const handleLogin = async (event) => {
+        event.preventDefault(); // Previne a submissão padrão do formulário
+        try {
+            const response = await LoginService.signin(email, senha);
+            if (response) {
+                // Redireciona para a página principal após login bem-sucedido
+                navigate('/');
+            }
+        } catch (err) {
+            // Define a mensagem de erro se houver um problema com as credenciais
+            setError('Dados Incorretos!!!');
+        }
+    }
 
     const goto = () => {
         navigate("/");
@@ -15,7 +33,6 @@ const Login = () => {
     const backto = () => {
         navigate("/cadastro");
     }
-
 
     return (
         <div>
@@ -69,9 +86,8 @@ const Login = () => {
                 <img src={logo} alt="logo" id="img-logo-login" />
             </div>
 
-            <form action="" className="login-form">
-
-                <div class="titulo-login">
+            <form className="login-form" onSubmit={handleLogin}>
+                <div className="titulo-login">
                     <h1 id="title-titulo-login">
                         Charity Connect
                     </h1>
@@ -82,29 +98,58 @@ const Login = () => {
 
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
-                    <input type="email" id="email" className="form-control text-center fw-medium shadow" />
+                    <input
+                        type="email"
+                        id="email"
+                        className="form-control text-center fw-medium shadow"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
                 </div>
                 <div>
                     <label htmlFor="password" className="form-label mb-0 fw-bold">Senha:</label>
-                    <input type="password" id="password" className="form-control text-center fw-medium shadow" />
+                    <input
+                        type="password"
+                        id="password"
+                        className="form-control text-center fw-medium shadow"
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)}
+                        required
+                    />
                 </div>
                 <div className="d-flex flex-row-reverse mt-1">
                     <p className="fw-bold fst-italic opacity-75 me-1">Esqueceu a senha?
                         <Link to={'/forgotpass'} id="forgotpass"> Clique aqui.</Link>
                     </p>
                 </div>
-                <div className="d-flex justify-content-center my-1 d-none" id="infos">
-                    <p className="fw-bold fst-italic text-danger">
-                        Dados Incorretos!!!
-                    </p>
-                </div>
+                {error && (
+                    <div className="d-flex justify-content-center my-1">
+                        <p className="fw-bold fst-italic text-danger">
+                            {error}
+                        </p>
+                    </div>
+                )}
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button className="btn btn-warning fw-medium shadow" type="button" id="first-button" onClick={backto}>Cadastrar</button>
-                    <button className="btn btn-success fw-medium shadow" type="submit" id="second-button" onClick={goto} >Entrar</button>
+                    <button
+                        className="btn btn-warning fw-medium shadow"
+                        type="button"
+                        id="first-button"
+                        onClick={backto}
+                    >
+                        Cadastrar
+                    </button>
+                    <button
+                        className="btn btn-success fw-medium shadow"
+                        type="submit"
+                        id="second-button"
+                    >
+                        Entrar
+                    </button>
                 </div>
             </form>
         </div>
     )
 }
 
-export default Login
+export default Login;
