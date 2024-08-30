@@ -13,15 +13,15 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
-        event.preventDefault(); // Previne a submissão padrão do formulário
+        event.preventDefault(); 
         try {
             const response = await LoginService.signin(email, senha);
             if (response) {
-                // Redireciona para a página principal após login bem-sucedido
+
                 navigate('/');
             }
         } catch (err) {
-            // Define a mensagem de erro se houver um problema com as credenciais
+
             setError('Dados Incorretos!!!');
         }
     }
