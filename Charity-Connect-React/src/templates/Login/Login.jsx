@@ -135,7 +135,7 @@ const Login = () => {
                         className="btn btn-warning fw-medium shadow"
                         type="button"
                         id="first-button"
-                        onClick={backto}
+                        onClick={() => ver(ong.id)}
                     >
                         Cadastrar
                     </button>
