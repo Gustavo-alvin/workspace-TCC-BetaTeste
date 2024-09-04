@@ -22,11 +22,13 @@ function Catalogo() {
   };
   const [ongs, setOngs] = useState([]);
 
+
   useEffect(() => {
     CatalogoService.findAll()
       .then((response) => {
         const ongs = response.data;
         setOngs(ongs);
+
       })
       .catch((error) => {
         console.log(error);
@@ -97,7 +99,7 @@ function Catalogo() {
           {ongs?.map((ong) => (
             <li className="items" key={ong.id}>
               <div className="img-ong">
-                <img src={ong.foto ? ong.foto : footer } alt="sorrisos do amanha " />
+                <img src={ong.foto ? ong.foto : ""}  alt="sorrisos do amanha " />
               </div>
               <div className="info-ongs">
                 <h2 id="titulo-ong">{ong.nome}</h2>

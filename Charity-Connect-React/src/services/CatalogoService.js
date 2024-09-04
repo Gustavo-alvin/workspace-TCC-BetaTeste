@@ -9,9 +9,13 @@ const findById = (id) => {
     return http.mainInstance.get(API_URL + `findById/${id}`);
 };
 
+
+
+
 const CatalogoService = {
     findAll,
     findById,
+   
 }
 
 export default CatalogoService;
