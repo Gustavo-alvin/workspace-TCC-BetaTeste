@@ -147,11 +147,18 @@ input{
 
 #botao-form-cadastro{
     margin-right: 2em;
+    padding: 7px;
+    border-style: none;
     border-radius: 10px;
     background-color: #707cfb;
+    font-weight: bolder;
 }
 
 #inputemail{
     width: 20em;
     margin-left: 7.3em;
+}
+
+.btns{
+    margin-top: 3em;
 }
