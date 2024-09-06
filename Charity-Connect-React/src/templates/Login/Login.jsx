@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         try {
             const response = await LoginService.signin(email, senha);
             if (response) {
@@ -95,28 +95,29 @@ const Login = () => {
                         Login
                     </h2>
                 </div>
-
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        className="form-control text-center fw-medium shadow"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password" className="form-label mb-0 fw-bold">Senha:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        className="form-control text-center fw-medium shadow"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        required
-                    />
+                <div className="inputs_alinhamento">
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            className="form-control text-center fw-medium shadow"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password" className="form-label mb-0 fw-bold">Senha:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            className="form-control text-center fw-medium shadow"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                            required
+                        />
+                    </div>
                 </div>
                 <div className="d-flex flex-row-reverse mt-1">
                     <p className="fw-bold fst-italic opacity-75 me-1">Esqueceu a senha?
