@@ -14,6 +14,7 @@ import ong8 from "../../assets/images/ongs-08.png";
 import footer from "../../assets/images/newnames_Prancheta 1.png";
 import { useEffect, useState } from "react";
 import CatalogoService from "../../services/CatalogoService";
+import MenuBar from "../../components/Menu/MenuBar";
 
 function Catalogo() {
   const navigate = useNavigate();
@@ -41,27 +42,7 @@ function Catalogo() {
 
   return (
     <div>
-      <header id="cabecalho">
-        <a href="#" id="logo" >
-          <img src={header} style={{ "width": '16rem' }} alt="Logo" />
-        </a>
-        <nav id="nav">
-          <button id="btn-mobile">
-            <span id="hambuguer"></span>
-          </button>
-          <ul id="menu">
-            <li><a id="itens" href={'/'} >Home</a></li>
-            <li><a id="itens" href={'/catalogo'} >Catalogo</a></li>
-            <li><a id="itens" href={'/perfil'} >Meu Perfil ONG</a></li>
-            <li><a id="itens" href={'/sobre'} >Sobre nós</a></li>
-            <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/login'} >
-                <span>Entrar</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+     <MenuBar />
 
       <section>
         <div className="input-wrapper">
@@ -99,7 +80,7 @@ function Catalogo() {
           {ongs?.map((ong) => (
             <li className="items" key={ong.id}>
               <div className="img-ong">
-                <img src={ong.foto ? ong.foto : ""}  alt="sorrisos do amanha " />
+                <img src={ong.foto ? 'data:image/jpeg;base64,' + ong.foto : ""}  alt="sorrisos do amanha " />
               </div>
               <div className="info-ongs">
                 <h2 id="titulo-ong">{ong.nome}</h2>

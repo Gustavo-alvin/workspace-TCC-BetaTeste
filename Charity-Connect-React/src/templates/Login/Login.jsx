@@ -1,31 +1,16 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/newshortlogobranca-12.png';
 import test from "../../assets/images/charityConnect.png";
 import LoginService from '../../services/LoginService';
 
 import './Login.css';
+import MenuBar from '../../components/Menu/MenuBar';
+import CadastroService from '../../services/CadastroService';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [error, setError] = useState('');
+
     const navigate = useNavigate();
-
-    const handleLogin = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await LoginService.signin(email, senha);
-            if (response) {
-
-                navigate('/');
-            }
-        } catch (err) {
-
-            setError('Dados Incorretos!!!');
-        }
-    }
-
     const goto = () => {
         navigate("/");
     }
@@ -34,59 +19,56 @@ const Login = () => {
         navigate("/cadastro");
     }
 
+    const [formData, setFormData] = useState({});
+    const [message, setMessage] = useState();
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setFormData(formData => ({ ...formData, [name]: value }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setMessage("");
+
+        CadastroService.signin(formData.email, formData.password).then(
+            () => {
+                const userJson = localStorage.getItem("ong");
+                const user = JSON.parse(userJson || '{}');
+                if (user.statusUsuario == 'ATIVO') {
+                    navigate("/");
+                } else if (user.statusUsuario == 'TROCAR_SENHA') {
+                    navigate(`/newpass/` + user.id);
+                    //window.location.reload(); ordnael@email.com.br
+                }
+
+            },
+            (error) => {
+                const respMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+
+                setMessage(respMessage);
+            }
+
+        );
+    };
+
+  
+
     return (
         <div>
-            <header id="cabecalho">
-                <a href="../html/index.html" id="logo">
-                    <img
-                        src={test}
-                        style={{ width: "16rem" }}
-                        alt=""
-                    />
-                </a>
-                <nav id="nav">
-                    <button id="btn-mobile">
-                        <span id="hambuguer"></span>
-                    </button>
-                    <ul id="menu">
-                        <li>
-                            <a id="itens" href={"/"} target="_blank">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a id="itens" href={"/catalogo"} target="_blank">
-                                Catalogo
-                            </a>
-                        </li>
-                        <li>
-                            <a id="itens" href={"/perfil"} target="_blank">
-                                Meu Perfil ONG
-                            </a>
-                        </li>
-                        <li>
-                            <a id="itens" href={"/sobre"} target="_blank">
-                                Sobre nós
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                className="btn-entrar"
-                                id="itens"
-                                href="../html/login.html"
-                            >
-                                <span>Entrar</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+           <MenuBar />
 
             <div className="login-logo">
                 <img src={logo} alt="logo" id="img-logo-login" />
             </div>
 
-            <form className="login-form" onSubmit={handleLogin}>
+            <form className="login-form"  onSubmit={handleSubmit} >
                 <div className="titulo-login">
                     <h1 id="title-titulo-login">
                         Charity Connect
@@ -102,8 +84,8 @@ const Login = () => {
                             type="email"
                             id="email"
                             className="form-control text-center fw-medium shadow"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            defaultValue={formData.email || ""}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -113,8 +95,8 @@ const Login = () => {
                             type="password"
                             id="password"
                             className="form-control text-center fw-medium shadow"
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
+                            defaultValue={formData.password || ""}
+                            onChange={handleChange}
                             required
                         />
                     </div>
@@ -124,15 +106,9 @@ const Login = () => {
                         <Link to={'/forgotpass'} id="forgotpass"> Clique aqui.</Link>
                     </p>
                 </div>
-                {error && (
-                    <div className="d-flex justify-content-center my-1">
-                        <p className="fw-bold fst-italic text-danger">
-                            {error}
-                        </p>
-                    </div>
-                )}
+     
                 <div className="d-flex justify-content-around mb-3 mt-2">
-                    <button
+                <button
                         className="btn btn-warning fw-medium shadow"
                         type="button"
                         id="first-button"
