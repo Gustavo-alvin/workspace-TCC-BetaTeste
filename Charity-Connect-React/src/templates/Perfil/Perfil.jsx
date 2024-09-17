@@ -18,7 +18,7 @@ function Perfil() {
     senha: "",
     telefone: "",
     descAtuacao: "",
-    foto: null,
+    foto: "",
     cep: "",
     cnpj: "",
     uf: "",
@@ -87,16 +87,16 @@ function Perfil() {
         <div className="perfil-principal">
           <section className="sessao-perfil">
             <div className="teste">
-              <img id="foto-perfil" src={ong2} alt="" />
+              <img id="foto-perfil" src={catalogo.foto ? 'data:image/jpeg;base64,' + catalogo.foto : ""} alt="" />
             </div>
             <div>
               <span id="nome-ong">{catalogo.nome}</span>
               <br />
-             <label htmlFor="">{catalogo.descAtuacao}</label>
+             <label className="desc" htmlFor="">{catalogo.descAtuacao}</label>
             </div>
             <div>
               <button type="button" id="botaocatalogo" className="editar">
-                Saiba Mais
+                Editar
               </button>
             </div>
           </section>

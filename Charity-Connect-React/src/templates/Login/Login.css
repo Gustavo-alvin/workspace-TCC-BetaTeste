@@ -85,6 +85,10 @@ body {
   gap: 2rem;
 }
 
+.esqueci{
+  text-align: center;
+}
+
 .inputs {
   margin-top: 50px;
   display: grid;

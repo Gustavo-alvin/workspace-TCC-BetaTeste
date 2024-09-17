@@ -10,9 +10,11 @@ import CadastroService from "../../services/CadastroService";
 import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModal";
 
 const Cadastro = () => {
-
   const [dataFile, setDataFile] = useState();
   const [chosenImage, setChosenImage] = useState();
+  const [formData, setFormData] = useState({});
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState();
 
   const setFile = (dataFile) => {
     setDataFile(dataFile);
@@ -22,27 +24,34 @@ const Cadastro = () => {
     setChosenImage(dataImage);
   };
 
-  const [formData, setFormData] = useState({});
-  const [successful, setSuccessful] = useState(false);
-  const [message, setMessage] = useState();
-
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     if (e.target.type === "file") {
-      setFormData((FormData) => ({ ...FormData, [name]: e.target.files[0] }));
+      setFormData((formData) => ({ ...formData, [name]: e.target.files[0] }));
     } else {
-      setFormData((FormData) => ({ ...FormData, [name]: value }));
+      setFormData((formData) => ({ ...formData, [name]: value }));
     }
   };
-  /*
-    const onChangeType = (e) => {
-        console.log(e.target.value)
-        setNivel(e.target.value);
-    }
-*/
+
+  const handleReset = () => {
+    // Reseta os campos do formulário para seus valores iniciais
+    setFormData({
+      nome: '',
+      nomeRep: '',
+      email: '',
+      cnpj: '',
+      telefone: '',
+      uf: '',
+      cep: '',
+      descAtuacao: '',
+      senha: '',
+    });
+    setDataFile(null); // Limpa o arquivo se necessário
+    setChosenImage(null); // Limpa a imagem se necessário
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessful(false);
@@ -52,10 +61,6 @@ const Cadastro = () => {
       (response) => {
         setMessage(response.data.message);
         setSuccessful(true);
-        /*window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          })*/
       },
       (error) => {
         const message = error.response.data.message;
@@ -63,8 +68,6 @@ const Cadastro = () => {
       }
     );
   };
-
-
 
   return (
     <div>
@@ -77,36 +80,11 @@ const Cadastro = () => {
             <span id="hambuguer"></span>
           </button>
           <ul id="menu">
-            <li>
-              <a id="itens" href={"/"}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/catalogo"}>
-                Catalogo
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/perfil"}>
-                Meu Perfil ONG
-              </a>
-            </li>
-            <li>
-              <a id="itens" href={"/sobrenos"}>
-                Sobre nós
-              </a>
-            </li>
-            <li>
-              <a
-                style={{ "--clr": "#707bff" }}
-                className="btn-entrar"
-                id="itens"
-                href={"/login"}
-              >
-                <span>Entrar</span>
-              </a>
-            </li>
+            <li><a id="itens" href={"/"}>Home</a></li>
+            <li><a id="itens" href={"/catalogo"}>Catalogo</a></li>
+            <li><a id="itens" href={"/perfil"}>Meu Perfil ONG</a></li>
+            <li><a id="itens" href={"/sobrenos"}>Sobre nós</a></li>
+            <li><a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={"/login"}><span>Entrar</span></a></li>
           </ul>
         </nav>
       </header>
@@ -119,12 +97,7 @@ const Cadastro = () => {
         </div>
 
         <section className="formulario-section">
-          <form
-            onSubmit={handleSubmit}
-            id="myForm"
-            className="form"
-            method="post"
-          >
+          <form onSubmit={handleSubmit} id="myForm" className="form" method="post">
             <div className="desc-form">
               <h1 id="desc-h1">Charity Connect</h1>
               <h2 id="title-form">Cadastro de ONG</h2>
@@ -135,7 +108,7 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
                   <input
-                    defaultValue={formData.nome || ""}
+                    value={formData.nome || ""}
                     id="inputnomeong"
                     type="text"
                     name="nome"
@@ -148,7 +121,7 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
                   <input
-                    defaultValue={formData.nomeRep || ""}
+                    value={formData.nomeRep || ""}
                     id="inputnomerep"
                     type="text"
                     name="nomeRep"
@@ -161,8 +134,8 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">Email da organização</h1>
                   <input
+                    value={formData.email || ""}
                     id="inputemail"
-                    defaultValue={formData.email || ""}
                     type="email"
                     name="email"
                     maxLength="100"
@@ -174,8 +147,8 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
                   <input
+                    value={formData.cnpj || ""}
                     type="text"
-                    defaultValue={formData.cnpj || ""}
                     name="cnpj"
                     id="cnpj"
                     placeholder="CNPJ (apenas números)"
@@ -188,8 +161,8 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">Número de celular</h1>
                   <input
+                    value={formData.telefone || ""}
                     type="tel"
-                    defaultValue={formData.telefone || ""}
                     name="telefone"
                     id="inputnum"
                     placeholder="(XX) XXXXX-XXXX"
@@ -200,43 +173,41 @@ const Cadastro = () => {
                 </label>
 
                 <label id="label-uf">
-                  UF <br></br>
+                  UF <br />
                   <select
-                    defaultValue={""}
-                    onChange={(e) => handleChange(e)}
+                    value={formData.uf || ""}
+                    onChange={handleChange}
                     name="uf"
                     id="selectuf"
                   >
-                    <option value={""} disabled>
-                      Selecione a UF
-                    </option>
-                    <option value={"AC"}>Acre (AC)</option>
-                    <option value={"AL"}>Alagoas (AL)</option>
-                    <option value={"AP"}>Amapá (AP)</option>
-                    <option value={"AM"}>Amazonas (AM)</option>
-                    <option value={"BA"}>Bahia (BA)</option>
-                    <option value={"CE"}>Ceará (CE)</option>
-                    <option value={"DF"}>Distrito Federal (DF)</option>
-                    <option value={"ES"}>Espírito Santo (ES)</option>
-                    <option value={"GO"}>Goiás (GO)</option>
-                    <option value={"MA"}>Maranhão (MA)</option>
-                    <option value={"MT"}>Mato Grosso (MT)</option>
-                    <option value={"MS"}>Mato Grosso do Sul (MS)</option>
-                    <option value={"MG"}>Minas Gerais (MG)</option>
-                    <option value={"PA"}>Pará (PA)</option>
-                    <option value={"PB"}>Paraíba (PB)</option>
-                    <option value={"PR"}>Paraná (PR)</option>
-                    <option value={"PE"}>Pernambuco (PE)</option>
-                    <option value={"PI"}>Piauí (PI)</option>
-                    <option value={"RJ"}>Rio de Janeiro (RJ)</option>
-                    <option value={"RN"}>Rio Grande do Norte (RN)</option>
-                    <option value={"RS"}>Rio Grande do Sul (RS)</option>
-                    <option value={"RO"}>Rondônia (RO)</option>
-                    <option value={"RR"}>Roraima (RR)</option>
-                    <option value={"SC"}>Santa Catarina (SC)</option>
-                    <option value={"SP"}>São Paulo (SP)</option>
-                    <option value={"SE"}>Sergipe (SE)</option>
-                    <option value={"TO"}>Tocantins (TO)</option>
+                    <option value="" disabled>Selecione a UF</option>
+                    <option value="AC">Acre (AC)</option>
+                    <option value="AL">Alagoas (AL)</option>
+                    <option value="AP">Amapá (AP)</option>
+                    <option value="AM">Amazonas (AM)</option>
+                    <option value="BA">Bahia (BA)</option>
+                    <option value="CE">Ceará (CE)</option>
+                    <option value="DF">Distrito Federal (DF)</option>
+                    <option value="ES">Espírito Santo (ES)</option>
+                    <option value="GO">Goiás (GO)</option>
+                    <option value="MA">Maranhão (MA)</option>
+                    <option value="MT">Mato Grosso (MT)</option>
+                    <option value="MS">Mato Grosso do Sul (MS)</option>
+                    <option value="MG">Minas Gerais (MG)</option>
+                    <option value="PA">Pará (PA)</option>
+                    <option value="PB">Paraíba (PB)</option>
+                    <option value="PR">Paraná (PR)</option>
+                    <option value="PE">Pernambuco (PE)</option>
+                    <option value="PI">Piauí (PI)</option>
+                    <option value="RJ">Rio de Janeiro (RJ)</option>
+                    <option value="RN">Rio Grande do Norte (RN)</option>
+                    <option value="RS">Rio Grande do Sul (RS)</option>
+                    <option value="RO">Rondônia (RO)</option>
+                    <option value="RR">Roraima (RR)</option>
+                    <option value="SC">Santa Catarina (SC)</option>
+                    <option value="SP">São Paulo (SP)</option>
+                    <option value="SE">Sergipe (SE)</option>
+                    <option value="TO">Tocantins (TO)</option>
                   </select>
                 </label>
 
@@ -244,9 +215,9 @@ const Cadastro = () => {
                   <label id="label-end">
                     <h1 id="nome-input">CEP</h1>
                   </label>
-                  <br></br>
+                  <br />
                   <input
-                    defaultValue={formData.cep || ""}
+                    value={formData.cep || ""}
                     type="text"
                     id="cep"
                     name="cep"
@@ -262,7 +233,7 @@ const Cadastro = () => {
                 <label id="label">
                   <h1 id="nome-input">Descrição de Atuação</h1>
                   <textarea
-                    defaultValue={formData.descAtuacao || ""}
+                    value={formData.descAtuacao || ""}
                     name="descAtuacao"
                     id="textarea-form"
                     cols="40"
@@ -274,26 +245,17 @@ const Cadastro = () => {
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Upload de foto de perfil</h1>
-                 {/* 
-                  <input
-                    type="file"
-                    id="foto"
-                    name="file"
-                    accept="image/*"
-                    required
-                    onChange={handleChange}
+                  <ImageUploaderModal
+                    setFile={setFile}
+                    setImage={setImage}
+                    chosenImage={chosenImage}
                   />
-                  */}
-                   <ImageUploaderModal
-                            setFile={setFile}
-                            setImage={setImage}
-                            chosenImage={chosenImage} />
                 </label>
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Senha: </h1>
                   <input
-                    defaultValue={formData.senha || ""}
+                    value={formData.senha || ""}
                     type="password"
                     id="inputsenha"
                     name="senha"
@@ -304,9 +266,9 @@ const Cadastro = () => {
                 </label>
                 <br />
                 <label id="label">
-                  <h1 id="nome-input"> Confirmação de Senha:</h1>
+                  <h1 id="nome-input">Confirmação de Senha:</h1>
                   <input
-                    defaultValue={formData.senha || ""}
+                    value={formData.senha || ""}
                     type="password"
                     id="inputsenha1"
                     name="senha"
@@ -323,7 +285,8 @@ const Cadastro = () => {
                 <button
                   className="botao-form-cadastro"
                   id="botao-form"
-                  type="reset"
+                  type="button"
+                  onClick={handleReset}
                 >
                   Reset
                 </button>
@@ -352,28 +315,19 @@ const Cadastro = () => {
           </figure>
 
           <div className="footerpart2">
-            <a id="link-footer-pt2" href={"/sobre"}>
-              Sobre o Projeto
-            </a>
-            <a id="link-footer-pt2" href={"/contato"}>
-              Contato
-            </a>
+            <a id="link-footer-pt2" href={"/sobre"}>Sobre o Projeto</a>
+            <a id="link-footer-pt2" href={"/contato"}>Contato</a>
           </div>
 
           <div className="footerpart3">
-            <a id="link-footer-pt3" href={"/politicas"}>
-              Política de Privacidade
-            </a>
-            <a id="link-footer-pt3" href={"/termos"}>
-              Termos de Uso
-            </a>
+            <a id="link-footer-pt3" href={"/politicas"}>Política de Privacidade</a>
+            <a id="link-footer-pt3" href={"/termos"}>Termos de Uso</a>
           </div>
 
           <div className="divisaodofooter2">
             <div className="origemdotrabalho">
               <div className="integrantesdiv">
-                <h2 id="itensfooter2">
-                  Integrantes:
+                <h2 id="itensfooter2">Integrantes:
                   <li id="itemfooter">02 Cauã Santana</li>
                   <li id="itemfooter">07 Gustavo Alves</li>
                   <li id="itemfooter">08 Gustavo Gomes</li>
@@ -385,12 +339,10 @@ const Cadastro = () => {
                 </h2>
               </div>
               <div className="profediscfooter">
-                <h2 id="itensfooter2">
-                  ITB - FIEB
+                <h2 id="itensfooter2">ITB - FIEB
                   <li id="itemfooter">Brasílio Flores de Azevedo</li>
                 </h2>
-                <h2 id="itensfooter2">
-                  Curso
+                <h2 id="itensfooter2">Curso
                   <li id="itemfooter">Informática 2022 - 2024</li>
                 </h2>
               </div>

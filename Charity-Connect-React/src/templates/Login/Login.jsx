@@ -30,17 +30,18 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMessage("");
+        setMessage("");      
 
-        CadastroService.signin(formData.email, formData.password).then(
+        CadastroService.signin(formData.email, formData.senha).then(
             () => {
-                const userJson = localStorage.getItem("ong");
-                const user = JSON.parse(userJson || '{}');
-                if (user.statusUsuario == 'ATIVO') {
+                
+                const ongJson = localStorage.getItem("ong");
+                const ong = JSON.parse(ongJson || '{}');
+                if (ong.statusONG == 'ATIVO') {
                     navigate("/");
-                } else if (user.statusUsuario == 'TROCAR_SENHA') {
-                    navigate(`/newpass/` + user.id);
-                    //window.location.reload(); ordnael@email.com.br
+               } else if (ong.statusONG == 'TROCAR_SENHA') {
+                   navigate(`/newpass/` + ong.id);
+                   //window.location.reload(); ordnael@email.com.br
                 }
 
             },
@@ -68,7 +69,7 @@ const Login = () => {
                 <img src={logo} alt="logo" id="img-logo-login" />
             </div>
 
-            <form className="login-form"  onSubmit={handleSubmit} >
+            <form className="login-form" method='post'   onSubmit={handleSubmit} >
                 <div className="titulo-login">
                     <h1 id="title-titulo-login">
                         Charity Connect
@@ -84,6 +85,7 @@ const Login = () => {
                             type="email"
                             id="email"
                             className="form-control text-center fw-medium shadow"
+                            name='email'
                             defaultValue={formData.email || ""}
                             onChange={handleChange}
                             required
@@ -94,17 +96,26 @@ const Login = () => {
                         <input
                             type="password"
                             id="password"
+                            name='senha'
                             className="form-control text-center fw-medium shadow"
-                            defaultValue={formData.password || ""}
+                            defaultValue={formData.senha || ""}
                             onChange={handleChange}
                             required
                         />
                     </div>
                 </div>
-                <div className="d-flex flex-row-reverse mt-1">
+                <div className="esqueci">
                     <p className="fw-bold fst-italic opacity-75 me-1">Esqueceu a senha?
                         <Link to={'/forgotpass'} id="forgotpass"> Clique aqui.</Link>
                     </p>
+                </div>
+
+                <div className="text-center p-2 rounded-2">
+                    {message && (
+                        <div className="fw-bold fs-5 text-danger">
+                            <span>{message}</span>
+                        </div>
+                    )}
                 </div>
      
                 <div className="d-flex justify-content-around mb-3 mt-2">

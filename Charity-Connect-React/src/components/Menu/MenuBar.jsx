@@ -27,6 +27,7 @@ const MenuBar = () => {
             }
             <li><Link id="itens" to={'/sobre'} >Sobre nós</Link></li>
             <li>
+          
               <Link style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" to={'/login'} >
                 <span>Entrar</span>
               </Link>
