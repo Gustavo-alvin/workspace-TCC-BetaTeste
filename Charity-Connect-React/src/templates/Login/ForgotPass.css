@@ -29,3 +29,17 @@ input{
     background-color: #707cfb;
     color: #fff;
 }
+
+.emailforgot{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 1em;
+}
+
+.my-3{
+    padding-left: 2em;
+}
+
+.fazerlogin{
+    text-align: center;
+}

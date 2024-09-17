@@ -28,8 +28,8 @@ const ForgotPass = () => {
                     <label htmlFor="email" className="form-label mb-0 fw-bold">Email:</label>
                     <input type="email" id="email" className="form-control text-center fw-medium shadow" />
                 </div>
-                <div className="d-flex flex-row-reverse mt-1">
-                    <p className="fw-bold fst-italic opacity-75 me-1">Acessar o sistema:
+                <div className="d-flex flex-row mt-1">
+                    <p className="fw-bold fst-italic opacity-75 me-1">Fazer Login:
                         <Link to={'/login'}> Clique aqui.</Link>
                     </p>
                 </div>
