@@ -12,7 +12,7 @@ const ForgotPass = () => {
     }
 
     const backto = () => {
-        navigate("/cadastro");
+        navigate("/login");
     }
 
 

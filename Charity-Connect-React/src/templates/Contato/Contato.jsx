@@ -99,7 +99,7 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     ENDEREÇO DE E-MAIL:
                   </h1>
-                  <input id="inputemail" type="email" name="email"
+                  <input className="inputemail" type="email" name="email"
                     placeholder="Digite seu email" required />
                 </label><br />
 

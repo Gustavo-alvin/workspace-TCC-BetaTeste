@@ -245,11 +245,14 @@ const Cadastro = () => {
                 <br />
                 <label id="label">
                   <h1 id="nome-input">Upload de foto de perfil</h1>
-                  <ImageUploaderModal
-                    setFile={setFile}
-                    setImage={setImage}
-                    chosenImage={chosenImage}
-                  />
+                  <div className="imageup">
+
+                    <ImageUploaderModal
+                      setFile={setFile}
+                      setImage={setImage}
+                      chosenImage={chosenImage}
+                    />
+                  </div>
                 </label>
                 <br />
                 <label id="label">
