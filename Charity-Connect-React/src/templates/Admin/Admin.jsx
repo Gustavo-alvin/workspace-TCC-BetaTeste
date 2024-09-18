@@ -31,27 +31,7 @@ function Admin() {
   return (
     <div>
 
-<header id="cabecalho">
-        <a href="#" id="logo" >
-          <img src={header} style={{ "width": '16rem' }} alt="Logo" />
-        </a>
-        <nav id="nav">
-          <button id="btn-mobile">
-            <span id="hambuguer"></span>
-          </button>
-          <ul id="menu">
-            <li><a id="itens" href={'/'} >Home</a></li>
-            <li><a id="itens" href={'/catalogo'} >Catalogo</a></li>
-            <li><a id="itens" href={'/perfil'} >Meu Perfil ONG</a></li>
-            <li><a id="itens" href={'/sobrenos'} >Sobre nós</a></li>
-            <li>
-              <a style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" href={'/login'} >
-                <span>Entrar</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+<MenuBar />
 
       <main className="main-user">
     <div>
