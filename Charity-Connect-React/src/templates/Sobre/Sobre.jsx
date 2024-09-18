@@ -28,16 +28,17 @@ const Sobre = () => {
 
         <div className="div-gradiente-home"></div>
 
-        <section className="container__secundario">
-            <p id="cahrity_closet" className="efeito__texto">CHARITY CONNECT</p>
-            <p id="texto-sobrenos">O projeto Charity Connect, uma inovadora aplicação desenvolvida para promover a conexão entre
+        <section className="container__terceario">
+
+        <div className="textos3">
+                <h1 id="texto__topico__3">Charity Connect</h1>
+                <p id="teste">O projeto Charity Connect, uma inovadora aplicação desenvolvida para promover a conexão entre
                 organizações não-governamentais (ONGs) e potenciais doadores, abraça os princípios
                 fundamentais das Metas de Desenvolvimento Sustentável (ODS) estabelecidas pela ONU para 2030.
                 Ao facilitar a doação e sua redistribuição para indivíduos em situação de vulnerabilidade,
                 o projeto toca em várias ODS, promovendo um impacto social e ambiental significativo.</p>
-        </section>
+            </div>
 
-        <section className="container__terceario">
             <div className="textos3">
                 <h1 id="texto__topico__3">Comprometidos com a conexão</h1>
                 <p id="teste">No Charity Connect™, acreditamos na importância de construir uma ligação segura e confiável
