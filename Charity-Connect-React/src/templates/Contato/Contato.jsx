@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Contato.css'
@@ -7,12 +7,51 @@ import footer from "../../assets/images/newshortlogobranca-12.png";
 import coracao from "../../assets/images/newshortlogobranca-12.png"
 import MenuBar from '../../components/Menu/MenuBar';
 import Footer from '../../components/Footer/Footer';
+import ContatoService from "../../services/ContatoService"
 
 
 
 
 
 const Contato = () => {
+
+  const [formData, setFormData] = useState({});
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState();
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData(formData => ({ ...formData, [name]: value }));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSuccessful(false);
+    console.log("teste")
+
+    ContatoService.create(formData).then(
+        (response) => {
+            setMessage(response.data.message);
+            setSuccessful(true);
+            /*window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            })*/
+        }, (error) => {
+            const message = error.response.data.message;
+            setMessage(message);
+        }
+    )
+}
+
+
+
+
+
+
+
+
   return (
     <div>
 
@@ -28,7 +67,7 @@ const Contato = () => {
 
         <section className="formulario-section">
 
-          <form className="form" method="post" action="">
+          <form onSubmit={handleSubmit}  className="form" method="post" action="">
 
             <div className="desc-form">
 
@@ -49,14 +88,19 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     MOTIVO DO CONTATO:
                   </h1>
-                  <input id="inputmotivo" type="text" name="motivo_contato"
-                    placeholder="Digite motivo de contato" required />
+                  <input id="inputmotivo" type="text" name="motivoContato"
+                    placeholder="Digite motivo de contato" required 
+                    defaultValue={formData.motivoContato || ""}
+                    onChange={handleChange} />
                 </label><br />
                 <label id="label">
                   <h1 id="name-caixa">
                     MENSAGEM
                   </h1>
-                  <textarea id="inputpergunta" />
+                  <textarea id="inputpergunta" 
+                  defaultValue={formData.pergunta || ""}
+                  onChange={handleChange}
+                  name='pergunta' />
                 </label><br />
 
                 <div className="form-2">
@@ -64,16 +108,20 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       NOME:
                     </h1>
-                    <input className="form-2__inputs" id="nome" type="text" name="nome_ong"
-                      placeholder="Digite seu nome" pattern="[a-zA-Záãâéêíóôõú\s]+$" required />
+                    <input className="form-2__inputs" id="nome" type="text" name="nome"
+                      placeholder="Digite seu nome"  required
+                      defaultValue={formData.nome || ""}
+                      onChange={handleChange}  />
                   </label>
                   <br></br>
                   <label id="label">
                     <h1 id="name-caixa">
                       SOBRENOME:
                     </h1>
-                    <input className="form-2__inputs" id="sobrenome" type="text" name="nome_ong"
-                      placeholder="Digite seu sobrenome" pattern="[a-zA-Záãâéêíóôõú\s]+$" required />
+                    <input className="form-2__inputs" id="sobrenome" type="text" name="sobrenome"
+                      placeholder="Digite seu sobrenome"  required 
+                      defaultValue={formData.sobrenome || ""}
+                    onChange={handleChange} />
                   </label>
                 </div><br />
 
@@ -82,7 +130,9 @@ const Contato = () => {
                     ENDEREÇO DE E-MAIL:
                   </h1>
                   <input className="inputemail" type="email" name="email"
-                    placeholder="Digite seu email" required />
+                    placeholder="Digite seu email" required 
+                    value={formData.email || ""}
+                    onChange={handleChange}/>
                 </label><br />
 
                 <div className="form-3">
@@ -92,7 +142,9 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       Número de celular
                     </h1>
-                    <input type="tel" id="tel" name="celular" placeholder="(XX)XXXXXXXXX" onInput={() => mascara(this)} maxLength="11" required />
+                    <input type="tel" id="tel" name="telefone" placeholder="(XX)XXXXXXXXX"  maxLength="11" required 
+                     defaultValue={formData.telefone || ""}
+                     onChange={handleChange}/>
                   </label>
                 </div>
               </div>
