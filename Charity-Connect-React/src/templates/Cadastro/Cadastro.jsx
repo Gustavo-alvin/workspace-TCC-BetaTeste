@@ -104,6 +104,50 @@ const Cadastro = () => {
                     onChange={handleChange}
                   />
                 </label>
+
+                <label id="label">
+                  <h1 id="nome-input">Cidade</h1>
+                  <input
+                    value={formData.cidade || ""}
+                    
+                    type="text"
+                    name="cidade"
+                    maxLength="100"
+                    placeholder="Digite o nome da ONG"
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+
+                <label id="label">
+                  <h1 id="nome-input">Interesses</h1>
+                  <input
+                    value={formData.interesse || ""}
+                    type="text"
+                    name="interesse"
+                    maxLength="100"
+                    placeholder="Digite o nome da ONG"
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
                   <input

@@ -6,6 +6,7 @@ import ong2 from "../../assets/images/ongs-02.png";
 import "./Perfil.css";
 import { useParams } from "react-router-dom";
 import CatalogoService from "../../services/CatalogoService";
+import MenuBar from "../../components/Menu/MenuBar";
 
 function Perfil() {
   const { id } = useParams();
