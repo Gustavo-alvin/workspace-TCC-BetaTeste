@@ -17,6 +17,25 @@ const Cadastro = () => {
   const [formData, setFormData] = useState({});
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState();
+  const [input, setInput] = useState("");
+  const [cep, setCep] = useState({});
+
+  async function handleSearch() {
+    if (input === "") {
+      alert("Digite algum CEP!");
+      return;
+    }
+
+    try {
+      const response = await api.get(`${input}/json`);
+      setCep(response.data);
+      setInput("");
+    } catch {
+      alert("Opa! Tem algum erro aí");
+      setInput("");
+    }
+  }
+
 
   const setFile = (dataFile) => {
     setDataFile(dataFile);

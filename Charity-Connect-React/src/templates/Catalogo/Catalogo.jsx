@@ -28,10 +28,11 @@ function Catalogo() {
 
   const filteredOngs = ongs.filter((ong) => {
     const matchesSearch = ong.nome.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearchDesc = ong.descAtuacao.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCity = selectedCity ? ong.cidade === selectedCity : true;
     const matchesInterest = selectedInterest ? ong.interesse === selectedInterest : true;
 
-    return matchesSearch && matchesCity && matchesInterest;
+    return (matchesSearch || matchesSearchDesc) && matchesCity && matchesInterest;
   });
 
   const ver = (id) => {
