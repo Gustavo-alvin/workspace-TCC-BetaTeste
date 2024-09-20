@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { BiSearch } from "react-icons/bi";
 import Header from "../../components/Header/Header";
 import test from "../../assets/images/charityConnect.png";
 import capa from "../../assets/images/background1homepage.png";
@@ -10,6 +11,7 @@ import CadastroService from "../../services/CadastroService";
 import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModal";
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
+import api from "../../services/api";
 
 const Cadastro = () => {
   const [dataFile, setDataFile] = useState();
@@ -124,48 +126,6 @@ const Cadastro = () => {
                   />
                 </label>
 
-                <label id="label">
-                  <h1 id="nome-input">Cidade</h1>
-                  <input
-                    value={formData.cidade || ""}
-                    
-                    type="text"
-                    name="cidade"
-                    maxLength="100"
-                    placeholder="Digite o nome da ONG"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-
-                <label id="label">
-                  <h1 id="nome-input">Interesses</h1>
-                  <input
-                    value={formData.interesse || ""}
-                    type="text"
-                    name="interesse"
-                    maxLength="100"
-                    placeholder="Digite o nome da ONG"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <label id="label">
                   <h1 id="nome-input">Nome do Representante</h1>
@@ -193,6 +153,20 @@ const Cadastro = () => {
                     onChange={handleChange}
                   />
                 </label>
+
+                <label id="label">
+                  <h1 id="nome-input">Interesses</h1>
+                  <input
+                    value={formData.interesse || ""}
+                    type="text"
+                    name="interesse"
+                    maxLength="100"
+                    placeholder="Digite o nome da ONG"
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+
                 <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
                   <input
@@ -221,61 +195,91 @@ const Cadastro = () => {
                   />
                 </label>
 
-                <label id="label-uf">
-                  UF <br />
-                  <select
-                    value={formData.uf || ""}
-                    onChange={handleChange}
-                    name="uf"
-                    id="selectuf"
-                  >
-                    <option value="" disabled>Selecione a UF</option>
-                    <option value="AC">Acre (AC)</option>
-                    <option value="AL">Alagoas (AL)</option>
-                    <option value="AP">Amapá (AP)</option>
-                    <option value="AM">Amazonas (AM)</option>
-                    <option value="BA">Bahia (BA)</option>
-                    <option value="CE">Ceará (CE)</option>
-                    <option value="DF">Distrito Federal (DF)</option>
-                    <option value="ES">Espírito Santo (ES)</option>
-                    <option value="GO">Goiás (GO)</option>
-                    <option value="MA">Maranhão (MA)</option>
-                    <option value="MT">Mato Grosso (MT)</option>
-                    <option value="MS">Mato Grosso do Sul (MS)</option>
-                    <option value="MG">Minas Gerais (MG)</option>
-                    <option value="PA">Pará (PA)</option>
-                    <option value="PB">Paraíba (PB)</option>
-                    <option value="PR">Paraná (PR)</option>
-                    <option value="PE">Pernambuco (PE)</option>
-                    <option value="PI">Piauí (PI)</option>
-                    <option value="RJ">Rio de Janeiro (RJ)</option>
-                    <option value="RN">Rio Grande do Norte (RN)</option>
-                    <option value="RS">Rio Grande do Sul (RS)</option>
-                    <option value="RO">Rondônia (RO)</option>
-                    <option value="RR">Roraima (RR)</option>
-                    <option value="SC">Santa Catarina (SC)</option>
-                    <option value="SP">São Paulo (SP)</option>
-                    <option value="SE">Sergipe (SE)</option>
-                    <option value="TO">Tocantins (TO)</option>
-                  </select>
-                </label>
+                
 
-                <div className="cep">
-                  <label id="label-end">
-                    <h1 id="nome-input">CEP</h1>
-                  </label>
-                  <br />
-                  <input
-                    value={formData.cep || ""}
-                    type="text"
-                    id="cep"
-                    name="cep"
-                    placeholder="00000-000"
-                    maxLength="9"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div>
+      <label id="label" htmlFor="">
+        <h1 id="nome-input">CEP:</h1>
+       <input
+          type="text"
+          placeholder="Digite o CEP"
+          name="cep"
+          defaultValue={formData.cep}
+          onChange={(e) => {
+            handleChange(e); // Primeiro chama a função que atualiza o formData
+            setInput(e.target.value); // Depois atualiza o estado do input para a busca de CEP
+          }}
+        />
+       </label>
+        <button className="buttonSearch" onClick={handleSearch}>
+          <BiSearch size={25} color="#FFF" />
+        </button>
+      </div>
+      {Object.keys(cep).length > 1 && (
+        <main>
+          
+        <label htmlFor="">
+          <h1 id="nome-input">Endereço</h1>
+          <input type="text"value={`${cep.logradouro} ${formData.endereco}`}
+          
+           onChange={handleChange} />
+        </label>
+          <label htmlFor="">
+            <h1 id="nome-input">
+              Bairro
+            </h1>
+            <input value={`${cep.bairro} ${formData.bairro}`} type="text" 
+             name="bairro"
+             onChange={handleChange}/>
+          </label>
+          
+          
+          <label htmlFor="">
+            <h1 id="nome-input">Cidade</h1>
+            <input type="text" value={`${cep.localidade || ''} - ${cep.uf || ''} ${formData.cidade || ''}`}
+             name="cidade" onChange={handleChange}/>
+          </label>
+
+          
+        </main>
+      )}
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
 
               <div className="form-2">
