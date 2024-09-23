@@ -31,25 +31,30 @@ function Admin() {
   }, []);
 
   return (
+
     <div>
 
       <MenuBar />
 
+      <div className="div-empurra"></div>
+
       <div className="adm-mother">
 
-        <div className="1son">
+        <div className="son1">
 
           <div className="buttons">
 
-            <div className="button1">
+            <div className="adm-button1">
               <button id="button-ong">
-                <img src="icon-ong" id="icon-button"/>
+                <img src="icon-ong" id="icon-button" />
+                <h2 id="title-ong-button">ONGS</h2>
               </button>
             </div>
 
-            <div className="button2">
+            <div className="adm-button2">
               <button id="button-cont">
-                <img src="icon-cont" id="icon-button"/>
+                <img src="icon-cont" id="icon-button" />
+                <h2 id="title-ong-button">ONGS</h2>
               </button>
             </div>
 
@@ -57,11 +62,11 @@ function Admin() {
 
         </div>
 
-        <div className="2son">
+        <div className="son2">
 
-          <div className="adm-ong">
+          <div className="adm-ong-menu">
             <div className="adm-ong-1">
-              
+
             </div>
           </div>
 
