@@ -748,3 +748,49 @@ select{
         border-bottom: 1px solid var(--white);
     }
 }
+
+.adm-mother{
+    background-color: #707bff;
+    background-size: cover;
+    margin-left: 2em;
+    margin-right:2em;
+    height: 40em;
+    display: flex;
+}
+
+.div-empurra{
+    background-size: cover;
+    height: 8em;
+}
+
+.son1{
+    float: left;
+    background-color: #00f;
+    height: 40em;
+    width: 10em;
+    margin-left: 5em;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50em;
+}
+
+.adm-button1{
+    margin-top: 10em;
+}
+
+.adm-button2{
+    margin-top:10em;
+}
+
+.son2{
+    margin-left: 10em;
+    background-color: #f00;
+
+    display: grid;
+    padding: 2em;
+}
+
+.adm-ong-menu{
+    background-color: #fff;
+    width: 90em;
+}
