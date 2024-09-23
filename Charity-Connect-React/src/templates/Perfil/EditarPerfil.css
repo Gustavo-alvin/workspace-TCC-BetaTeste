@@ -81,9 +81,10 @@
 
 .editar {
     background-color: #161b22;
-    margin: 0;
-    text-align: center;
-    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
 .coracaocad {
@@ -96,194 +97,18 @@
     width: 150px;
 }
 
-.formulario-section {
-    background-color: var(--white);
-    padding: 50px;
-    width: 60%;
-    margin-left: 20%;
-    border-radius: 25px;
-    
+.kk{
+background: var(--white);
+width: 100rem;
+margin: 0 auto;  
 }
 
-.form {
-    text-align: left;
-    
+input{
+    margin: 0;
 }
 
-.inputs-form {
-    margin-top: 50px;
-    display: flex;
-}
-
-#nome-input {
-    font-size: 20px;
-}
-
-input {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    border-color: var(--azul);
-    background-color: var(--white);
-    color: var(--azul);
-    font-weight: 600;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent
-}
-
-input:focus {
-    outline: none;
-}
-
-.form-2__inputs  {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 96%;
-    border-color: var(--azul);
-    background-color: var(--white);
-    color: var(--azul);
-    font-weight: 600;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    box-sizing: border-box;
-}
-
-.form-3__inputs {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    border-color: var(--azul);
-    background-color: var(--white);
-    color: var(--azul);
-    font-weight: 600;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    box-sizing: border-box;
-}
-
-
-
-label {
-    margin-bottom: 20px;
-}
-
-.form-1 {
+.divisao-inputs{
     display: grid;
-    border-left: var(--white);
-    border-right: var(--white);
-    border-top: var(--white);
-    border-bottom: var(--white);
-    border-style: solid;
-    width: 100%;
-    padding-right: 30px;
-    box-sizing: border-box;
-}
-
-.form-2  {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 2%;
- 
-}
-
-.form-3 {
-    display: grid;
-    width: 100%;
-    
-}
-
-#cnpj {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    border-color: var(--azul);
-    background-color: var(--white);
-    color: var(--azul);
-    font-weight: 600;
-
-}
-
-
-#selectuf{
-    margin-top: 2rem;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: var(--azul);
-    background-color: #fff;
-    color: var(--azul);
-    width: 100%;
-    font-weight: 600;
-    
-}
-
-.btn-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.botao-form {
-    background:linear-gradient(to left, #707bff, #8224fe);
-    background-color: var(--azul);
-    border-radius: 16px;
-    cursor: pointer;
-    color: var(--white);
-    font-family: Arial;
-    font-size: 18px;
-    padding: 5px 38px;
-    text-decoration: none;
-    border: none;
-    margin-top: 40px;
-}
-
-.botao-form:hover {
-    background: linear-gradient(to left, #707bff, #8224fe);
-    background-color: var(--rosa);
-    transition-duration: 0.5s;
-    transform: scale(1.1);
-
-}
-
-#link-form {
-    background: linear-gradient(to left, #707bff, #8224fe);
-    background-color: var(--azul);
-    border-radius: 16px;
-    cursor: pointer;
-    color: var(--white);
-    font-family: Arial;
-    font-size: 18px;
-    padding: 8px 38px;
-    text-decoration: none;
-    border: none;
-    margin-top: 40px;
-    margin-left: 20px;
-}
-
-#link-form:hover {
-    background: linear-gradient(to left, #707bff, #8224fe);
-    background-color: var(--rosa);
-    transition-duration: 0.5s;
-    transform: scale(1.1);
-}
-
-@media screen and (max-width: 1000px) {
-   .editar{
-    width: 100%;
-   }
-
-   #coracao{
-    padding-top: 4rem;
-   }
-
-   .formulario-section{
-    display: block;
-    margin: auto;
-    width: 100%;
-   }
-        
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
