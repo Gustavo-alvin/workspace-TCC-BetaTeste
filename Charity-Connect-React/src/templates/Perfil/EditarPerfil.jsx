@@ -43,19 +43,99 @@ function EditarPerfil() {
                    <div className="divisao-inputs">
 
                         <label htmlFor="">
-                            <h1>NOME REPRESENTANTE:</h1>
-                            <input type="text" />
+                            <h1>NOME DA ORGANIZAÇÃO:</h1>
+                            <input className="editar-inputs" type="text" />
                         </label>
 
                         <label htmlFor="">
-                            <h1>NOME REPRESENTANTE:</h1>
-                            <input type="text" />
+                            <h1>NOME DO REPRESENTANTE:</h1>
+                            <input className="editar-inputs" type="text" />
                         </label>
+                   </div>
+
+                   <div className="divisao-inputs-solos">
+                    <label htmlFor="">
+                        <h1>EMAIL DA ORGANIZAÇÃO:</h1>
+                        <input className="editar-inputs-solos" type="text" />
+                    </label>
+                   </div>
+
+                   <div className="divisao-inputs">
+
+                        <label htmlFor="">
+                            <h1>NÚMERO DE CELULAR::</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+
+                        <label htmlFor="">
+                            <h1>CEP:</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+                   </div>
+
+
+                   <div className="divisao-inputs-solos">
+                    <label htmlFor="">
+                        <h1>INTERESSES:</h1>
+                        <input className="editar-inputs-solos" type="text" />
+                    </label>
+                   </div>
+
+                     <div className="divisao-inputs">
+
+                        <label htmlFor="">
+                            <h1>Endereço</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+
+                        <label htmlFor="">
+                            <h1>Bairro</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+                   </div>
+
+                     <div className="divisao-inputs">
+
+                        <label htmlFor="">
+                            <h1>CIDADE:</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+
+                        <label htmlFor="">
+                            <h1>CNPJ:</h1>
+                            <input className="editar-inputs" type="text" />
+                        </label>
+                   </div>
+
+                   <div className="divisao-inputs-solos">
+                    <label htmlFor="">
+                        <h1>DESCRIÇÃO DE ATUAÇÃO:</h1>
+                        <input className="editar-inputs-solos" type="text" />
+                    </label>
                    </div>
     
                 
 
-                  
+                   <div className="btns">
+              <div>
+                <button
+                  className="botao-form-cadastro"
+                  id="botao-form"
+                  type="button"
+                >
+                  Reset
+                </button>
+              </div>
+              <div>
+                <button
+                  className="botao-form-cadastro"
+                  id="botao-form-cadastro"
+                  type="submit"
+                >
+                  Cadastrar
+                </button>
+              </div>
+            </div>
 
 
             </form>

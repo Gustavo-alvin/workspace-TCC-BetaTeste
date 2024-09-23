@@ -99,16 +99,46 @@
 
 .kk{
 background: var(--white);
-width: 100rem;
+width: 75rem;
+border-radius: 25PX;
+max-width: 75rem;
+padding: 5rem;
 margin: 0 auto;  
 }
 
-input{
+h1{
+    font-size: 20px;
+}
+
+.editar-inputs{
     margin: 0;
+    width: 100%;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom-color:  rgb(112, 124, 251);
+    font-weight: 800;
+    border-radius: 0;
 }
 
 .divisao-inputs{
     display: grid;
+    align-content: center;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    
+}
+
+.divisao-inputs-solos{
+    width: 100%;
+}
+
+.editar-inputs-solos{
+    margin: 0;
+    width: 65rem;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-radius: 0;
+    border-bottom-color:  rgb(112, 124, 251);
 }
