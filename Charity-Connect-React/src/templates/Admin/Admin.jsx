@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdGroups } from "react-icons/md";
+import { FaUsers } from 'react-icons/fa';
+import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 
 import './Admin.css'; // Import the CSS file for styling
@@ -36,10 +38,11 @@ function Admin() {
       <div className="admin-container">
         <div className="admin-sidebar">
           <button id="admin-button-ong">
-            <MdGroups />
+          <FaUsers size={30} color="#000" />
             <h3 id="admin-title-ong-button">ONGS</h3>
           </button>
           <button id="admin-button-cont">
+          <BsFillTelephoneFill />
             <h3 id="admin-title-ong-button">Contato</h3>
           </button>
         </div>

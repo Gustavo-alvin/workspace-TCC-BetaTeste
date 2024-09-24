@@ -21,22 +21,24 @@ body {
   }
   
   #admin-button-ong, #admin-button-cont {
-    background-color: white;
-    color: black;
+    background-color: #17152c;
+    color: #fff;
     padding: 10px;
     margin: 10px 0;
     width: 100%;
-    text-align: left;
+    text-align: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    display: flex;
     align-items: center;
+    margin-bottom: 50%;
   }
   
   #admin-button-ong:hover, #admin-button-cont:hover {
-    background-color: #e1e1e1;
+    background-color: rgba(0.2, 0.2, 0.2, 0.5);
+    border-radius: 10px;
+    
   }
   
   #admin-title-ong-button {
