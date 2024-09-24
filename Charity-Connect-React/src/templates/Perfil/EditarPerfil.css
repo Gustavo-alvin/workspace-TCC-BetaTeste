@@ -112,14 +112,12 @@ h1{
 }
 
 .editar-inputs{
-    margin: 0;
-    width: 100%;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
-    border-bottom-color:  rgb(112, 124, 251);
-    font-weight: 800;
+    border-bottom: solid 2px rgb(112, 124, 251);
     border-radius: 0;
+    margin-bottom: 2rem;
 }
 
 .divisao-inputs{
@@ -137,11 +135,12 @@ h1{
 .editar-inputs-solos{
     margin: 0;
     width: 65rem;
+    margin-bottom: 2rem;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
+    border-bottom: solid 2px rgb(112, 124, 251);
     border-radius: 0;
-    border-bottom-color:  rgb(112, 124, 251);
 }
 
 

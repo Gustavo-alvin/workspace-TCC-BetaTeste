@@ -88,7 +88,7 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     MOTIVO DO CONTATO:
                   </h1>
-                  <input id="inputmotivo" type="text" name="motivoContato"
+                  <input id="inputmotivo" type="text" className='editar-inputs-solos' name="motivoContato"
                     placeholder="Digite motivo de contato" required 
                     defaultValue={formData.motivoContato || ""}
                     onChange={handleChange} />
@@ -97,7 +97,7 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     MENSAGEM
                   </h1>
-                  <textarea id="inputpergunta" 
+                  <textarea id="inputpergunta"  className='editar-inputs-solos'
                   defaultValue={formData.pergunta || ""}
                   onChange={handleChange}
                   name='pergunta' />
@@ -108,7 +108,7 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       NOME:
                     </h1>
-                    <input className="form-2__inputs" id="nome" type="text" name="nome"
+                    <input  className='editar-inputs-solos' id="nome" type="text" name="nome"
                       placeholder="Digite seu nome"  required
                       defaultValue={formData.nome || ""}
                       onChange={handleChange}  />
@@ -118,7 +118,7 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       SOBRENOME:
                     </h1>
-                    <input className="form-2__inputs" id="sobrenome" type="text" name="sobrenome"
+                    <input  className='editar-inputs-solos' id="sobrenome" type="text" name="sobrenome"
                       placeholder="Digite seu sobrenome"  required 
                       defaultValue={formData.sobrenome || ""}
                     onChange={handleChange} />
@@ -129,7 +129,7 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     ENDEREÇO DE E-MAIL:
                   </h1>
-                  <input className="inputemail" type="email" name="email"
+                  <input  className='editar-inputs-solos' type="email" name="email"
                     placeholder="Digite seu email" required 
                     value={formData.email || ""}
                     onChange={handleChange}/>
@@ -142,7 +142,7 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       Número de celular
                     </h1>
-                    <input type="tel" id="tel" name="telefone" placeholder="(XX)XXXXXXXXX"  maxLength="11" required 
+                    <input type="tel" id="tel" className='editar-inputs-solos' name="telefone" placeholder="(XX)XXXXXXXXX"  maxLength="11" required 
                      defaultValue={formData.telefone || ""}
                      onChange={handleChange}/>
                   </label>
