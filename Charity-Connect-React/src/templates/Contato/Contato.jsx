@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import InputMask from 'react-input-mask';
 
 import './Contato.css';
 import header from "../../assets/images/charityConnect.png";
@@ -137,17 +138,15 @@ const Contato = () => {
                 <div className="form-3">
                   <label id="label">
                     <h1 id="name-caixa">NÚMERO DE CELULAR</h1>
-                    <input
-                      type="tel"
+                    <InputMask
+                      mask="(99) 99999-9999"
                       id="tel"
                       className='editar-inputs-solos'
                       name="telefone"
-                      placeholder="(XX)XXXXXXXXX"
-                      maxLength="11"
+                      placeholder="(XX) XXXXX-XXXX"
                       required
                       value={formData.telefone || ""}
                       onChange={handleChange}
-                      onKeyPress={(e) => handleKeyPress(e, "tel")}
                     />
                   </label>
                 </div>
