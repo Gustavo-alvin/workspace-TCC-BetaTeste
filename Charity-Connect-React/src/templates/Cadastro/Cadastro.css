@@ -1,9 +1,10 @@
 .formulario-section{
-    margin: 1em auto;
-    width: 40em;
-    background-color: #fff;
-    border-radius: 10px;
-    text-align: left;
+    width: 75rem;
+    border-radius: 25PX;
+    max-width: 75rem;
+    padding: 5rem;
+    margin: 0 auto;  
+    margin-bottom: 2rem;
 }
 
 .coracaofigure{
@@ -28,122 +29,44 @@
     margin-bottom: 2em;
 }
 
-.form-1{
+.form-cadastro{
     display: grid;
+    grid-template-columns: 1fr 1fr;
+   
 }
 
-#nome-input{
-    font-size: 20px;
+.inputs-esquerdo {
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: solid 2px rgb(112, 124, 251);
+    border-radius: 0;
 }
 
-#label-end{
-    font-weight: bold;
-    font-size: 20px;
-    margin: 0;
-}
-
-input{
-    margin-top:0.5em;
-    padding: 0.5em;
-    background-color: #fff;
-    color: #000;
-    border-color: #000;
-    border-style: solid;
-    border-width: 1px;
-}
-
-input::placeholder{
-    color: #000;
-}
-
-#label-uf{
-    font-size:20px;
-    font-weight: 600;
-    margin-top: -20px;
-    text-align: left;
-    margin-left: 6em;
-}
-
-#label-end{
-    margin-top: 10px;
-    text-align: left;
-    font-weight: 500;
-}
-
-option{
-    color:#000
-}
-
-select{
-    color:#000;
-    font-weight: 100;
-    padding-left: 1em;
-    border-radius: 10px;
-}
-
-.form-2{
-    margin-top: 1em;
-}
-
-textarea{
-    margin-top:10px;
-    color: #000;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-.botao-form-cadastro{
-    margin-bottom: 20px;
-}
-
-#nome-input{
-    text-align: left;
-    margin-left: 6em;
-}
-
-.endereco-div{
-    text-align: left;
-    margin-left: 7em;
-}
-
-
-#textarea-form{
-    margin-top: 0.3em;
-    margin-left: 7.5em;
-}
-
-#foto{
-    margin-left: 7.5em;
-    margin-top: 0.3em;
-}
-
-#inputsenha{
-    margin-left: 7.5em;
-}
-
-#inputsenha1{
-    margin-left: 7.5em;
-}
-
-.btns{
-    margin-left: 7.5em;
+.form-esquerdo{
     display: flex;
+    flex-direction: column;
+    padding-right: 2rem;
+    border-right: solid 2px rgb(112, 124, 251);
 }
 
-.inputs-form{
-    display: grid;
+
+.form-direita{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
 }
 
-input{
-    margin-left: 7.5em;
-    width: 20em;
+
+.inputs-direita {
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: solid 2px rgb(112, 124, 251);
+    border-radius: 0;
+    
 }
 
-#botao-form{
-    margin-right: 2em;
-    border-radius: 10px;
-    background-color: #707cfb;
-}
 
 #botao-form-cadastro{
     margin-right: 2em;
@@ -154,71 +77,22 @@ input{
     font-weight: bolder;
 }
 
-#inputemail{
-    width: 20em;
-    margin-left: 7.3em;
+
+#botao-form{
+    margin-right: 2em;
+    border-radius: 10px;
+    background-color: #707cfb;
 }
 
-.btns{
-    margin-top: 3em;
+.confirmarcao-perfil{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
-.imageup{
-    margin-left: 7.3em;
+.btns-do-perfil{
+    text-align: center;
 }
 
 
 
-.title {
-    font-size: 75px;
-    animation: fliptitle 2s;
-  }
-  
-  @keyframes fliptitle {
-    from {
-      transform: rotateX(90deg);
-    }
-    to {
-      transform: rotateX(0);
-    }
-  }
-  
-  .inputContainer {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    margin: 34px 0;
-    display: flex;
-    border-radius: 8px;
-    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
-  }
-  
-  .inputContainer input {
-    background-color: transparent;
-    border: 0;
-    outline: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-right: 8px;
-  }
-  
-  .inputContainer input::placeholder {
-    color: #f1f1f1;
-  }
-  
-  .buttonSearch {
-    background: black;
-    border: 0;
-    
-    cursor: pointer;
-    transition: transform 0.5s;
-  }
-  
-  .buttonSearch:hover {
-    transform: scale(1.2);
-  }
-  
-
-  
-
- 
-  

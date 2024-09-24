@@ -66,7 +66,11 @@ const Cadastro = () => {
       email: '',
       cnpj: '',
       telefone: '',
-      uf: '',
+      cidade: '',
+      bairro:"",
+      file:"",
+      endereco:"",
+      interesse:"",
       cep: '',
       descAtuacao: '',
       senha: '',
@@ -104,26 +108,29 @@ const Cadastro = () => {
         </div>
 
         <section className="formulario-section">
-          <form onSubmit={handleSubmit} id="myForm" className="form" method="post">
             <div className="desc-form">
               <h1 id="desc-h1">Charity Connect</h1>
               <h2 id="title-form">Cadastro de ONG</h2>
             </div>
 
-            <section className="inputs-form">
-              <div className="form-1">
+            <form onSubmit={handleSubmit} id="myForm" className="form-cadastro" method="post">
+
+                <div className="form-esquerdo">
+                
                 <label id="label">
                   <h1 id="nome-input">Nome da ONG</h1>
-                  <input
-                    value={formData.nome || ""}
-                    id="inputnomeong"
-                    type="text"
-                    name="nome"
-                    maxLength="100"
-                    placeholder="Digite o nome da ONG"
-                    required
-                    onChange={handleChange}
-                  />
+                    <input 
+                      type="text"
+                      id=""
+                      className="inputs-esquerdo"
+                      name="nome"
+                      maxLength="100"
+                      placeholder="Digite o nome da ONG"
+                      value={formData.nome || ""}
+                      
+                      onChange={handleChange}
+                      required
+                    />
                 </label>
 
 
@@ -132,6 +139,7 @@ const Cadastro = () => {
                   <input
                     value={formData.nomeRep || ""}
                     id="inputnomerep"
+                    className="inputs-esquerdo"
                     type="text"
                     name="nomeRep"
                     maxLength="100"
@@ -145,6 +153,7 @@ const Cadastro = () => {
                   <input
                     value={formData.email || ""}
                     id="inputemail"
+                    className="inputs-esquerdo"
                     type="email"
                     name="email"
                     maxLength="100"
@@ -155,25 +164,13 @@ const Cadastro = () => {
                 </label>
 
                 <label id="label">
-                  <h1 id="nome-input">Interesses</h1>
-                  <input
-                    value={formData.interesse || ""}
-                    type="text"
-                    name="interesse"
-                    maxLength="100"
-                    placeholder="Digite o nome da ONG"
-                    required
-                    onChange={handleChange}
-                  />
-                </label>
-
-                <label id="label">
                   <h1 id="nome-input">CNPJ</h1>
                   <input
                     value={formData.cnpj || ""}
                     type="text"
+                    className="inputs-esquerdo"
                     name="cnpj"
-                    id="cnpj"
+                    id=""
                     placeholder="CNPJ (apenas números)"
                     required
                     pattern="[0-9]{14}"
@@ -186,6 +183,7 @@ const Cadastro = () => {
                   <input
                     value={formData.telefone || ""}
                     type="tel"
+                    className="inputs-esquerdo"
                     name="telefone"
                     id="inputnum"
                     placeholder="(XX) XXXXX-XXXX"
@@ -214,11 +212,12 @@ const Cadastro = () => {
 
 
 
-        <div>
+        <div className="teste">
       <label id="label" htmlFor="">
         <h1 id="nome-input">CEP:</h1>
        <input
           type="text"
+          className="inputs-esquerdo"
           placeholder="Digite o CEP"
           name="cep"
           defaultValue={formData.cep}
@@ -233,15 +232,16 @@ const Cadastro = () => {
         </button>
       </div>
       {Object.keys(cep).length > 1 && (
-        <main>
+        <div>
           
         <label htmlFor="">
           <h1 id="nome-input">Endereço</h1>
-          <input type="text"value={`${cep.logradouro} ${formData.endereco}`}
+          <input className="inputs-esquerdo" type="text"value={`${cep.logradouro} ${formData.endereco}`}
           
            onChange={handleChange} />
-        </label>
-          <label htmlFor="">
+        </label> <br/>
+        
+        {/* <label htmlFor="">
             <h1 id="nome-input">
               Bairro
             </h1>
@@ -249,53 +249,55 @@ const Cadastro = () => {
              name="bairro"
              onChange={handleChange}/>
           </label>
-          
+           */}
           
           <label htmlFor="">
             <h1 id="nome-input">Cidade</h1>
-            <input type="text" value={`${cep.localidade || ''} - ${cep.uf || ''} ${formData.cidade || ''}`}
+            <input className="inputs-esquerdo" type="text" 
+            value={`${cep.localidade || ''} - ${cep.uf || ''}
+             ${formData.cidade || ''}`}
              name="cidade" onChange={handleChange}/>
           </label>
 
           
-        </main>
+        </div>
       )}
 
-      
 
+                
 
+                </div>
 
+                <div className="form-direita">
+                <label id="label">
+                  <h1 id="nome-input">Interesses</h1>
+                  <input
+                    value={formData.interesse || ""}
+                    type="text"
+                    className="inputs-direita"
+                    name="interesse"
+                    maxLength="100"
+                    placeholder="Digite o nome da ONG"
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+                <br/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </div>
-
-              <div className="form-2">
                 <label id="label">
                   <h1 id="nome-input">Descrição de Atuação</h1>
                   <textarea
                     value={formData.descAtuacao || ""}
                     name="descAtuacao"
                     id="textarea-form"
+                    className="inputs-direita"
                     cols="40"
                     rows="6"
                     maxLength="200"
                     onChange={handleChange}
                   ></textarea>
                 </label>
-                <br />
+
                 <label id="label">
                   <h1 id="nome-input">Upload de foto de perfil</h1>
                   <div className="imageup">
@@ -307,13 +309,15 @@ const Cadastro = () => {
                     />
                   </div>
                 </label>
-                <br />
+                <br/>
+
                 <label id="label">
                   <h1 id="nome-input">Senha: </h1>
                   <input
                     value={formData.senha || ""}
                     type="password"
                     id="inputsenha"
+                    className="inputs-direita"
                     name="senha"
                     maxLength="100"
                     required
@@ -328,36 +332,37 @@ const Cadastro = () => {
                     type="password"
                     id="inputsenha1"
                     name="senha"
+                    className="inputs-direita"
                     maxLength="100"
                     required
                     onChange={handleChange}
                   />
                 </label>
-              </div>
-            </section>
 
-            <div className="btns">
-              <div>
+                </div>
+
+                <div className="confirmarcao-perfil">
+              <div className="btns-do-perfil">
                 <button
-                  className="botao-form-cadastro"
+                  className="botao-form-perfil"
                   id="botao-form"
-                  type="button"
-                  onClick={handleReset}
-                >
-                  Reset
-                </button>
-              </div>
-              <div>
-                <button
-                  className="botao-form-cadastro"
-                  id="botao-form-cadastro"
                   type="submit"
                 >
-                  Cadastrar
+                 Salvar
+                </button>
+              </div>
+              <div div className="btns-do-perfil">
+                <button
+                  className="botao-form-perfi"
+                  id="botao-form"
+                  type="button"
+                >
+                  Limpar
                 </button>
               </div>
             </div>
-          </form>
+            </form>
+
         </section>
 
         <div style={{ height: "50px", backgroundColor: "#161b22" }}></div>
