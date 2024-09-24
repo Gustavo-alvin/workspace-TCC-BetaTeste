@@ -108,7 +108,7 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       NOME:
                     </h1>
-                    <input className="form-2__inputs" className='editar-inputs-solos' id="nome" type="text" name="nome"
+                    <input  className='editar-inputs-solos' id="nome" type="text" name="nome"
                       placeholder="Digite seu nome"  required
                       defaultValue={formData.nome || ""}
                       onChange={handleChange}  />
@@ -118,7 +118,7 @@ const Contato = () => {
                     <h1 id="name-caixa">
                       SOBRENOME:
                     </h1>
-                    <input className="form-2__inputs" className='editar-inputs-solos' id="sobrenome" type="text" name="sobrenome"
+                    <input  className='editar-inputs-solos' id="sobrenome" type="text" name="sobrenome"
                       placeholder="Digite seu sobrenome"  required 
                       defaultValue={formData.sobrenome || ""}
                     onChange={handleChange} />
@@ -129,7 +129,7 @@ const Contato = () => {
                   <h1 id="name-caixa">
                     ENDEREÇO DE E-MAIL:
                   </h1>
-                  <input className="inputemail" className='editar-inputs-solos' type="email" name="email"
+                  <input  className='editar-inputs-solos' type="email" name="email"
                     placeholder="Digite seu email" required 
                     value={formData.email || ""}
                     onChange={handleChange}/>
