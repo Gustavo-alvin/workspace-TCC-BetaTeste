@@ -18,6 +18,7 @@ const Cadastro = () => {
   const [dataFile, setDataFile] = useState();
   const [chosenImage, setChosenImage] = useState();
   const [formData, setFormData] = useState({});
+  const [confirmPassword, setConfirmPassword] = useState(""); // Novo estado para confirmação da senha
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState();
   const [input, setInput] = useState("");
@@ -39,7 +40,6 @@ const Cadastro = () => {
     }
   }
 
-
   const setFile = (dataFile) => {
     setDataFile(dataFile);
   };
@@ -57,10 +57,14 @@ const Cadastro = () => {
     } else {
       setFormData((formData) => ({ ...formData, [name]: value }));
     }
+    
+    // Atualiza o estado de confirmação da senha
+    if (name === "senha1") {
+      setConfirmPassword(value);
+    }
   };
 
   const handleReset = () => {
-    // Reseta os campos do formulário para seus valores iniciais
     setFormData({
       nome: '',
       nomeRep: '',
@@ -76,8 +80,9 @@ const Cadastro = () => {
       descAtuacao: '',
       senha: '',
     });
-    setDataFile(null); // Limpa o arquivo se necessário
-    setChosenImage(null); // Limpa a imagem se necessário
+    setConfirmPassword(""); // Reseta a confirmação da senha
+    setDataFile(null);
+    setChosenImage(null);
   };
 
   const handleSubmit = async (e) => {
@@ -329,10 +334,10 @@ const Cadastro = () => {
               <label id="label">
                 <h1 id="nome-input">Confirmação de Senha:</h1>
                 <input
-                  value={formData.senha || ""}
+                  value={confirmPassword}
                   type="password"
                   id="inputsenha1"
-                  name="senha"
+                  name="senha1"
                   className="inputs-direita"
                   maxLength="100"
                   required
@@ -352,7 +357,7 @@ const Cadastro = () => {
                   Cadastrar
                 </button>
               </div>
-              <div div className="btns-do-perfil">
+              <div className="btns-do-perfil">
                 <button
                   className="botao-form-perfi"
                   id="botao-form"
