@@ -348,7 +348,7 @@ const Cadastro = () => {
                   id="botao-form"
                   type="submit"
                 >
-                 Salvar
+                 Cadastrar
                 </button>
               </div>
               <div div className="btns-do-perfil">
@@ -356,8 +356,9 @@ const Cadastro = () => {
                   className="botao-form-perfi"
                   id="botao-form"
                   type="button"
+                  onClick={handleReset}
                 >
-                  Limpar
+                  Limpar Dados
                 </button>
               </div>
             </div>
