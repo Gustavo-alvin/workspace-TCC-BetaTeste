@@ -108,16 +108,16 @@ function EditarPerfil() {
 </div>
 
 
-<section class="kk">
+<section className="kk">
     
-            <form onSubmit={handleSubmit} class="form" method="post" action="">
+            <form onSubmit={handleSubmit} className="form" method="post" action="">
     
-                <div class="Perfil">
-                    <div class="controler_perfil">
-                       <div class="pic">
-                           <label class="picture" tabindex="0" for="picture__input">
+                <div classNames="Perfil">
+                    <div className="controler_perfil">
+                       <div className="pic">
+                           <label className="picture" tabIndex="0" for="picture__input">
                                <input type="file" name="" accept="image/*" id="picture__input"/>
-                               <span class="picture__image"></span>
+                               <span className="picture__image"></span>
                               </label>
                          </div>
                     </div>
