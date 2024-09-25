@@ -118,6 +118,20 @@ function Admin() {
       .catch((error) => console.log(error));
   }, []);
 
+  const objectValues = {
+    id: null,
+    nome: "",
+    nomeRep:"",
+    email: "",
+    senha: "",
+    telefone: "",
+    descAtuacao: "",
+    foto: "",
+    cep: "",
+    cnpj: "",
+    uf: "",
+  };
+
   return (
     <div>
       <MenuBar />
