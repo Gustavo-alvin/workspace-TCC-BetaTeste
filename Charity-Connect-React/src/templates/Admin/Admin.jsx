@@ -150,6 +150,7 @@ function Admin() {
 
         <div className="admin-content">
           {view === 'ongs' && <OngsList ongs={ongs} />}
+
           {view === 'contatos' && <ContatoList contatos={contatos} />}
         </div>
       </div>
