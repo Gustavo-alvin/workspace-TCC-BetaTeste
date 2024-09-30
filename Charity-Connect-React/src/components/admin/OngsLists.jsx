@@ -71,7 +71,7 @@ const OngsList = ({ ongs }) => {
                 <option value="banida">Banir</option>
               </select>
 
-        <button className="admin-select-button">Alterar</button>
+              <button className="class-adm-select-button" id="id-adm-select-form" type="submit">Alterar</button>
 
               </form>
             </div> 
