@@ -1,0 +1,31 @@
+.form {
+    width: 380px;
+}
+
+.btn-open{
+    background-color: #04AA6D; 
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 7px 11px 1px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-close{
+    background-color: #fc2419;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 7px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

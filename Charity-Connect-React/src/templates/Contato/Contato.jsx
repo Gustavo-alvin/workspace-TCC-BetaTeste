@@ -154,7 +154,7 @@ const Contato = () => {
             </section>
 
             <div className="btn-form">
-              <button className="botao-form">Enviar</button>
+              <button type='submit' className="botao-form">Enviar</button>
             </div>
           </form>
         </section>

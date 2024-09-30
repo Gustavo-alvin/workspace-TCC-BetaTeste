@@ -17,10 +17,18 @@ const multipartInstance = axios.create({
   }
 });
 
+const apiCep = axios.create( {
+  baseURL: `https://viacep.com.br/ws/`,
+  headers: {
+    "Content-type": "application/json"
+  }
+});
+
 
 const httpCommom = {
   mainInstance,
   multipartInstance,
+  apiCep,
 };
 
 export default httpCommom;

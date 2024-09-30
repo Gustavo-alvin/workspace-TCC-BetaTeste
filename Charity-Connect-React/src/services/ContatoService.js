@@ -39,7 +39,7 @@ const create = async (data) => {
     formData.append('email', data.email);
     formData.append('motivoContato', data.motivoContato);
     formData.append('telefone', data.telefone);
-    formData.append(' sobrenome', data.sobrenome);
+    formData.append('sobrenome', data.sobrenome);
 
     return http.mainInstance.post(API_URL + "create", formData);
  

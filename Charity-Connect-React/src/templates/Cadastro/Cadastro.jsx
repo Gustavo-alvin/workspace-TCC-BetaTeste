@@ -13,6 +13,7 @@ import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModa
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import api from "../../services/api";
+import CepModal from "../../components/Cep/CepModal";
 
 const Cadastro = () => {
   const [dataFile, setDataFile] = useState();
@@ -57,7 +58,7 @@ const Cadastro = () => {
     } else {
       setFormData((formData) => ({ ...formData, [name]: value }));
     }
-    
+    console.log(formData)
     // Atualiza o estado de confirmação da senha
     if (name === "senha1") {
       setConfirmPassword(value);
@@ -101,6 +102,16 @@ const Cadastro = () => {
       }
     );
   };
+
+  const [data, setData] = useState('');
+  const setChosenCep = (dataFile) => {
+      setData(dataFile);   
+  }
+  useEffect(() => {
+    if(data)
+      setCep(data)
+      setFormData((formData) => ({ ...formData, data}));
+  }, [data]);
 
   return (
     <div>
@@ -199,24 +210,11 @@ const Cadastro = () => {
                 />
               </label>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              <div>
+                  <CepModal
+                      setChosenCep={setChosenCep}
+                  />
+              </div>
 
               <div className="teste">
                 <label id="label" htmlFor="">

@@ -56,14 +56,14 @@ const create = async (file, data) => {
     formData.append('nomeRep', data.nomeRep);
     formData.append('email', data.email);
     formData.append('interesse', data.interesse)
-    formData.append('cidade', data.cidade)
+    formData.append('cidade', data.data.localidade)
     formData.append('senha', data.senha);
     formData.append('telefone', data.telefone);
     formData.append('descAtuacao', data.descAtuacao);
-    formData.append('cep', data.cep);
+    formData.append('cep', data.data.cep);
     formData.append('sobreNos', data.sobreNos);
-    formData.append('endereco', data.endereco);
-    formData.append('bairro', data.bairro);
+    formData.append('endereco', data.data.logradouro);
+    formData.append('bairro', data.data.bairro);
     formData.append('cnpj', data.cnpj);
     formData.append('file', file);
 
