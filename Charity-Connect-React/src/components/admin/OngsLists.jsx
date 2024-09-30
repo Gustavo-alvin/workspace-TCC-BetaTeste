@@ -59,6 +59,7 @@ const OngsList = ({ ongs }) => {
 
             {/* Select para gerenciamento de status */}
             <div>
+              <form>
               <label htmlFor={`status-${ong.id}`}><strong>Status</strong>:</label>
               <select
                 id={`status-${ong.id}`}
@@ -69,6 +70,10 @@ const OngsList = ({ ongs }) => {
                 <option value="aprovada">Aprovar</option>
                 <option value="banida">Banir</option>
               </select>
+
+        <button className="admin-select-button">Alterar</button>
+
+              </form>
             </div> 
           </div>
         </div>
