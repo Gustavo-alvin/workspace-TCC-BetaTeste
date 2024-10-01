@@ -72,7 +72,7 @@ const OngsList = ({ ongs }) => {
 
               <button
                 className="class-adm-select-button"
-                type="button" // Alterado para type="button"
+                type="button" 
                 onClick={() => handleUpdateClick(ong.id)} // Chama a função ao clicar
               >
                 Alterar
