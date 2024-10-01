@@ -1,0 +1,16 @@
+.class-adm-select-button{
+    color:#fff;
+    padding: 5px;
+    background-color:rgb(112, 124, 251); ;
+    border:none;
+    margin-left: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
+.class-adm-select-button:hover{
+    background-color: #000;
+    color:#fff;
+    transition: 0.5s;
+}
