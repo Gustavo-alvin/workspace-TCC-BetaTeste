@@ -3,9 +3,9 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Menu/Sidebar";
 import "./Catalogo.css";
 import { useEffect, useState } from "react";
-import CatalogoService from "../../services/CatalogoService";
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
+import OngService from "../../services/OngService";
 
 function Catalogo() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function Catalogo() {
   const [interesses, setInteresses] = useState([]);
 
   useEffect(() => {
-    CatalogoService.findAll()
+    OngService.findAllAprovadas()
       .then((response) => {
         const ongs = response.data;
         setOngs(ongs);
