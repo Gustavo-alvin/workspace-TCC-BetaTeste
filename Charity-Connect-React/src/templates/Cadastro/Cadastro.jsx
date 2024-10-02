@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
-import InputMask from 'react-input-mask';
+import InputMask from "react-input-mask";
 import Header from "../../components/Header/Header";
 import test from "../../assets/images/charityConnect.png";
 import capa from "../../assets/images/background1homepage.png";
@@ -58,7 +58,7 @@ const Cadastro = () => {
     } else {
       setFormData((formData) => ({ ...formData, [name]: value }));
     }
-    console.log(formData)
+    console.log(formData);
     // Atualiza o estado de confirmação da senha
     if (name === "senha1") {
       setConfirmPassword(value);
@@ -67,19 +67,19 @@ const Cadastro = () => {
 
   const handleReset = () => {
     setFormData({
-      nome: '',
-      nomeRep: '',
-      email: '',
-      cnpj: '',
-      telefone: '',
-      cidade: '',
+      nome: "",
+      nomeRep: "",
+      email: "",
+      cnpj: "",
+      telefone: "",
+      cidade: "",
       bairro: "",
       file: "",
       endereco: "",
       interesse: "",
-      cep: '',
-      descAtuacao: '',
-      senha: '',
+      cep: "",
+      descAtuacao: "",
+      senha: "",
     });
     setConfirmPassword(""); // Reseta a confirmação da senha
     setDataFile(null);
@@ -103,14 +103,13 @@ const Cadastro = () => {
     );
   };
 
-  const [data, setData] = useState('');
+  const [data, setData] = useState("");
   const setChosenCep = (dataFile) => {
-      setData(dataFile);   
-  }
+    setData(dataFile);
+  };
   useEffect(() => {
-    if(data)
-      setCep(data)
-      setFormData((formData) => ({ ...formData, data}));
+    if (data) setCep(data);
+    setFormData((formData) => ({ ...formData, data }));
   }, [data]);
 
   return (
@@ -130,10 +129,13 @@ const Cadastro = () => {
             <h2 id="title-form">Cadastro de ONG</h2>
           </div>
 
-          <form onSubmit={handleSubmit} id="myForm" className="form-cadastro" method="post">
-
+          <form
+            onSubmit={handleSubmit}
+            id="myForm"
+            className="form-cadastro"
+            method="post"
+          >
             <div className="form-esquerdo">
-
               <label id="label">
                 <h1 id="nome-input">Nome da ONG</h1>
                 <input
@@ -144,12 +146,10 @@ const Cadastro = () => {
                   maxLength="100"
                   placeholder="Digite o nome da ONG"
                   value={formData.nome || ""}
-
                   onChange={handleChange}
                   required
                 />
               </label>
-
 
               <label id="label">
                 <h1 id="nome-input">Nome do Representante</h1>
@@ -211,65 +211,71 @@ const Cadastro = () => {
               </label>
 
               <div>
-                  <CepModal
-                      setChosenCep={setChosenCep}
-                  />
+                <CepModal setChosenCep={setChosenCep} />
               </div>
 
-              <div className="teste">
-                <label id="label" htmlFor="">
-                  <h1 id="nome-input">CEP:</h1>
-                  <input
-                    type="text"
-                    className="inputs-esquerdo"
-                    placeholder="Digite o CEP"
-                    name="cep"
-                    defaultValue={formData.cep}
-                    onChange={(e) => {
-                      handleChange(e); // Primeiro chama a função que atualiza o formData
-                      setInput(e.target.value); // Depois atualiza o estado do input para a busca de CEP
-                    }}
-                  />
-                </label>
-                <button className="buttonSearch" onClick={handleSearch}>
-                  <BiSearch size={25} color="#FFF" />
-                </button>
-              </div>
               {Object.keys(cep).length > 1 && (
-                <div>
-
-                  <label htmlFor="">
-                    <h1 id="nome-input">Endereço</h1>
-                    <input className="inputs-esquerdo" type="text" value={`${cep.logradouro} ${formData.endereco}`}
-
-                      onChange={handleChange} />
-                  </label> <br />
-
-                  {/* <label htmlFor="">
-            <h1 id="nome-input">
-              Bairro
-            </h1>
-            <input value={`${cep.bairro} ${formData.bairro}`} type="text" 
-             name="bairro"
-             onChange={handleChange}/>
-          </label>
-           */}
-
-                  <label htmlFor="">
-                    <h1 id="nome-input">Cidade</h1>
-                    <input className="inputs-esquerdo" type="text"
-                      value={`${cep.localidade || ''} - ${cep.uf || ''}
-             ${formData.cidade || ''}`}
-                      name="cidade" onChange={handleChange} />
+                <main>
+                  <label id="label">
+                    <h1 id="nome-input">Cep</h1>
+                    <input
+                      value={cep.cep || ""}
+                      id="inputemail"
+                      className="inputs-esquerdo"
+                      type="text"
+                      name="cep"
+                      maxLength="100"
+                      required
+                      onChange={handleChange}
+                    />
                   </label>
+                  <br/>
 
+                  <label id="label">
+                    <h1 id="nome-input">Endereço</h1>
+                    <input
+                      value={cep.logradouro || ""}
+                      id="inputemail"
+                      className="inputs-esquerdo"
+                      type="text"
+                      name="endereco"
+                      maxLength="100"
+                      required
+                      onChange={handleChange}
+                    />
+                  </label>
+                  <br/>
 
-                </div>
+                  <label id="label">
+                    <h1 id="nome-input">Bairro</h1>
+                    <input
+                      value={cep.bairro || ""}
+                      id="inputemail"
+                      className="inputs-esquerdo"
+                      type="text"
+                      name="bairro"
+                      maxLength="100"
+                      required
+                      onChange={handleChange}
+                    />
+                  </label>
+                  <br/>
+
+                  <label id="label">
+                    <h1 id="nome-input">Cidade</h1>
+                    <input
+                      value={`${cep.localidade || ""} - ${cep.uf}`}
+                      id="inputemail"
+                      className="inputs-esquerdo"
+                      type="text"
+                      name="cidade"
+                      maxLength="100"
+                      required
+                      onChange={handleChange}
+                    />
+                  </label>
+                </main>
               )}
-
-
-
-
             </div>
 
             <div className="form-direita">
@@ -305,7 +311,6 @@ const Cadastro = () => {
               <label id="label">
                 <h1 id="nome-input">Upload de foto de perfil</h1>
                 <div className="imageup">
-
                   <ImageUploaderModal
                     setFile={setFile}
                     setImage={setImage}
@@ -342,7 +347,6 @@ const Cadastro = () => {
                   onChange={handleChange}
                 />
               </label>
-
             </div>
 
             <div className="confirmarcao-perfil">
@@ -367,7 +371,6 @@ const Cadastro = () => {
               </div>
             </div>
           </form>
-
         </section>
 
         <div style={{ height: "50px", backgroundColor: "#161b22" }}></div>

@@ -9,7 +9,7 @@ const findById = (id) => {
     return http.mainInstance.get(API_URL + `findById/${id}`);
 };
 
-const signup = (nome,nomeRep, email, senha, telefone, descAtuacao,interesse, cidade, cep, foto, sobreNos, endereco, bairro, cnpj) => {
+const signup = (nome,nomeRep, email, senha, telefone, descAtuacao,interesse, cidade, cep,uf, foto, sobreNos, endereco, bairro, cnpj) => {
     return http.mainInstance.post(API_URL + "signup", {
         nome,
         nomeRep,
@@ -18,6 +18,7 @@ const signup = (nome,nomeRep, email, senha, telefone, descAtuacao,interesse, cid
         telefone,
         interesse,
         cidade,
+        uf,
         descAtuacao,
         cep,
         foto,
@@ -61,6 +62,7 @@ const create = async (file, data) => {
     formData.append('telefone', data.telefone);
     formData.append('descAtuacao', data.descAtuacao);
     formData.append('cep', data.data.cep);
+    formData.append('uf', data.data.uf)
     formData.append('sobreNos', data.sobreNos);
     formData.append('endereco', data.data.logradouro);
     formData.append('bairro', data.data.bairro);
