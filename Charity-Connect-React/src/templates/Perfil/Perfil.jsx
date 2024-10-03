@@ -23,6 +23,7 @@ function Perfil() {
     cep: "",
     cnpj: "",
     uf: "",
+    localidade:"",
   };
   const [catalogo, setCatalogo] = useState(objectValues);
 
@@ -104,8 +105,21 @@ function Perfil() {
                 <label htmlFor="id" className="label-input">
                 UF:
                 </label>
-                <label className="area-contato" htmlFor="">{catalogo.uf}</label>
+                <label className="area-contato" htmlFor="">{`${catalogo.cidade} - ${catalogo.uf}`}</label>
               </div>
+              <div className="info">
+                <label htmlFor="id" className="label-input">
+                Bairro:
+                </label>
+                <label className="area-contato" htmlFor="">{catalogo.bairro}</label>
+              </div>
+              <div className="info">
+                <label htmlFor="id" className="label-input">
+                Endereço:
+                </label>
+                <label className="area-contato" htmlFor="">{catalogo.endereco}</label>
+              </div>
+              
               
             
           </section>

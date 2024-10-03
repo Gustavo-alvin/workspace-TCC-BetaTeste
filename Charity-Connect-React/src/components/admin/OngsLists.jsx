@@ -68,7 +68,7 @@ const OngsList = ({ ongs }) => {
         <div key={ong.id} className="admin-header p-3 my-4 shadow">
           <div className="admin-info-left">
             <div className="adm-ong-img">
-              <img
+              <img className="img-adm-ong"
                 src={ong.foto ? "data:image/jpeg;base64," + ong.foto : ""}
                 alt="ONG"
               />
