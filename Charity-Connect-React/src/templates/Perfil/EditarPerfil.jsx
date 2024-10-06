@@ -16,6 +16,7 @@ function EditarPerfil() {
   const [dataFile, setDataFile] = useState();
   const [chosenImage, setChosenImage] = useState();
   const [formData, setFormData] = useState({});
+  const [confirmPassword, setConfirmPassword] = useState(""); // Novo estado para confirmação da senha
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState();
   const [input, setInput] = useState("");
@@ -37,7 +38,6 @@ function EditarPerfil() {
     }
   }
 
-
   const setFile = (dataFile) => {
     setDataFile(dataFile);
   };
@@ -55,27 +55,32 @@ function EditarPerfil() {
     } else {
       setFormData((formData) => ({ ...formData, [name]: value }));
     }
+    console.log(formData);
+    // Atualiza o estado de confirmação da senha
+    if (name === "senha1") {
+      setConfirmPassword(value);
+    }
   };
 
   const handleReset = () => {
-    // Reseta os campos do formulário para seus valores iniciais
     setFormData({
-      nome: '',
-      nomeRep: '',
-      email: '',
-      cnpj: '',
-      telefone: '',
-      cidade: '',
-      bairro:"",
-      file:"",
-      endereco:"",
-      interesse:"",
-      cep: '',
-      descAtuacao: '',
-      senha: '',
+      nome: "",
+      nomeRep: "",
+      email: "",
+      cnpj: "",
+      telefone: "",
+      cidade: "",
+      bairro: "",
+      file: "",
+      endereco: "",
+      interesse: "",
+      cep: "",
+      descAtuacao: "",
+      senha: "",
     });
-    setDataFile(null); // Limpa o arquivo se necessário
-    setChosenImage(null); // Limpa a imagem se necessário
+    setConfirmPassword(""); // Reseta a confirmação da senha
+    setDataFile(null);
+    setChosenImage(null);
   };
 
   const handleSubmit = async (e) => {
@@ -95,6 +100,16 @@ function EditarPerfil() {
     );
   };
 
+  const [data, setData] = useState("");
+  const setChosenCep = (dataFile) => {
+    setData(dataFile);
+  };
+  useEffect(() => {
+    if (data) setCep(data);
+    setFormData((formData) => ({ ...formData, data }));
+  }, [data]);
+
+
   return (
     <div>
        <MenuBar />
@@ -112,16 +127,6 @@ function EditarPerfil() {
     
             <form onSubmit={handleSubmit} className="form" method="post" action="">
     
-                <div classNames="Perfil">
-                    <div className="controler_perfil">
-                       <div className="pic">
-                           <label className="picture" tabIndex="0" for="picture__input">
-                               <input type="file" name="" accept="image/*" id="picture__input"/>
-                               <span className="picture__image"></span>
-                              </label>
-                         </div>
-                    </div>
-                   </div>
 
                    <div className="divisao-inputs">
 

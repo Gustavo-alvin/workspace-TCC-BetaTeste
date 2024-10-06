@@ -36,7 +36,7 @@ const AppRoutes = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgotpass" element={<ForgotPass />} />
-        <Route path="/editarperfil" element={<EditarPerfil/>} />
+        <Route path="/editarperfil/:id" element={<EditarPerfil/>} />
 
         <Route path="/mensagem" element={<Mensagem />} />
         <Route path="/mensagemler" element={<MensagemLer />} />
