@@ -13,6 +13,7 @@ const signup = (pergunta, motivoContato, nome, sobrenome, email, telefone) => {
     return http.mainInstance.post(API_URL + "signup", {
         pergunta,
         motivoContato,
+        dataContato,
         nome,
         sobrenome,
         email,
