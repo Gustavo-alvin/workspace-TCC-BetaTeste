@@ -56,6 +56,7 @@ const OngsList = ({ ongs }) => {
     OngService.alterarStatus(id, formData).then(
       (response) => {
         window.location.reload();
+        alert("ONG alterada com sucesso");
       },
       (error) => {
         const message = error.response.data.message;
