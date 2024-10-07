@@ -4,14 +4,14 @@ import fotoong from "../../assets/images/ongs-02.png";
 import footer from "../../assets/images/newnames_Prancheta 1.png";
 import ong2 from "../../assets/images/ongs-02.png";
 import "./EditarPerfil.css";
-import { useParams, useNavigate } from "react-router-dom"; // Importar useNavigate para redirecionamento
+import { useParams, useNavigate } from "react-router-dom"; 
 import CadastroService from "../../services/CadastroService";
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 
 function EditarPerfil() {
   const { id } = useParams();
-  const navigate = useNavigate(); // Para redirecionamento após a atualização
+  const navigate = useNavigate();
 
   const objectValues = {
     id: null,
@@ -56,13 +56,13 @@ function EditarPerfil() {
 }
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Impede o comportamento padrão do formulário
+    e.preventDefault(); 
     console.log("Dados do formulário:", formData);
 
     CadastroService.update(id, formData)
       .then(() => {
         console.log("Dados atualizados com sucesso!");
-        navigate("/perfil"); // Redirecionar para a página de perfil após a atualização
+        navigate("/perfil"); 
       })
       .catch((error) => {
         console.error("Erro ao atualizar os dados:", error);
@@ -94,7 +94,7 @@ function EditarPerfil() {
                   type="text"
                   name="nome"
                   defaultValue={cadastro.nome}
-                  onChange={handleChange} // Atualiza o estado conforme o usuário digita
+                  onChange={handleChange}
                 />
               </label>
 
@@ -238,7 +238,7 @@ function EditarPerfil() {
                   className="botao-form-perfi"
                   id="botao-form"
                   type="button"
-                  onClick={() => setCadastro(objectValues)} // Limpar o formulário
+                  onClick={() => setCadastro(objectValues)} 
                 >
                   Limpar
                 </button>
