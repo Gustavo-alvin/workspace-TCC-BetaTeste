@@ -37,7 +37,7 @@ const Login = () => {
                 
                 const ongJson = localStorage.getItem("ong");
                 const ong = JSON.parse(ongJson || '{}');
-                if (ong.statusONG == 'ATIVO') {
+                if (ong.statusONG == 'Aprovada') {
                     navigate("/");
                } else if (ong.statusONG == 'TROCAR_SENHA') {
                    navigate(`/newpass/` + ong.id);
