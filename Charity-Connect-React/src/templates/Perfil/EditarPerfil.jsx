@@ -10,6 +10,7 @@ import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import Alert from "../../components/Alert/Alert";
 import ReactInputMask from "react-input-mask";
+import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModal";
 
 function EditarPerfil() {
   const objectValues = {
@@ -30,7 +31,18 @@ function EditarPerfil() {
     interesse: "",
   };
 
+
+  const setFile = (dataFile) => {
+    setDataFile(dataFile);
+  };
+
+  const setImage = (dataImage) => {
+    setChosenImage(dataImage);
+  };
+
   const [cadastro, setCadastro] = useState(objectValues);
+  const [dataFile, setDataFile] = useState();
+  const [chosenImage, setChosenImage] = useState();
   const [loading, setLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
   const { id } = useParams();
@@ -60,7 +72,7 @@ function EditarPerfil() {
     e.preventDefault(); // Impede o comportamento padrão do formulário
     console.log("Dados do formulário:", cadastro);
 
-    CadastroService.update(id, cadastro)
+    CadastroService.update(id,dataFile, cadastro)
       .then(() => {
         console.log("Dados atualizados com sucesso!");
         handleShowAlert(); // Mostra o alert após a atualização
@@ -107,6 +119,23 @@ function EditarPerfil() {
         <section className="kk">
           <form className="form" onSubmit={handleSubmit}>
             <div className="divisao-inputs">
+
+
+            <label id="label">
+                <h1 id="nome-input">Upload de foto de perfil</h1>
+                <div className="imageup">
+                  <ImageUploaderModal
+                    setFile={setFile}
+                    setImage={setImage}
+                    chosenImage={chosenImage}
+                    value = {cadastro.file}
+                  />
+                </div>
+              </label>
+              <br />
+
+
+
               <label htmlFor="nome">
                 <h1>NOME DA ORGANIZAÇÃO:</h1>
                 <input

@@ -73,7 +73,7 @@ const create = async (file, data) => {
  
 };
  
-const update = (id, data) => {
+const update = (id, file, data) => {
  
     const formData = new FormData();
     formData.append('nome', data.nome);
@@ -89,9 +89,10 @@ const update = (id, data) => {
     formData.append('endereco', data.endereco);
     formData.append('bairro', data.bairro);
     formData.append('cnpj', data.cnpj);
+    formData.append('file', file);
    
  
-    return http.mainInstance.put(API_URL + `update/${id}`, formData);
+    return http.multipartInstance.put(API_URL + `update/${id}`, formData);
 };
  
  
