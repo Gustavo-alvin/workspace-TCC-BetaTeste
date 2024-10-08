@@ -10,9 +10,8 @@ import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import Alert from "../../components/Alert/Alert";
 import ReactInputMask from "react-input-mask";
- 
-function EditarPerfil() {
 
+function EditarPerfil() {
   const objectValues = {
     id: null,
     nome: "",
@@ -30,7 +29,7 @@ function EditarPerfil() {
     cidade: "",
     interesse: "",
   };
- 
+
   const [cadastro, setCadastro] = useState(objectValues);
   const [loading, setLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
@@ -94,18 +93,17 @@ function EditarPerfil() {
     return <div>Carregando...</div>;
   }
 
-
   return (
     <div>
       <MenuBar />
- 
+
       <main className="editar">
         <div className="coracaocad">
           <figure className="coracaofigure">
             <img id="coracao" alt="Coração" />
           </figure>
         </div>
- 
+
         <section className="kk">
           <form className="form" onSubmit={handleSubmit}>
             <div className="divisao-inputs">
@@ -119,7 +117,7 @@ function EditarPerfil() {
                   onChange={handleChange} // Atualiza o estado conforme o usuário digita
                 />
               </label>
- 
+
               <label htmlFor="nomeRep">
                 <h1>NOME DO REPRESENTANTE:</h1>
                 <input
@@ -131,7 +129,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
- 
+
             <div className="divisao-inputs-solos">
               <label htmlFor="email">
                 <h1>EMAIL DA ORGANIZAÇÃO:</h1>
@@ -144,7 +142,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
- 
+
             <div className="divisao-inputs">
               <label htmlFor="telefone">
                 <h1>NÚMERO DE CELULAR:</h1>
@@ -159,12 +157,11 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
- 
+
               <label htmlFor="cep">
                 <h1>CEP:</h1>
-                
 
-<ReactInputMask
+                <ReactInputMask
                   mask="99999-999"
                   className="inputs-esquerdo"
                   id="inputnum"
@@ -174,11 +171,9 @@ function EditarPerfil() {
                   value={cadastro.cep}
                   onChange={handleChange}
                 />
-
-                
               </label>
             </div>
- 
+
             <div className="divisao-inputs-solos">
               <label htmlFor="interesse">
                 <h1>INTERESSES:</h1>
@@ -191,7 +186,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
- 
+
             <div className="divisao-inputs">
               <label htmlFor="endereco">
                 <h1>Endereço</h1>
@@ -203,7 +198,7 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
- 
+
               <label htmlFor="bairro">
                 <h1>Bairro</h1>
                 <input
@@ -215,7 +210,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
- 
+
             <div className="divisao-inputs">
               <label htmlFor="cidade">
                 <h1>CIDADE:</h1>
@@ -227,23 +222,23 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
- 
+
               <label htmlFor="cnpj">
                 <h1>CNPJ:</h1>
                 <ReactInputMask
-                    value={cadastro.cnpj }
-                    type="text"
-                    className="inputs-esquerdo"
-                    name="cnpj"
-                    id=""
-                    placeholder="CNPJ (apenas números)"
-                    required
-                    mask="99.999.999/9999-99"
-                    onChange={handleChange}
-                  />
+                  value={cadastro.cnpj}
+                  type="text"
+                  className="inputs-esquerdo"
+                  name="cnpj"
+                  id=""
+                  placeholder="CNPJ (apenas números)"
+                  required
+                  mask="99.999.999/9999-99"
+                  onChange={handleChange}
+                />
               </label>
             </div>
- 
+
             <div className="divisao-inputs-solos">
               <label htmlFor="descAtuacao">
                 <h1>DESCRIÇÃO DE ATUAÇÃO:</h1>
@@ -258,7 +253,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
- 
+
             <div className="confirmarcao-perfil">
               <div className="btns-do-perfil">
                 <button
@@ -270,9 +265,9 @@ function EditarPerfil() {
                   Salvar
                 </button>
                 {showAlert && (
-                  <Alert 
-                    message="Esta é uma mensagem de alerta!" 
-                    onClose={handleCloseAlert} 
+                  <Alert
+                    message="Esta é uma mensagem de alerta!"
+                    onClose={handleCloseAlert}
                     type="success" // ou "error"
                   />
                 )}
@@ -291,10 +286,10 @@ function EditarPerfil() {
           </form>
         </section>
       </main>
- 
+
       <Footer />
     </div>
   );
 }
- 
+
 export default EditarPerfil;
