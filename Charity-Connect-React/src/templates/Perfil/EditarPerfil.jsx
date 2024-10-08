@@ -9,6 +9,7 @@ import CadastroService from "../../services/CadastroService";
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import Alert from "../../components/Alert/Alert";
+import ReactInputMask from "react-input-mask";
  
 function EditarPerfil() {
 
@@ -147,10 +148,13 @@ function EditarPerfil() {
             <div className="divisao-inputs">
               <label htmlFor="telefone">
                 <h1>NÚMERO DE CELULAR:</h1>
-                <input
-                  className="editar-inputs"
-                  type="text"
+                <ReactInputMask
+                  mask="(99) 99999-9999"
+                  className="inputs-esquerdo"
+                  id="inputnum"
                   name="telefone"
+                  placeholder="(XX) XXXXX-XXXX"
+                  required
                   value={cadastro.telefone}
                   onChange={handleChange}
                 />
@@ -158,13 +162,20 @@ function EditarPerfil() {
  
               <label htmlFor="cep">
                 <h1>CEP:</h1>
-                <input
-                  className="editar-inputs"
-                  type="text"
+                
+
+<ReactInputMask
+                  mask="99999-999"
+                  className="inputs-esquerdo"
+                  id="inputnum"
                   name="cep"
+                  placeholder="(XX) XXXXX-XXXX"
+                  required
                   value={cadastro.cep}
                   onChange={handleChange}
                 />
+
+                
               </label>
             </div>
  
@@ -219,13 +230,17 @@ function EditarPerfil() {
  
               <label htmlFor="cnpj">
                 <h1>CNPJ:</h1>
-                <input
-                  className="editar-inputs"
-                  type="text"
-                  name="cnpj"
-                  value={cadastro.cnpj}
-                  onChange={handleChange}
-                />
+                <ReactInputMask
+                    value={cadastro.cnpj }
+                    type="text"
+                    className="inputs-esquerdo"
+                    name="cnpj"
+                    id=""
+                    placeholder="CNPJ (apenas números)"
+                    required
+                    mask="99.999.999/9999-99"
+                    onChange={handleChange}
+                  />
               </label>
             </div>
  
