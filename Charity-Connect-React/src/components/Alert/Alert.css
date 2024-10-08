@@ -1,0 +1,36 @@
+/* Alert.css */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    border-radius: 5%;
+    color: #8224fe;
+    z-index: 1000; 
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  .alert span
+  {
+
+    color: #8224fe;
+  }
+  
+  .alert.success {
+    background-color: #000000;
+    color: #8224fe;
+  }
+  
+  .alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .alert button {
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  

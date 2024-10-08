@@ -4,36 +4,43 @@ import fotoong from "../../assets/images/ongs-02.png";
 import footer from "../../assets/images/newnames_Prancheta 1.png";
 import ong2 from "../../assets/images/ongs-02.png";
 import "./EditarPerfil.css";
-import { useParams, useNavigate } from "react-router-dom"; 
+import { useParams, useNavigate } from "react-router-dom";
 import CadastroService from "../../services/CadastroService";
 import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
-
+import Alert from "../../components/Alert/Alert";
+ 
 function EditarPerfil() {
-  const { id } = useParams();
-  const navigate = useNavigate();
 
   const objectValues = {
     id: null,
     nome: "",
-    nomeRep: null,
-    email: null,
-    telefone: null,
-    descAtuacao: null,
-    foto: null,
-    cep: null,
-    cnpj: null,
-    uf: null,
-    localidade: null,
-    endereco: null,
-    bairro: null,
-    cidade: null,
-    interesse: null,
+    nomeRep: "",
+    email: "",
+    telefone: "",
+    descAtuacao: "",
+    foto: "",
+    cep: "",
+    cnpj: "",
+    uf: "",
+    localidade: "",
+    endereco: "",
+    bairro: "",
+    cidade: "",
+    interesse: "",
   };
-
+ 
   const [cadastro, setCadastro] = useState(objectValues);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setCadastro((cadastro) => ({ ...cadastro, [name]: value }));
+  };
 
   useEffect(() => {
     CadastroService.findById(id)
@@ -49,41 +56,55 @@ function EditarPerfil() {
       });
   }, [id]);
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormData(formData => ({ ...formData, [name]: value }));
-}
-
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    console.log("Dados do formulário:", formData);
+    e.preventDefault(); // Impede o comportamento padrão do formulário
+    console.log("Dados do formulário:", cadastro);
 
-    CadastroService.update(id, formData)
+    CadastroService.update(id, cadastro)
       .then(() => {
         console.log("Dados atualizados com sucesso!");
-        navigate("/perfil"); 
+        handleShowAlert(); // Mostra o alert após a atualização
       })
       .catch((error) => {
         console.error("Erro ao atualizar os dados:", error);
       });
   };
 
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+        navigate(`/perfil/${id}`); // Redireciona para a próxima página
+      }, 2000); // 2 segundos
+
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert, navigate]);
+
   if (loading) {
     return <div>Carregando...</div>;
   }
 
+
   return (
     <div>
       <MenuBar />
-
+ 
       <main className="editar">
         <div className="coracaocad">
           <figure className="coracaofigure">
             <img id="coracao" alt="Coração" />
           </figure>
         </div>
-
+ 
         <section className="kk">
           <form className="form" onSubmit={handleSubmit}>
             <div className="divisao-inputs">
@@ -93,11 +114,11 @@ function EditarPerfil() {
                   className="editar-inputs"
                   type="text"
                   name="nome"
-                  defaultValue={cadastro.nome}
-                  onChange={handleChange}
+                  value={cadastro.nome}
+                  onChange={handleChange} // Atualiza o estado conforme o usuário digita
                 />
               </label>
-
+ 
               <label htmlFor="nomeRep">
                 <h1>NOME DO REPRESENTANTE:</h1>
                 <input
@@ -109,7 +130,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="email">
                 <h1>EMAIL DA ORGANIZAÇÃO:</h1>
@@ -122,7 +143,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="telefone">
                 <h1>NÚMERO DE CELULAR:</h1>
@@ -134,7 +155,7 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="cep">
                 <h1>CEP:</h1>
                 <input
@@ -146,7 +167,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="interesse">
                 <h1>INTERESSES:</h1>
@@ -159,7 +180,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="endereco">
                 <h1>Endereço</h1>
@@ -171,7 +192,7 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="bairro">
                 <h1>Bairro</h1>
                 <input
@@ -183,7 +204,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="cidade">
                 <h1>CIDADE:</h1>
@@ -195,7 +216,7 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="cnpj">
                 <h1>CNPJ:</h1>
                 <input
@@ -207,7 +228,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="descAtuacao">
                 <h1>DESCRIÇÃO DE ATUAÇÃO:</h1>
@@ -217,28 +238,36 @@ function EditarPerfil() {
                   cols="40"
                   rows="6"
                   maxLength="200"
-                  value={cadastro.descAtuacao}
+                  defaultValue={cadastro.descAtuacao}
                   onChange={handleChange}
                 />
               </label>
             </div>
-
+ 
             <div className="confirmarcao-perfil">
               <div className="btns-do-perfil">
                 <button
                   className="botao-form-perfil"
                   id="botao-form"
                   type="submit"
+                  onClick={handleShowAlert}
                 >
                   Salvar
                 </button>
+                {showAlert && (
+                  <Alert 
+                    message="Esta é uma mensagem de alerta!" 
+                    onClose={handleCloseAlert} 
+                    type="success" // ou "error"
+                  />
+                )}
               </div>
               <div div className="btns-do-perfil">
                 <button
                   className="botao-form-perfi"
                   id="botao-form"
                   type="button"
-                  onClick={() => setCadastro(objectValues)} 
+                  onClick={() => setCadastro(objectValues)}
                 >
                   Limpar
                 </button>
@@ -247,10 +276,10 @@ function EditarPerfil() {
           </form>
         </section>
       </main>
-
+ 
       <Footer />
     </div>
   );
 }
-
+ 
 export default EditarPerfil;
