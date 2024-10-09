@@ -49,16 +49,31 @@ const Cadastro = () => {
     setChosenImage(dataImage);
   };
 
+  const validatePassword = (password) => {
+    const passwordCriteria = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    return passwordCriteria.test(password);
+  };
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
+    // Bloquear caracteres numéricos nos campos específicos
+    if (
+      (name === "nome" || name === "nomeRep" || name === "interesse") &&
+      /\d/.test(value)
+    ) {
+      alert("Por favor, não use caracteres numéricos neste campo.");
+      return;
+    }
+
+    // Atualiza o estado do formulário
     if (e.target.type === "file") {
       setFormData((formData) => ({ ...formData, [name]: e.target.files[0] }));
     } else {
       setFormData((formData) => ({ ...formData, [name]: value }));
     }
-    console.log(formData);
+
     // Atualiza o estado de confirmação da senha
     if (name === "senha1") {
       setConfirmPassword(value);
@@ -89,6 +104,19 @@ const Cadastro = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessful(false);
+
+    // Verifica se a senha é válida
+    if (!validatePassword(formData.senha)) {
+      alert("A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
+      return;
+    }
+
+    // Verifica se a confirmação da senha é igual à senha original
+    if (formData.senha !== confirmPassword) {
+      alert("As senhas não conferem. Por favor, tente novamente.");
+      return;
+    }
+
     console.log("Dados do formulário:", formData);
 
     CadastroService.create(dataFile, formData).then(
