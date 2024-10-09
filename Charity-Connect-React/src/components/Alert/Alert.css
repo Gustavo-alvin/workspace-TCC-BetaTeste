@@ -11,11 +11,6 @@
     z-index: 1000; 
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   }
-  .alert span
-  {
-
-    color: #8224fe;
-  }
   
   .alert.success {
     background-color: #000000;

@@ -119,17 +119,22 @@ h1{
     border-radius: 0;
     margin-bottom: 2rem;
 }
+textarea {
+    color: #000000;
+}
 
 .divisao-inputs{
     display: grid;
+    width: 65rem;
     align-content: center;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
     
 }
 
 .divisao-inputs-solos{
     width: 100%;
+    color: #000000;
 }
 
 .editar-inputs-solos{

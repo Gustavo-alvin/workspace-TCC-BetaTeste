@@ -10,9 +10,9 @@ import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import Alert from "../../components/Alert/Alert";
 import ReactInputMask from "react-input-mask";
-import ImageUploaderModal from "../../components/ImageUploader/ImageUploaderModal";
-
+ 
 function EditarPerfil() {
+
   const objectValues = {
     id: null,
     nome: "",
@@ -30,19 +30,8 @@ function EditarPerfil() {
     cidade: "",
     interesse: "",
   };
-
-
-  const setFile = (dataFile) => {
-    setDataFile(dataFile);
-  };
-
-  const setImage = (dataImage) => {
-    setChosenImage(dataImage);
-  };
-
+ 
   const [cadastro, setCadastro] = useState(objectValues);
-  const [dataFile, setDataFile] = useState();
-  const [chosenImage, setChosenImage] = useState();
   const [loading, setLoading] = useState(true);
   const [showAlert, setShowAlert] = useState(false);
   const { id } = useParams();
@@ -72,7 +61,7 @@ function EditarPerfil() {
     e.preventDefault(); // Impede o comportamento padrão do formulário
     console.log("Dados do formulário:", cadastro);
 
-    CadastroService.update(id,dataFile, cadastro)
+    CadastroService.update(id, cadastro)
       .then(() => {
         console.log("Dados atualizados com sucesso!");
         handleShowAlert(); // Mostra o alert após a atualização
@@ -105,37 +94,21 @@ function EditarPerfil() {
     return <div>Carregando...</div>;
   }
 
+
   return (
     <div>
       <MenuBar />
-
+ 
       <main className="editar">
         <div className="coracaocad">
           <figure className="coracaofigure">
-            <img id="coracao" alt="Coração" />
+            {/* <img id="coracao" alt="Coração" /> */}
           </figure>
         </div>
-
+ 
         <section className="kk">
           <form className="form" onSubmit={handleSubmit}>
             <div className="divisao-inputs">
-
-
-            <label id="label">
-                <h1 id="nome-input">Upload de foto de perfil</h1>
-                <div className="imageup">
-                  <ImageUploaderModal
-                    setFile={setFile}
-                    setImage={setImage}
-                    chosenImage={chosenImage}
-                    value = {cadastro.file}
-                  />
-                </div>
-              </label>
-              <br />
-
-
-
               <label htmlFor="nome">
                 <h1>NOME DA ORGANIZAÇÃO:</h1>
                 <input
@@ -146,7 +119,7 @@ function EditarPerfil() {
                   onChange={handleChange} // Atualiza o estado conforme o usuário digita
                 />
               </label>
-
+ 
               <label htmlFor="nomeRep">
                 <h1>NOME DO REPRESENTANTE:</h1>
                 <input
@@ -158,7 +131,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="email">
                 <h1>EMAIL DA ORGANIZAÇÃO:</h1>
@@ -171,7 +144,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="telefone">
                 <h1>NÚMERO DE CELULAR:</h1>
@@ -186,23 +159,24 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="cep">
                 <h1>CEP:</h1>
-
                 <ReactInputMask
                   mask="99999-999"
                   className="inputs-esquerdo"
                   id="inputnum"
                   name="cep"
-                  placeholder="(XX) XXXXX-XXXX"
+                  placeholder="cep"
                   required
                   value={cadastro.cep}
                   onChange={handleChange}
                 />
+
+                
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="interesse">
                 <h1>INTERESSES:</h1>
@@ -215,7 +189,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="endereco">
                 <h1>Endereço</h1>
@@ -227,7 +201,7 @@ function EditarPerfil() {
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="bairro">
                 <h1>Bairro</h1>
                 <input
@@ -239,7 +213,7 @@ function EditarPerfil() {
                 />
               </label>
             </div>
-
+ 
             <div className="divisao-inputs">
               <label htmlFor="cidade">
                 <h1>CIDADE:</h1>
@@ -247,42 +221,48 @@ function EditarPerfil() {
                   className="editar-inputs"
                   type="text"
                   name="cidade"
-                  value={cadastro.cidade}
+                  value={cadastro.cidade} 
                   onChange={handleChange}
                 />
               </label>
-
+ 
               <label htmlFor="cnpj">
                 <h1>CNPJ:</h1>
+
                 <ReactInputMask
-                  value={cadastro.cnpj}
-                  type="text"
+                    mask="99.999.999/9999-99"
                   className="inputs-esquerdo"
+                  id="inputnum"
                   name="cnpj"
-                  id=""
                   placeholder="CNPJ (apenas números)"
+
                   required
-                  mask="99.999.999/9999-99"
+                  value={cadastro.cnpj}
                   onChange={handleChange}
                 />
+
+
+  
               </label>
             </div>
-
+ 
             <div className="divisao-inputs-solos">
               <label htmlFor="descAtuacao">
                 <h1>DESCRIÇÃO DE ATUAÇÃO:</h1>
-                <textarea
-                  name="descAtuacao"
+                <textarea 
+                name="descAtuacao"
                   className="editar-inputs-solos"
                   cols="40"
                   rows="6"
                   maxLength="200"
-                  defaultValue={cadastro.descAtuacao}
-                  onChange={handleChange}
-                />
+                  value={cadastro.descAtuacao}
+                  onChange={handleChange}>
+
+
+                </textarea>
               </label>
             </div>
-
+ 
             <div className="confirmarcao-perfil">
               <div className="btns-do-perfil">
                 <button
@@ -294,9 +274,9 @@ function EditarPerfil() {
                   Salvar
                 </button>
                 {showAlert && (
-                  <Alert
-                    message="Esta é uma mensagem de alerta!"
-                    onClose={handleCloseAlert}
+                  <Alert 
+                    message="Esta é uma mensagem de alerta!" 
+                    onClose={handleCloseAlert} 
                     type="success" // ou "error"
                   />
                 )}
@@ -315,10 +295,10 @@ function EditarPerfil() {
           </form>
         </section>
       </main>
-
+ 
       <Footer />
     </div>
   );
 }
-
+ 
 export default EditarPerfil;
