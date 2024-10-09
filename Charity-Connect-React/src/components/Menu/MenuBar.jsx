@@ -25,7 +25,7 @@ const MenuBar = () => {
                         <ul id="menu">
                             <li><Link id="itens" to={'/'}>Home</Link></li>
                             <li><Link id="itens" to={'/catalogo'}>Catalogo</Link></li>
-                            <li><Link id="itens" to={'/perfil'}>Meu Perfil ONG</Link></li>
+                            <li><Link id="itens" to={`/perfil/ ${current.id}`}>Meu Perfil ONG</Link></li>
                             <li><Link id="itens" to={'/sobre'}>Sobre nós</Link></li>
                             <li>
                                 <Link style={{ "--clr": "#707bff" }} className="btn-entrar" id="itens" to={'/login'} onClick={handleLogout}>

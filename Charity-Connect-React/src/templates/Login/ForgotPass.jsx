@@ -42,7 +42,7 @@ const ForgotPass = () => {
                     <button id="botaoforgot" className="btn btn-warning fw-medium shadow" type="button"
                         onClick={backto}>Cancelar</button>
                     <button id="botaoforgot" className="btn btn-success fw-medium shadow" type="submit"
-                        onClick={goto} >Solicitar Nova Senha</button>
+                        onClick={goto} >Solicitar Senha</button>
                 </div>
             </form>
         </div>
