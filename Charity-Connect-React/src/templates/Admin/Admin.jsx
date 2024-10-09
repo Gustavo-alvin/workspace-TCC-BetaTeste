@@ -4,6 +4,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 import './Admin.css'; 
+import ContatoService from '../../services/ContatoService';
 import AdminService from '../../services/AdminService';
 import MenuBar from '../../components/Menu/MenuBar';
 import Footer from '../../components/Footer/Footer';
@@ -22,7 +23,7 @@ function Admin() {
       .then((response) => setOngs(response.data))
       .catch((error) => console.log(error));
 
-    AdminService.findAll()
+    ContatoService.findAll()
       .then((response) => setContatos(response.data))
       .catch((error) => console.log(error));
   }, []);

@@ -1,4 +1,5 @@
 import http from '../common/http-common';
+
 const API_URL = "contato/";
 
 const findAll = () => {
