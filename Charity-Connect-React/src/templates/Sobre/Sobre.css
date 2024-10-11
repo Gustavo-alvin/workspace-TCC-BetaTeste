@@ -648,3 +648,9 @@ strong {
 strong{
     color: #ffffff;
 }
+
+@media screen and (max-width: 934px) {
+    .img__ods {
+        display: none; /* Oculta as imagens em telas menores que 934px */
+    }
+}
