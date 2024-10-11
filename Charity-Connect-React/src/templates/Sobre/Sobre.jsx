@@ -23,7 +23,6 @@ const Sobre = () => {
           <h1 id="texto__sobrenos">Sobre Nós</h1>
         </section>
 
-        <div className="div-gradiente-home"></div>
 
         <section className="container__terceario">
           <ArticleSection
