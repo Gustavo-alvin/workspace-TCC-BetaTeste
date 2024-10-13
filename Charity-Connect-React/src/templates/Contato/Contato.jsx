@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 
@@ -9,22 +9,50 @@ import coracao from "../../assets/images/newshortlogobranca-12.png";
 import MenuBar from '../../components/Menu/MenuBar';
 import Footer from '../../components/Footer/Footer';
 import ContatoService from "../../services/ContatoService";
+import AlertContato from '../../components/Alert/AlertContato';
 
 const Contato = () => {
   const [formData, setFormData] = useState({});
   const [successful, setSuccessful] = useState(false);
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleShowAlert = () => {
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 2000); // 2 segundos
+
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert]);
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    setFormData((formData) => ({ ...formData, [name]: value }));
+    // Permitir apenas letras (incluindo acentos) e espaços para os campos nome e sobrenome
+    if (name === "nome" || name === "sobrenome") {
+      const isValid = /^[a-zA-ZÀ-ÿ\s]*$/.test(value);
+      if (isValid || value === "") {
+        setFormData((formData) => ({ ...formData, [name]: value }));
+      }
+    } else {
+      setFormData((formData) => ({ ...formData, [name]: value }));
+    }
   };
 
   const handleKeyPress = (e, type) => {
-    if (type === "text" && !/^[a-zA-Z\s]*$/.test(e.key)) {
-      e.preventDefault(); // Bloqueia a entrada de letras ou caracteres especiais
+    if (type === "text" && !/^[a-zA-ZÀ-ÿ\s]*$/.test(e.key)) {
+      e.preventDefault(); // Bloqueia a entrada de caracteres não permitidos
     }
     if (type === "tel" && !/^\d$/.test(e.key)) {
       e.preventDefault(); // Bloqueia a entrada de não-números
@@ -39,6 +67,8 @@ const Contato = () => {
       (response) => {
         setMessage(response.data.message);
         setSuccessful(true);
+        setFormData({}); // Resetar o formulário
+        handleShowAlert(); // Mostrar alerta de sucesso
       },
       (error) => {
         const message = error.response.data.message;
@@ -100,6 +130,7 @@ const Contato = () => {
                       name="nome"
                       placeholder="Digite seu nome"
                       required
+                      maxLength="100"
                       value={formData.nome || ""}
                       onChange={handleChange}
                       onKeyPress={(e) => handleKeyPress(e, "text")}
@@ -155,6 +186,13 @@ const Contato = () => {
 
             <div className="btn-form">
               <button type='submit' className="botao-form">Enviar</button>
+              {showAlert && (
+                <AlertContato 
+                  message="Mensagem enviada com sucesso!" 
+                  onClose={handleCloseAlert} 
+                  type="success" 
+                />
+              )}
             </div>
           </form>
         </section>

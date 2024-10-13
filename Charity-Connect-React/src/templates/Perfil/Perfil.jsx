@@ -7,10 +7,14 @@ import "./Perfil.css";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import CatalogoService from "../../services/CatalogoService";
 import MenuBar from "../../components/Menu/MenuBar";
+import LoginService from "../../services/LoginService";
 
 function Perfil() {
   const { id } = useParams();
   const navigate = useNavigate(); // Inicialize o hook useNavigate
+
+  const current = LoginService.getCurrentOng();
+
 
   const objectValues = {
     id: null,
@@ -62,9 +66,13 @@ function Perfil() {
              <label className="desc" htmlFor="">{catalogo.descAtuacao}</label>
             </div>
             <div>
+            { current ?
               <button type="button" onClick={goToEditarPerfil} id="botaocatalogo" className="editar">
                 Editar
               </button>
+              :
+              ""
+          }
             </div>
           </section>
 

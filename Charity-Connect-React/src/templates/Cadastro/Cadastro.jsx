@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import InputMask from "react-input-mask";
 import Header from "../../components/Header/Header";
@@ -14,16 +14,20 @@ import MenuBar from "../../components/Menu/MenuBar";
 import Footer from "../../components/Footer/Footer";
 import api from "../../services/api";
 import CepModal from "../../components/Cep/CepModal";
+import AlertCadastro from "../../components/Alert/AlertCadastro";
 
 const Cadastro = () => {
   const [dataFile, setDataFile] = useState();
   const [chosenImage, setChosenImage] = useState();
   const [formData, setFormData] = useState({});
-  const [confirmPassword, setConfirmPassword] = useState(""); // Novo estado para confirmação da senha
+  const [confirmPassword, setConfirmPassword] = useState(""); 
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState();
+  const [showAlert, setShowAlert] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [input, setInput] = useState("");
   const [cep, setCep] = useState({});
+  const navigate = useNavigate();
 
   async function handleSearch() {
     if (input === "") {
@@ -58,26 +62,14 @@ const Cadastro = () => {
     const name = e.target.name;
     const value = e.target.value;
 
-    // Bloquear caracteres numéricos nos campos específicos
-    if (
-      (name === "nome" || name === "nomeRep" || name === "interesse") &&
-      /\d/.test(value)
-    ) {
-      alert("Por favor, não use caracteres numéricos neste campo.");
-      return;
-    }
-
-    // Atualiza o estado do formulário
-    if (e.target.type === "file") {
-      setFormData((formData) => ({ ...formData, [name]: e.target.files[0] }));
-    } else {
-      setFormData((formData) => ({ ...formData, [name]: value }));
-    }
-
-    // Atualiza o estado de confirmação da senha
     if (name === "senha1") {
       setConfirmPassword(value);
     }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleReset = () => {
@@ -96,7 +88,7 @@ const Cadastro = () => {
       descAtuacao: "",
       senha: "",
     });
-    setConfirmPassword(""); // Reseta a confirmação da senha
+    setConfirmPassword(""); 
     setDataFile(null);
     setChosenImage(null);
   };
@@ -105,31 +97,46 @@ const Cadastro = () => {
     e.preventDefault();
     setSuccessful(false);
 
-    // Verifica se a senha é válida
+    if (!formData.nome || !formData.nomeRep || !formData.email || !formData.cnpj || !formData.telefone || !formData.senha || !confirmPassword) {
+      alert("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    }
+
     if (!validatePassword(formData.senha)) {
       alert("A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
       return;
     }
 
-    // Verifica se a confirmação da senha é igual à senha original
     if (formData.senha !== confirmPassword) {
       alert("As senhas não conferem. Por favor, tente novamente.");
       return;
     }
 
-    console.log("Dados do formulário:", formData);
-
-    CadastroService.create(dataFile, formData).then(
-      (response) => {
-        setMessage(response.data.message);
-        setSuccessful(true);
-      },
-      (error) => {
-        const message = error.response.data.message;
-        setMessage(message);
-      }
-    );
+    try {
+      const response = await CadastroService.create(dataFile, formData);
+      setMessage(response.data.message);
+      setSuccessful(true);
+      setShowAlert(true); 
+    } catch (error) {
+      const message = error.response.data.message;
+      setMessage(message);
+    }
   };
+
+ 
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+        navigate("/login");
+      }, 1000);  
+      return () => clearTimeout(timer);
+    }
+  }, [showAlert, navigate]);
+
+
+
+
 
   const [data, setData] = useState("");
   const setChosenCep = (dataFile) => {
@@ -383,9 +390,16 @@ const Cadastro = () => {
                   className="botao-form-perfil"
                   id="botao-form"
                   type="submit"
+                 
                 >
                   Cadastrar
                 </button>
+                {showAlert && (
+          <AlertCadastro 
+            message="Cadastro em analise..;" 
+            type="success"
+          />
+        )}
               </div>
               <div className="btns-do-perfil">
                 <button
