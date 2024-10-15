@@ -60,8 +60,8 @@ function Perfil() {
             <div className="teste">
               <img id="foto-perfil" src={catalogo.foto ? 'data:image/jpeg;base64,' + catalogo.foto : ""} alt="" />
             </div>
-            <div>
-              <span id="nome-ong">{catalogo.nome}</span>
+            <div className="kkjj">
+              <span className="nome-ong" id="nome-ong">{catalogo.nome}</span>
               <br />
              <label className="desc" htmlFor="">{catalogo.descAtuacao}</label>
             </div>

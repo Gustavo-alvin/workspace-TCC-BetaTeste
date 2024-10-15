@@ -62,6 +62,14 @@ const Cadastro = () => {
     const name = e.target.name;
     const value = e.target.value;
 
+    if (name === "nome" || name === "nomeRep") {
+      const onlyLetters = /^[A-Za-zÀ-ÿ\s]+$/; // Regex para permitir apenas letras e espaços
+      if (!onlyLetters.test(value)) {
+        alert("O nome deve conter apenas letras e espaços.");
+        return; // Não atualiza o estado se o valor não for válido
+      }
+    }
+
     if (name === "senha1") {
       setConfirmPassword(value);
     }

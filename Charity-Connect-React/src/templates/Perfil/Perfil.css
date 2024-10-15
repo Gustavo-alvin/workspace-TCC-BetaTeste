@@ -416,8 +416,13 @@ ul {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.kkjj{
+    text-align: center;
+}
+
 #nome-ong{
     font-size: 2em;
+    text-align: center;
 }
 
 input{
