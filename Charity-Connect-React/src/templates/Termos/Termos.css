@@ -382,8 +382,13 @@ body{
     background-size: cover;
     padding: 10%;
     text-align: center;
+    color: #ffffff;
     margin-top: 2rem;
     border-radius: 25px 25px 0px 0px;
+}
+
+.color-text{
+    color: #ffffff;
 }
 
 #texto__sobrenos {
@@ -397,6 +402,7 @@ body{
     background: var(--black);
     padding: 5% 5%;
     text-align: center;
+    color: #ffffff;
 }
 
 #cahrity_closet {
@@ -415,7 +421,12 @@ body{
 .container__terceario{
     background: var(--black);
     padding: 5% 5%;
+    color: #ffffff;
 
+}
+
+*{
+    color: aliceblue;
 }
 
 .textos4 {

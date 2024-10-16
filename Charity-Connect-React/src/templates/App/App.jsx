@@ -7,9 +7,9 @@ import './App.css'
 
 import capa from "../../assets/images/background1homepage.png"
 import test from "../../assets/images/charityConnect.png";
-import ods10 from "../../assets/images/ods1-nobackground-10.png";
+import ods10 from "../../assets/images/ods1_update_Prancheta 1.png";
 import ods11 from "../../assets/images/ods10-nobackground-11.png";
-import ods12 from "../../assets/images/ods12-nobackground-12.png";
+import ods12 from "../../assets/images/ods10_update-03.png";
 import ods13 from "../../assets/images/ods17-nobackground-13.png";
 import footer from "../../assets/images/newshortlogobranca-12.png";
 import MenuBar from '../../components/Menu/MenuBar';

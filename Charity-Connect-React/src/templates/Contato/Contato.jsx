@@ -89,10 +89,12 @@ const Contato = () => {
 
         <section className="formulario-section">
           <form onSubmit={handleSubmit} className="form" method="post" action="">
-            <div className="desc-form">
-              <h1 id="desc-h1">Charity Connect</h1>
-              <h2 id="title-form">Formulário para Contato</h2>
-            </div>
+           <div className='contato-titulo-principal'>
+           <h1 id="desc-h1">Charity Connect</h1>
+           <h2 id="title-form">Formulário para Contato</h2>
+           </div>
+
+           
 
             <section className="inputs-form">
               <div className="form-1">

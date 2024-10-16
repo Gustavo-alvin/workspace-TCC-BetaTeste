@@ -20,6 +20,10 @@
     padding-top: 50px;
 }
 
+.contato-titulo-principal{
+    width: 65rem;
+}
+
 .coracaocad {
     text-align: center;
 }
@@ -191,6 +195,7 @@ label {
 
 .btn-form{
     display: flex;
+    width: 65rem;
     justify-content: center;
     align-items: center;
 }
